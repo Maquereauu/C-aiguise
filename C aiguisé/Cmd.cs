@@ -1,23 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+
 namespace C_aiguisé
 {
     public static class Cmd
     {
-    public static void test()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            /*Console.SetWindowSize(1920, 1080);*/
-            Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            string asciiArt = File.ReadAllText("nahidwin.txt");
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
-            // Print the ASCII art to the console
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr GetConsoleWindow();
+
+        const int SW_MAXIMIZE = 3;
+
+        public static void test()
+        {
+            IntPtr handle = GetConsoleWindow();
+            ShowWindow(handle, SW_MAXIMIZE);
+
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Clear();
+
+            string asciiArt = File.ReadAllText("../../../nahidwin.txt");
             Console.WriteLine(asciiArt);
-            /*Console.Write("Hello, World!");*/
-            Console.Read();
-            /*Console.Beep();*/
+            asciiArt = File.ReadAllText("../../../nahidwin2.txt");
+            Console.WriteLine(asciiArt);
         }
     }
 }
