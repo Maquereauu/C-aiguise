@@ -20,12 +20,14 @@ namespace C_aiguisé
             ShowWindow(handle, SW_MAXIMIZE);
 
             Console.OutputEncoding = Encoding.UTF8;
+            Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.Clear();
 
             string asciiArt = File.ReadAllText("../../../nahidwin.txt");
             Console.WriteLine(asciiArt);
             asciiArt = File.ReadAllText("../../../nahidwin2.txt");
-            Console.WriteLine(asciiArt);
+/*            Console.WriteLine(asciiArt);*/
+            Console.Read();
         }
     }
 }
