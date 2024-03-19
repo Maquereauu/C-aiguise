@@ -32,8 +32,6 @@ namespace C_aiguisé
             Console.WriteLine("Down");
         }
 
-
-
         public static void Update()
         {
             if (Console.KeyAvailable)

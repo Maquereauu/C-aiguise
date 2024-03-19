@@ -28,11 +28,11 @@
       <FileName>Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Class">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+  <Class Name="C_aiguisé.Role">
+    <Position X="14.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Class.cs</FileName>
+      <HashCode>AAQAYBAAGAQAAAAAAEAAAQAAAAAAAAAABAEACAAAwAA=</HashCode>
+      <FileName>Roles\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Player">
@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Npc">
-    <Position X="12" Y="3.25" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Npc.cs</FileName>
@@ -108,8 +108,43 @@
   <Class Name="C_aiguisé.EventManager">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAUAAAAAAAAAAAAAAAgAIIAAAAAAAAAYQAAAAAAAAAA=</HashCode>
       <FileName>EventManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Archer">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\Archer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.BlackWizard">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\BlackWizard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Knight">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\Knight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Tank">
+    <Position X="12.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\Tank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.WhiteWizard">
+    <Position X="11" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\WhiteWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
