@@ -7,6 +7,9 @@ namespace C_aiguisé
 {
     public class GameObject
     {
-        public GameObject() { }
+        public GameObject()
+        {
+
+        }
     }
 }

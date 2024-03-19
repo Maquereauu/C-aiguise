@@ -101,7 +101,7 @@ namespace C_aiguisé
             string asciiArt = File.ReadAllText("../../../nahidwin.txt");
             Console.WriteLine(asciiArt);
             asciiArt = File.ReadAllText("../../../nahidwin2.txt");
-            Console.WriteLine(asciiArt);
+/*            Console.WriteLine(asciiArt);*/
             Console.Read();
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Enemy
+    public class Enemy : GameObject
     {
         private string _sName;
         private int _iHp;

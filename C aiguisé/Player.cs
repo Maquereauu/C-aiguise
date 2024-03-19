@@ -6,7 +6,7 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Player
+    public class Player : GameObject
     {
         private string _sName;
         private int _iHp;
@@ -14,9 +14,9 @@ namespace C_aiguisé
         private Weapon _wWeapon;
         private int _iLevel;
         private float _fExp;
-/*      private int _iCritChance ;
-        private int _iCritDamage ;*/
-        private int _iDodgeChance ;
+        /*      private int _iCritChance ;
+                private int _iCritDamage ;*/
+        private int _iDodgeChance;
         private string _sClasse;
         private float _fSpeed;
         private string _sSprite;//?
@@ -39,13 +39,14 @@ namespace C_aiguisé
             int damage = this._wWeapon.GetDamage();
         }
 
-        public void TakeDamage() { 
-        
+        public void TakeDamage()
+        {
+
         }
 
         public void Heal(int heal)
         {
-           if(this._iHp < 100)
+            if (this._iHp < 100)
             {
                 this._iHp += heal;
             }

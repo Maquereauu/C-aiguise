@@ -7,5 +7,8 @@ namespace C_aiguisé
 {
     public class EventManager
     {
+
+
+
     }
 }

@@ -1,115 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="C_aiguisé.GameObject">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.GameObject" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Item">
-    <Position X="6.25" Y="3.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Armor">
-    <Position X="4.5" Y="5" Width="1.5" />
+    <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAgA=</HashCode>
       <FileName>Armor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Weapon">
-    <Position X="6.25" Y="5" Width="1.5" />
+    <Position X="2.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AiAAAAAAAAgAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAQA=</HashCode>
       <FileName>Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Class">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+  <Class Name="C_aiguisé.Class" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Class.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Player">
-    <Position X="2.25" Y="1.75" Width="1.5" />
+  <Class Name="C_aiguisé.Player" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAACACAAAAAAwAMAAAAAAQAAAgAIAAIA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Enemy">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.Enemy" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Consumable">
-    <Position X="8" Y="5" Width="1.5" />
+    <Position X="5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Consumable.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.GameManager">
-    <Position X="9" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.GameManager" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.EventManager">
-    <Position X="10.75" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.EventManager" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EventManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Npc">
-    <Position X="2.25" Y="3" Width="1.5" />
+  <Class Name="C_aiguisé.Npc" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Npc.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Cmd">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.Cmd" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAABgAAA=</HashCode>
       <FileName>Cmd.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Map">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+  <Class Name="C_aiguisé.Map" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Script">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+  <Class Name="C_aiguisé.Summon" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Script.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="C_aiguisé.Summon">
-    <Position X="0.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
       <FileName>Summon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.EntityManager">
-    <Position X="10.75" Y="1.5" Width="1.5" />
+  <Class Name="C_aiguisé.EntityManager" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EntityManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Battle" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAIAAQAAAAAAAAAAAIAAAAAAAAAACAAgBAAAAAA=</HashCode>
+      <FileName>Battle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
