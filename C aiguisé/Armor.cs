@@ -7,11 +7,11 @@ namespace C_aiguisé
 {
     public class Armor : Item
     {
-        private int _iHp;
-        private int _iDef;
+        private int hp;
+        private int _def;
         //unique effects
-        private string _sSetBuff;
-        private string _Class;
+        private string _detBuff;
+        private string _class;
         public Armor() { }
     }
 }

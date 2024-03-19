@@ -7,20 +7,20 @@ namespace C_aiguisé
 {
     public class Weapon : Item
     {
-        private int _iDamage;
-        private int _iCritRate;
-        private int _iCritDamage;
-        private string _sType = "";
+        private int _damage;
+        private int _critRate;
+        private int _critDamage;
+        private string _type = "";
         //unique effect
-        private string _sClass = "";
+        private string _class = "";
 
         public Weapon() {
-            _iDamage = 10;
+            _damage = 10;
         }
 
         public int GetDamage()
         {
-            return _iDamage;
+            return _damage;
         }
     }
 }

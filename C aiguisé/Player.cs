@@ -6,37 +6,39 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Player
+    public class Player : Character
     {
-        private string _sName;
-        private int _iHp;
-        private int _iMp;
-        private Weapon _wWeapon;
-        private int _iLevel;
-        private float _fExp;
-/*      private int _iCritChance ;
-        private int _iCritDamage ;*/
-        private int _iDodgeChance ;
-        private string _sClasse;
-        private float _fSpeed;
-        private string _sSprite;//?
-
-        public Player(string name, Weapon weapon, string classe)
+        
+        private Weapon _weapon;
+        private string _role;
+        public Player(string name, float hp, float mp, float strength, float level, float exp, float critChance, float critDamage,float dodgeChance, float speed, string sprite, Weapon weapon, string role) 
         {
-            _sName = name;
-            _wWeapon = weapon;
-            _sClasse = classe;
-            _iHp = 100;
-            _iMp = 100;
-            _iLevel = 1;
-            _fExp = 0.0f;
-            _iDodgeChance = 0;
-            _fSpeed = 1.0f;
+            _weapon = weapon;
+            _role = role;
+            _strength = strength;
+            _name = name;
+            _hp = hp;
+            _hpMax = hp;
+            _mp = mp;
+            _mpMax = mp;
+            _strength = strength;
+            _level = level; 
+            _exp = exp;
+            _critChance = critChance;
+            _critDamage = critDamage;
+            _dodgeChance = dodgeChance;
+            _speed = speed;
+            _sprite = sprite;
+            _role = role;
+
+
+
+
         }
 
         public void Attack()
         {
-            int damage = this._wWeapon.GetDamage();
+            
         }
 
         public void TakeDamage() { 
@@ -45,9 +47,9 @@ namespace C_aiguisé
 
         public void Heal(int heal)
         {
-           if(this._iHp < 100)
+           if(_hp < 100)
             {
-                this._iHp += heal;
+                _hp += heal;
             }
         }
     }
