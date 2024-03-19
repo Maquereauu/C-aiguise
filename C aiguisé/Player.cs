@@ -18,9 +18,12 @@ namespace C_aiguisé
                 private int _iCritDamage ;*/
         private int _iDodgeChance;
         private string _sClasse;
-        private float _fSpeed;
+        private float _speed;
         private string _sSprite;//?
-
+        public float _mSpeed{
+            get { return _speed; }
+            set { _speed = value; }
+        }
         public Player(string name, Weapon weapon, string classe)
         {
             _sName = name;
@@ -31,7 +34,7 @@ namespace C_aiguisé
             _iLevel = 1;
             _fExp = 0.0f;
             _iDodgeChance = 0;
-            _fSpeed = 1.0f;
+            _speed = 1.0f;
         }
 
         public void Attack()

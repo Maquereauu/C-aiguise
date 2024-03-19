@@ -41,16 +41,16 @@ namespace C_aiguisé
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:
-                        _leftArrow.Invoke();
+                        _leftArrow?.Invoke();
                         break;
                     case ConsoleKey.RightArrow:
-                        _rightArrow.Invoke();
+                        _rightArrow?.Invoke();
                         break;
                     case ConsoleKey.UpArrow:
-                        _upArrow.Invoke();
+                        _upArrow?.Invoke();
                         break;
                     case ConsoleKey.DownArrow:
-                        _downArrow.Invoke();
+                        _downArrow?.Invoke();
                         break;
                 }
             }

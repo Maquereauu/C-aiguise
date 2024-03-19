@@ -16,9 +16,13 @@ namespace C_aiguisé
         private int _iCritDamage = 0;*/
         private int _iDodgeChance = 0;
         private string _sType;
-        private float _fSpeed;
+        private float _speed;
         private string _sSprite;//?
-
+        public float _mSpeed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
         public Summon()
         {
 

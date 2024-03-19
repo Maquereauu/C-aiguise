@@ -28,24 +28,17 @@
       <FileName>Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Role">
-    <Position X="14.25" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Roles\Role.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="C_aiguisé.Player" Collapsed="true">
     <Position X="11" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAACACAAAAAAwAMAAAAAAQAAAgAIAAIA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAACACAAAAAAgAMAAAAAARAACgAIAAIA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Enemy" Collapsed="true">
     <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAgAEAAAAAARAACAAAAAIA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -94,7 +87,7 @@
   <Class Name="C_aiguisé.Summon" Collapsed="true">
     <Position X="7.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAgAEAAAAAARAACAAAAAIA=</HashCode>
       <FileName>Summon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -105,10 +98,17 @@
       <FileName>EntityManager.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="C_aiguisé.Role">
+    <Position X="14.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Roles\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="C_aiguisé.Battle" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAIAAQAAAAAAAAAAAIAAAAAAAAAACAAgBAAAAAA=</HashCode>
+      <HashCode>ABAAAAIAAQAAABgIAAAQAIAAAAgABAAACAAgBAIAAAA=</HashCode>
       <FileName>Battle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -120,28 +120,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.BlackWizard">
-    <Position X="11" Y="5.5" Width="1.5" />
+    <Position X="14.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\BlackWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Knight">
-    <Position X="11" Y="6.75" Width="1.5" />
+    <Position X="16.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Knight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Tank">
-    <Position X="12.75" Y="6.75" Width="1.5" />
+    <Position X="12.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.WhiteWizard">
-    <Position X="11" Y="7.75" Width="1.5" />
+    <Position X="16.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\WhiteWizard.cs</FileName>
