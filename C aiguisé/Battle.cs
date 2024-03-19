@@ -19,7 +19,7 @@ namespace C_aiguisé
             _enemies = enemies;
             for (int i = 0; i < allies.Count; i++)
             {
-                _speeds.Add(_allies[i]._speed);
+               /* _speeds.Add(_allies[i]._speed);*/
             }
             _indexSpeedList = 0;
             _maxSpeed = 0;
