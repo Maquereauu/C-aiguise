@@ -31,7 +31,7 @@
   <Class Name="C_aiguisé.Role">
     <Position X="14.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAYBAAGAQAAAAAAEAAAQAAAAAAAAAABAEACAAAwAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="C_aiguisé.EventManager" Collapsed="true">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAUAAAAAAAAAAAAAAAgAIIAAAAAAAAAYQAAAAAAAAAA=</HashCode>
       <FileName>EventManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,7 +87,7 @@
   <Class Name="C_aiguisé.Map" Collapsed="true">
     <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAABAAAAAECAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -112,46 +112,46 @@
       <FileName>Battle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.EventManager">
-    <Position X="10.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAUAAAAAAAAAAAAAAAgAIIAAAAAAAAAYQAAAAAAAAAA=</HashCode>
-      <FileName>EventManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="C_aiguisé.Archer">
     <Position X="12.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Archer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.BlackWizard">
     <Position X="11" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\BlackWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Knight">
     <Position X="11" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Knight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Tank">
     <Position X="12.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.WhiteWizard">
     <Position X="11" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\WhiteWizard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Zone">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Zone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
