@@ -8,8 +8,10 @@ namespace C_aiguisé
 {
     public class GameObject
     {
+        protected Transform _tranform;
         public GameObject()
         {
+            _tranform = new Transform();
         }
     }
 }

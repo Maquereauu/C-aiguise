@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="C_aiguisé.GameObject" Collapsed="true">
-    <Position X="8.75" Y="3.5" Width="1.5" />
+    <Position X="9.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAAAAAIAAAAAAACAAAAAAgAEAAAAAARAACAAAAAIA=</HashCode>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Item">
+  <Class Name="C_aiguisé.Item" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Armor">
+  <Class Name="C_aiguisé.Armor" Collapsed="true">
     <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAgA=</HashCode>
       <FileName>Armor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Weapon">
+  <Class Name="C_aiguisé.Weapon" Collapsed="true">
     <Position X="2.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AiAAAAAAAAgAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAQA=</HashCode>
@@ -42,7 +42,7 @@
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Consumable">
+  <Class Name="C_aiguisé.Consumable" Collapsed="true">
     <Position X="5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -147,11 +147,11 @@
       <FileName>Roles\WhiteWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="C_aiguisé.Zone" Collapsed="true">
-    <Position X="5" Y="5.25" Width="1.5" />
+  <Class Name="C_aiguisé.Transform" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
-      <FileName>Zone.cs</FileName>
+      <HashCode>AIAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Transform.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.AttackMove" Collapsed="true">
