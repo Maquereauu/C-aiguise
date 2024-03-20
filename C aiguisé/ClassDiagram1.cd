@@ -38,7 +38,7 @@
   <Class Name="C_aiguisé.Enemy" Collapsed="true">
     <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAgAEAAAAAARAACAAAAAIA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,7 +87,7 @@
   <Class Name="C_aiguisé.Summon" Collapsed="true">
     <Position X="7.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAIAAAAAAACAAAAAAwAEAAAAAAQAAAAAAAAIA=</HashCode>
+      <HashCode>AgAAAAAAIAAAAAAACAAAAAAgAEAAAAAARAACAAAAAIA=</HashCode>
       <FileName>Summon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -145,13 +145,6 @@
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roles\WhiteWizard.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="C_aiguisé.Zone" Collapsed="true">
-    <Position X="5" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
-      <FileName>Zone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
