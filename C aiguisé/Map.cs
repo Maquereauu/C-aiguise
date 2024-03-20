@@ -10,7 +10,11 @@ namespace C_aiguisé
         private List<Zone> _zones;
         private Zone _currentZone;
 
-        public Map() { }    
+        public Map() 
+        { 
+            _zones = new List<Zone>();
+            _currentZone = new Zone("none");
+        }    
 
         public void AddZone(Zone zone)
         {
@@ -21,10 +25,19 @@ namespace C_aiguisé
         {
             _currentZone = zone;
         }
+        public void SetCurrentZone()
+        {
+            _currentZone = _zones[0];
+        }
 
         public void Update()
         {
             _currentZone.Display();
+        }
+
+        public Zone GetCurrentZone() 
+        { 
+            return _currentZone;
         }
 
     }

@@ -34,6 +34,11 @@ namespace C_aiguisé
             Movement(_transform, 0, 1, "Down");
         }
 
+        public static void Menu()
+        {
+            Console.WriteLine("Menu");
+        }
+
         public static void Movement(Transform coordinates, int x, int y, string dir)
         {
             if (coordinates.GetCoordinates().x() + x + dir.Length < Console.BufferWidth && coordinates.GetCoordinates().x() + x >= 0 &&
