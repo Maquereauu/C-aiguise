@@ -24,5 +24,10 @@ namespace C_aiguisé
             _coordinates.AddX(x);
             _coordinates.AddY(y);
         }
+
+        public Utils.vect2 GetCoordinates() 
+        { 
+            return _coordinates; 
+        }
     }
 }

@@ -13,23 +13,37 @@ namespace C_aiguisé
         public static event Action _downArrow;
         public static event Action _upArrow;
 
+        public static Transform _transform = new Transform();
 
         public static void MoveLeft()
         {
-            Console.WriteLine("Left");
+            Movement(_transform, -1, 0, "Left");
+
         }
         public static void MoveRight() 
         {
-            Console.WriteLine("Right");
+            Movement(_transform, 1, 0, "Right");
         }
 
         public static void MoveUp() 
         {
-            Console.WriteLine("Up");
+            Movement(_transform, 0, -1, "Up");
         }
         public static void MoveDown() 
         {
-            Console.WriteLine("Down");
+            Movement(_transform, 0, 1, "Down");
+        }
+
+        public static void Movement(Transform coordinates, int x, int y, string dir)
+        {
+            if (coordinates.GetCoordinates().x() + x + dir.Length <= Console.LargestWindowWidth &&coordinates.GetCoordinates().x() + x >= 0 &&
+                coordinates.GetCoordinates().y() + y <= Console.LargestWindowHeight && coordinates.GetCoordinates().y() + y >= 0)
+            {
+                Console.Clear();
+                coordinates.Translate(x, y);
+                Console.SetCursorPosition(coordinates.GetCoordinates().x(), coordinates.GetCoordinates().y());
+                Console.WriteLine(dir);
+            }
         }
 
         public static void Update()

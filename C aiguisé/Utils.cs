@@ -6,8 +6,8 @@ using System.Text;
 namespace C_aiguisé
 {
    namespace Utils
-    {
-        struct vect2
+   {
+        public struct vect2
         {
             int _x;
             int _y;
@@ -46,5 +46,6 @@ namespace C_aiguisé
             }
 
         }
-    }
+   }
+
 }
