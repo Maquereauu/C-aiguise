@@ -9,11 +9,11 @@ public class Program
     {
         Cmd.test();
 /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
-        for (var i = 0; i <= 1000; i++)
+        for (var i = 8; i <= 1888; i++)
         {
             Console.Write(Strings.ChrW(i));
-            if (i % 50 == 0)
-            { // break every 50 chars
+            if (i % 58 == 8)
+            { // break every 58 chars
                 Console.WriteLine();
             }
         }

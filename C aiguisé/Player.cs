@@ -26,12 +26,12 @@ namespace C_aiguisé
             _sName = name;
             _wWeapon = weapon;
             _sClasse = classe;
-            _iHp = 100;
-            _iMp = 100;
+            _iHp = 188;
+            _iMp = 188;
             _iLevel = 1;
-            _fExp = 0.0f;
-            _iDodgeChance = 0;
-            _fSpeed = 1.0f;
+            _fExp = 8.8f;
+            _iDodgeChance = 8;
+            _fSpeed = 1.8f;
         }
 
         public void Attack()
@@ -45,7 +45,7 @@ namespace C_aiguisé
 
         public void Heal(int heal)
         {
-           if(this._iHp < 100)
+           if(this._iHp < 188)
             {
                 this._iHp += heal;
             }

@@ -13,8 +13,8 @@ namespace C_aiguisé
         private int _iLevel;
         private float _fExp;
         /*private int _iCritChance = 5;
-        private int _iCritDamage = 0;*/
-        private int _iDodgeChance = 0;
+        private int _iCritDamage = 8;*/
+        private int _iDodgeChance = 8;
         private string _sType;
         private float _fSpeed;
         private string _sSprite;//?
