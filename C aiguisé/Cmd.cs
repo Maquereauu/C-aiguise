@@ -98,9 +98,9 @@ namespace C_aiguisé
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.Clear();
 
-            string asciiArt = File.ReadAllText("../../../nahidwin.txt");
+            string asciiArt = File.ReadAllText("../../../Content/Map/nahidwin.txt");
             Console.WriteLine(asciiArt);
-            asciiArt = File.ReadAllText("../../../nahidwin2.txt");
+            asciiArt = File.ReadAllText("../../../Content/Map/nahidwin2.txt");
 /*            Console.WriteLine(asciiArt);*/
             Console.Read();
         }

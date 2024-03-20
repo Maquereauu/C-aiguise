@@ -10,17 +10,20 @@ public class Program
     {
         Console.OutputEncoding = Encoding.UTF8;
         Map map = new Map();
-        Zone zone1 = new Zone("../../../nahidwin.txt");
-        Zone zone2 = new Zone("../../../nahidwin2.txt");
+        Zone zone1 = new Zone("../../../Content/Map/nahidwin.txt");
+        Zone zone2 = new Zone("../../../Content/Map/nahidwin2.txt");
 
-        map.SetCurrentZone(zone2);
+        map.SetCurrentZone(zone1);
         /*Cmd.test();*/
-        /*        EventManager._rightArrow += EventManager.MoveRight;
-                EventManager._leftArrow += EventManager.MoveLeft;
-                EventManager._downArrow += EventManager.MoveDown;
-                EventManager._upArrow += EventManager.MoveUp;*/
+
+        EventManager._rightArrow += EventManager.MoveRight;
+        EventManager._leftArrow += EventManager.MoveLeft;
+        EventManager._downArrow += EventManager.MoveDown;
+        EventManager._upArrow += EventManager.MoveUp;
 
         map.Update();
+
+
         Weapon weapon = new Weapon();
         Player player = new Player("noeil", weapon, "mage");
         Enemy enemy = new Enemy();
@@ -33,7 +36,7 @@ public class Program
         while (true)
         {
             EventManager.Update();
-            battle.Update();
+            /*battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
                 for (var i = 0; i <= 1000; i++)
