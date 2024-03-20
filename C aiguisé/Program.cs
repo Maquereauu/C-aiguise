@@ -23,7 +23,6 @@ public class Program
 
         map.Update();
 
-
         Weapon weapon = new Weapon();
         Player player = new Player("noeil", weapon, "mage");
         Enemy enemy = new Enemy();
@@ -36,7 +35,7 @@ public class Program
         while (true)
         {
             EventManager.Update();
-            /*battle.Update();*/
+           /* battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
                 for (var i = 0; i <= 1000; i++)
