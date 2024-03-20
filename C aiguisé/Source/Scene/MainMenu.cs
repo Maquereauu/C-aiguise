@@ -19,7 +19,6 @@ namespace C_aiguisé
         public override void PreUpdate()
         {
             base.PreUpdate();
-            Console.WriteLine(_map.GetCurrentZone());
         }
         public override void Update()
         {
@@ -31,12 +30,16 @@ namespace C_aiguisé
         }
         public override void LoadScene()
         {
-            EventManager._rightArrow += EventManager.Menu;
+            EventManager._menu += CloseMenu;
         }
 
         public override void UnLoad()
         {
-            EventManager._rightArrow -= EventManager.Menu;
+            EventManager._menu += CloseMenu;
+        }
+        public static void CloseMenu()
+        {
+            SceneManager.SwitchScene("Game");
         }
     }
 }

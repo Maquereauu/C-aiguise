@@ -13,6 +13,8 @@ namespace C_aiguisé
         public static event Action _downArrow;
         public static event Action _upArrow;
 
+        public static event Action _menu;
+
         public static Transform _transform = new Transform();
 
         public static void MoveLeft()
@@ -32,11 +34,6 @@ namespace C_aiguisé
         public static void MoveDown() 
         {
             Movement(_transform, 0, 1, "Down");
-        }
-
-        public static void Menu()
-        {
-            Console.WriteLine("Menu");
         }
 
         public static void Movement(Transform coordinates, int x, int y, string dir)
@@ -71,6 +68,9 @@ namespace C_aiguisé
                     case ConsoleKey.DownArrow:
                         _downArrow?.Invoke();
                         break;
+                    case ConsoleKey.Escape:
+                        _menu?.Invoke();
+                        break; 
                 }
             }
         }

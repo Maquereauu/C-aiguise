@@ -29,7 +29,7 @@ namespace C_aiguisé
         public static void Update()
         {
             EventManager.Update();
-            /*_currentScene.Update();*/
+            _currentScene.Update();
         }
         public static void PostUpdate()
         {
@@ -56,7 +56,7 @@ namespace C_aiguisé
         
         public static void Display()
         {
-            _currentScene.Update();
+            /*_currentScene.Update();*/
         }
     }
 }
