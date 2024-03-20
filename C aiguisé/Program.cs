@@ -16,6 +16,7 @@ public class Program
         map.SetCurrentZone(zone1);
         /*Cmd.test();*/
 
+
         EventManager._rightArrow += EventManager.MoveRight;
         EventManager._leftArrow += EventManager.MoveLeft;
         EventManager._downArrow += EventManager.MoveDown;
@@ -26,16 +27,19 @@ public class Program
         Weapon weapon = new Weapon();
         Player player = new Player("noeil", weapon, "mage");
         Enemy enemy = new Enemy();
+        Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
-        List<Enemy> enemylist = new List<Enemy>() { enemy };
+        List<Enemy> enemylist = new List<Enemy>() { enemy, enemy1 };
         List<Summon> summonlist = new List<Summon>();
         Battle battle = new Battle(playerlist, summonlist, enemylist) ;
+
         battle.Start();
+
+        battle.Update();
 
         while (true)
         {
             EventManager.Update();
-           /* battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
                 for (var i = 0; i <= 1000; i++)
