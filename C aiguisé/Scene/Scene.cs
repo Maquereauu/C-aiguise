@@ -18,16 +18,13 @@ namespace C_aiguisé
         public abstract void Init();
         public virtual void PreUpdate()
         {
-            Console.SetCursorPosition(0, 0);
         }
         public virtual void Update()
         {
-            Console.SetCursorPosition(0, 0);
             _map.Update();
         }
         public virtual void PostUpdate()
         {
-            Console.SetCursorPosition(0, 0);
         }
         public abstract void LoadScene();
 
