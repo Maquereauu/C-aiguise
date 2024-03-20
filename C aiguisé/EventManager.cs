@@ -36,10 +36,10 @@ namespace C_aiguisé
 
         public static void Movement(Transform coordinates, int x, int y, string dir)
         {
-            if (coordinates.GetCoordinates().x() + x + dir.Length <= Console.LargestWindowWidth &&coordinates.GetCoordinates().x() + x >= 0 &&
-                coordinates.GetCoordinates().y() + y <= Console.LargestWindowHeight && coordinates.GetCoordinates().y() + y >= 0)
+            if (coordinates.GetCoordinates().x() + x + dir.Length < Console.BufferWidth && coordinates.GetCoordinates().x() + x >= 0 &&
+                coordinates.GetCoordinates().y() + y + 1 < Console.BufferHeight && coordinates.GetCoordinates().y() + y >= 0)
             {
-                Console.Clear();
+                Console.SetCursorPosition(0, 0);
                 coordinates.Translate(x, y);
                 Console.SetCursorPosition(coordinates.GetCoordinates().x(), coordinates.GetCoordinates().y());
                 Console.WriteLine(dir);
