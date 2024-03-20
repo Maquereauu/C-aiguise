@@ -147,5 +147,12 @@
       <FileName>Roles\WhiteWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="C_aiguisé.Transform">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Transform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
