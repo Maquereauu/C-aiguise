@@ -22,6 +22,11 @@ namespace C_aiguisé
         protected float _dodgeChance ;
         protected float _speed;
         protected string _sprite;
+        public float _mSpeed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
 
         public Character()
         {

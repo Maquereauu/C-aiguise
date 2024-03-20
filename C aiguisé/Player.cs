@@ -36,13 +36,13 @@ namespace C_aiguisé
 
         }
 
-        public void Attack()
+        public void Attack(Ennemy ennemy)
         {
-            
+            ennemy.TakeDamage(_weapon._mdamage);
         }
 
-        public void TakeDamage() { 
-        
+        public void TakeDamage(float damage) { 
+            _hp -= damage;
         }
 
         public void Heal(int heal)
@@ -51,6 +51,10 @@ namespace C_aiguisé
             {
                 _hp += heal;
             }
+        }
+        public Summon Summon() {
+            Summon summon = new Summon();
+            return summon;
         }
     }
 }
