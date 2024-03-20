@@ -52,9 +52,9 @@ namespace C_aiguisé
                 _hp += heal;
             }
         }
-        public Summon Summon() {
+       /* public Summon Summon() {
             Summon summon = new Summon();
             return summon;
-        }
+        }*/
     }
 }
