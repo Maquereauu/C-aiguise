@@ -16,7 +16,7 @@ namespace C_aiguisé
 
         public void Display()
         {
-            string asciiArt = File.ReadAllText(_sprit);
+            string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
         }
 

@@ -118,7 +118,7 @@ namespace C_aiguisé
 
             string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
-            asciiArt = File.ReadAllText("../../../nahidwin2.txt");
+            //asciiArt = File.ReadAllText("../../../nahidwin2.txt");
            
             Console.Read();
         }

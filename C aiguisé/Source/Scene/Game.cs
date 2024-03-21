@@ -12,7 +12,7 @@ namespace C_aiguisé
         }
         public override void Init()
         {
-            AddZone(new Zone("../../../Content/Map/nahidwin2.txt"));
+            AddZone(new Zone("../../../Content/Map/nahidwin.txt"));
             _map.SetCurrentZone();
         }
         public override void PreUpdate()
