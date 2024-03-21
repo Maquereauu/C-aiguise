@@ -30,11 +30,13 @@ namespace C_aiguisé
         }
         public override void LoadScene()
         {
+            Console.CursorVisible = false;
             EventManager._menu += CloseMenu;
         }
 
         public override void UnLoad()
         {
+            Console.CursorVisible = true;
             EventManager._menu += CloseMenu;
         }
         public static void CloseMenu()

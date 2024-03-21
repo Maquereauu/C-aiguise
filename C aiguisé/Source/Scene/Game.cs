@@ -30,6 +30,7 @@ namespace C_aiguisé
         }
         public override void LoadScene()
         {
+            Console.CursorVisible = false;
             EventManager._rightArrow += EventManager.MoveRight;
             EventManager._leftArrow += EventManager.MoveLeft;
             EventManager._downArrow += EventManager.MoveDown;
@@ -38,6 +39,7 @@ namespace C_aiguisé
         }
         public override void UnLoad()
         {
+            Console.CursorVisible = true;
             EventManager._rightArrow -= EventManager.MoveRight;
             EventManager._leftArrow -= EventManager.MoveLeft;
             EventManager._downArrow -= EventManager.MoveDown;
