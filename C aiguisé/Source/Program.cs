@@ -28,22 +28,22 @@ public class Program
         List<Summon> summonlist = new List<Summon>();
         Battle battle = new Battle(playerlist, summonlist, enemylist) ;
 
-        /*battle.Start();
+        battle.Start();
 
-          battle.Update();*/
+        battle.Update();
 
-        Bag bag = new Bag();
+        /*        Bag bag = new Bag();
 
-        bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
+                bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
-        bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });
+                bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
 
         while (true)
         {
-            /*SceneManager.PreUpdate();  
-            SceneManager.Update();  
-            SceneManager.PostUpdate();  */
-           /* battle.Update();*/
+            SceneManager.PreUpdate();
+            SceneManager.Update();
+            SceneManager.PostUpdate();
+            /* battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
                 for (var i = 0; i <= 1000; i++)
