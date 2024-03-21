@@ -22,7 +22,6 @@ namespace C_aiguisé
         public static void MoveLeft()
         {
             Movement(_transform, -1, 0, "Left");
-
         }
         public static void MoveRight() 
         {

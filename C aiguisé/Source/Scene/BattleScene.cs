@@ -28,6 +28,7 @@ namespace C_aiguisé
         }
         public override void LoadScene()
         {
+            Console.CursorVisible = false;
             EventManager._downArrow += _battle.switchActionDown;
             EventManager._upArrow += _battle.switchActionUp;
             EventManager._enter += _battle.SelectMove;
@@ -35,6 +36,7 @@ namespace C_aiguisé
         }
         public override void UnLoad()
         {
+            Console.CursorVisible = true;
             EventManager._downArrow -= _battle.switchActionDown;
             EventManager._upArrow -= _battle.switchActionUp;
         }
