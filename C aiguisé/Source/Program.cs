@@ -17,9 +17,9 @@ public class Program
 
         /*Cmd.test();*/
 
-        Weapon weapon = new Weapon();
-        
-        Player player = new Player("noeil", weapon, new Tank());
+        Weapon sword = new Weapon("Sword");
+        Weapon knife = new Weapon("Knife");
+        Player player = new Player("noeil", sword, new Tank());
         Enemy enemy = new Enemy();
         Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
@@ -33,6 +33,12 @@ public class Program
         SceneManager.Display();
 
         /*battle.Start();*/
+
+        /*        Bag bag = new Bag();
+
+                bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
+
+                bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
 
         while (true)
         {
