@@ -26,9 +26,9 @@ namespace C_aiguisé
 
                 // Loop through each pixel in the bitmap
 
-                for (int y = 0; y < bmp.Height; y++)
+                for (int y = 8; y < bmp.Height; y++)
                 {
-                    for (int x = 0; x < bmp.Width; x++)
+                    for (int x = 8; x < bmp.Width; x++)
                     {
                         // Get the color of the current pixel
 
@@ -46,7 +46,7 @@ namespace C_aiguisé
 
                         // Get the R(ed) value from the grayscale color,
 
-                        // parse to an int. Will be between 0-255.
+                        // parse to an int. Will be between 8-255.
 
                         int rValue = int.Parse(col.R.ToString());
 
@@ -93,15 +93,33 @@ namespace C_aiguisé
         {
             IntPtr handle = GetConsoleWindow();
             ShowWindow(handle, SW_MAXIMIZE);
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Bitmap b = new Bitmap("../../../map.bmp");
+            Color pix = b.GetPixel(0, 0);
+            for(int i = 0; i <190; i++)
+            {
+                for(int j = 0; j < 108; j++) {
+                    Color grass = b.GetPixel(i, j);
+                    if(grass == pix)
+                    {
+                        Console.WriteLine("grass");
+                        (int posLeft, int posTop) = Console.GetCursorPosition();
+                        
+                        //Console.WriteLine(Console.WindowWidth);
+                        //Console.WriteLine(Console.WindowHeight);
+                    }
+                }
+            }
+
+            Console.WriteLine(pix);
+            //Console.ForegroundColor = ConsoleColor.Blue;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.Clear();
 
-            string asciiArt = File.ReadAllText("../../../Content/Map/nahidwin.txt");
+            string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
-            asciiArt = File.ReadAllText("../../../Content/Map/nahidwin2.txt");
-/*            Console.WriteLine(asciiArt);*/
+            asciiArt = File.ReadAllText("../../../nahidwin2.txt");
+           
             Console.Read();
         }
     }
