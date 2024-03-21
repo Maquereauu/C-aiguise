@@ -9,8 +9,10 @@ namespace C_aiguisé
     {
         public Enemy()
         {
-            _hp = 100;
-            _iMp = 100;
+            _hpMax = 100;
+            _mpMax = 100;
+            _hp = _hpMax;
+            _mp = _mpMax;
             _iLevel = 1;
             _fExp = 0.0f;
             _iDodgeChance = 0;

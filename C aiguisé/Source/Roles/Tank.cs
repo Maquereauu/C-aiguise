@@ -6,7 +6,7 @@ namespace C_aiguisé
 
         public override void Update()
         {
-            base.Update();
+            _player.Heal(5);
         }
     }
 }

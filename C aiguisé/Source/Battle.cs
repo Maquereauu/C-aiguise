@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C_aiguisé.Source;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,7 @@ namespace C_aiguisé
         private float _maxSpeed;
         public event Action needsToUpdate;
 
+        private bool Flee = false;
         private bool Enemy = true;
 
         public Battle(List<Player> allies, List<Summon> summons, List<Enemy> enemies) {
@@ -69,6 +71,10 @@ namespace C_aiguisé
                     _indexSpeedList = i;
                 }
             }
+            if(_indexSpeedList < _allies.Count)
+            {
+                _allies[_indexSpeedList]._mRole.Update();
+            }
         }
         public void addSpeed()
         {
@@ -81,14 +87,21 @@ namespace C_aiguisé
             }
         }
 
-        public void switchAction()
+        public void switchActionDown()
         {
             _selectedAction = (Actions)(((int)_selectedAction + 1) % (int)Actions.Total);
             Console.Clear();
             needsToUpdate?.Invoke();
         }
 
-        public void switchTarget()
+        public void switchActionUp()
+        {
+            _selectedAction = (Actions)MathHelper.Mod(((int)_selectedAction - 1), (int)Actions.Total);
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+
+        public void switchTargetDown()
         {
             if(Enemy)
             {
@@ -102,18 +115,25 @@ namespace C_aiguisé
             needsToUpdate?.Invoke();
         }
 
+        public void switchTargetUp()
+        {
+            if (Enemy)
+            {
+                _selectedTarget = MathHelper.Mod((_selectedTarget - 1) , (_enemies.Count));
+            }
+            else
+            {
+                _selectedTarget = MathHelper.Mod((_selectedTarget - 1), (_allies.Count));
+            }
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+
         public void Start()
         {
-            EventManager._downArrow += switchAction;
-            EventManager._rightArrow -= EventManager.MoveRight;
-            EventManager._leftArrow -= EventManager.MoveLeft;
-            EventManager._downArrow -= EventManager.MoveDown;
-            EventManager._upArrow -= EventManager.MoveUp;
-
-            EventManager._enter += SelectMove;
-
             needsToUpdate += Display;
             needsToUpdate += Update;
+            needsToUpdate?.Invoke();
         }
 
         public void Display()
@@ -150,10 +170,13 @@ namespace C_aiguisé
                     Console.WriteLine("flee!");
                     break;
             }
-            EventManager._downArrow -= switchAction;
-            EventManager._downArrow += switchTarget;
+            EventManager._downArrow -= switchActionDown;
+            EventManager._downArrow += switchTargetDown;
+            EventManager._upArrow -= switchActionUp;
+            EventManager._upArrow += switchTargetUp;
             EventManager._enter -= SelectMove;
             EventManager._enter += ExecuteAction;
+            EventManager._backspace += Cancel;
             Console.Clear();
             needsToUpdate?.Invoke();
         }
@@ -165,6 +188,10 @@ namespace C_aiguisé
                 switch ((int)_selectedAction)
                 {
                     case (int)Actions.Attack:
+                        if(_enemies[_selectedTarget]._mHp <= 0)
+                        {
+                            return;
+                        }
                         _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack());
                         break;
                     case (int)Actions.Magic:
@@ -172,27 +199,70 @@ namespace C_aiguisé
                     case (int)Actions.Item:
                         break;
                     case (int)Actions.Flee:
+                        Flee = true;
                         break;
                 }
-                Console.WriteLine(_enemies[_selectedTarget]._mSprite);
             }
             else
             {
                 Console.WriteLine(_allies[_selectedTarget]._mSprite);
             }
-            EventManager._downArrow += switchAction;
-            EventManager._downArrow -= switchTarget;
+            EventManager._downArrow += switchActionDown;
+            EventManager._downArrow -= switchTargetDown;
+            EventManager._upArrow += switchActionUp;
+            EventManager._upArrow -= switchTargetUp;
             EventManager._enter += SelectMove;
             EventManager._enter -= ExecuteAction;
+            EventManager._backspace -= Cancel;
             checkTurn();
             addSpeed();
             Console.Clear();
             needsToUpdate?.Invoke();
         }
-
+        public void Cancel()
+        {
+            EventManager._backspace -= Cancel;
+            EventManager._downArrow += switchActionDown;
+            EventManager._downArrow -= switchTargetDown;
+            EventManager._upArrow += switchActionUp;
+            EventManager._upArrow -= switchTargetUp;
+            EventManager._enter += SelectMove;
+            EventManager._enter -= ExecuteAction;
+        }
         public void Update()
         {
+            if(Flee)
+            {
+                for(int i = 0; i<_enemies.Count;i++)
+                {
+                    _enemies[i].Heal();
+                }
+
+                EventManager._downArrow -= switchActionDown;
+                EventManager._upArrow -= switchActionUp;
+                EventManager._enter -= SelectMove;
+                Console.WriteLine("Vous prenez la fuite");
+                End();
+                return;
+            }
             int counter = 0;
+            for (int i = 0; i < _allies.Count; i++)
+            {
+                if (_allies[i]._mIsDead)
+                {
+                    counter++;
+                }
+            }
+            if (counter == _allies.Count)
+            {
+                EventManager._downArrow -= switchActionDown;
+                EventManager._upArrow -= switchActionUp;
+                EventManager._enter -= SelectMove;
+                Console.WriteLine("Défaite..");
+                End();
+                return;
+            }
+            counter = 0;
             for (int i = 0; i < _enemies.Count; i++)
             {
                 if (_enemies[i]._mIsDead)
@@ -202,7 +272,8 @@ namespace C_aiguisé
             }
             if (counter == _enemies.Count)
             {
-                EventManager._downArrow -= switchAction;
+                EventManager._downArrow -= switchActionDown;
+                EventManager._upArrow -= switchActionUp;
                 EventManager._enter -= SelectMove;
                 Console.WriteLine("Victoire!");
                 End();
@@ -217,7 +288,7 @@ namespace C_aiguisé
                 addSpeed();
                 return;
             }
-            if(_indexSpeedList >= _allies.Count)
+            if(_indexSpeedList >= _allies.Count + _summons.Count)
             {
                 _allies[0].TakeDamage(10);
                 checkTurn();
@@ -231,11 +302,7 @@ namespace C_aiguisé
         {
             needsToUpdate -= Display;
             needsToUpdate -= Update;
-            EventManager._downArrow -= switchAction;
-            EventManager._rightArrow += EventManager.MoveRight;
-            EventManager._leftArrow += EventManager.MoveLeft;
-            EventManager._downArrow += EventManager.MoveDown;
-            EventManager._upArrow += EventManager.MoveUp;
+            SceneManager.SwitchScene("Game");
         }
     }
 }

@@ -9,18 +9,17 @@ public class Program
     public static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
+
+        BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new Game());
+        SceneManager.AddScene(scene);
 
-        SceneManager.Init();
-
-        SceneManager.SwitchScene("Game");
-        SceneManager.Display();
         /*Cmd.test();*/
 
         Weapon sword = new Weapon("Sword");
         Weapon knife = new Weapon("Knife");
-        Player player = new Player("noeil", sword, "mage");
+        Player player = new Player("noeil", sword, new Tank());
         Enemy enemy = new Enemy();
         Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
@@ -28,9 +27,12 @@ public class Program
         List<Summon> summonlist = new List<Summon>();
         Battle battle = new Battle(playerlist, summonlist, enemylist) ;
 
-        battle.Start();
+        SceneManager.Init();
+        scene.SetBattle(battle);
+        SceneManager.SwitchScene("BattleScene");
+        SceneManager.Display();
 
-        battle.Update();
+        /*battle.Start();*/
 
         /*        Bag bag = new Bag();
 
@@ -43,17 +45,6 @@ public class Program
             SceneManager.PreUpdate();
             SceneManager.Update();
             SceneManager.PostUpdate();
-            /* battle.Update();*/
         }
-        /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
-                for (var i = 0; i <= 1000; i++)
-                {
-                    Console.Write(Strings.ChrW(i));
-                    if (i % 50 == 0)
-                    { // break every 50 chars
-                        Console.WriteLine();
-                    }
-                }
-                Console.ReadKey();*/
     }
 }

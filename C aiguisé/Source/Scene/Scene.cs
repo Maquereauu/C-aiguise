@@ -9,6 +9,7 @@ namespace C_aiguisé
     {
         protected string _name;
         protected Map _map;
+        protected Battle _battle;
 
         public Scene(string name)
         {
@@ -42,6 +43,10 @@ namespace C_aiguisé
         public void AddZone(Zone zone)
         {
             _map.AddZone(zone);
+        }
+        public virtual void SetBattle(Battle battle)
+        {
+
         }
     }
 }
