@@ -13,6 +13,7 @@ namespace C_aiguisé
         public static event Action _downArrow;
         public static event Action _upArrow;
         public static event Action _enter;
+        public static event Action _backspace;
 
         public static event Action _menu;
 
@@ -71,6 +72,9 @@ namespace C_aiguisé
                         break;
                     case ConsoleKey.Enter:
                         _enter?.Invoke();
+                        break;
+                    case ConsoleKey.Backspace:
+                        _backspace?.Invoke();
                         break;
                     case ConsoleKey.Escape:
                         _menu?.Invoke();

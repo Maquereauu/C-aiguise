@@ -9,7 +9,9 @@ namespace C_aiguisé
     {
         protected string _sName;
         protected float _hp;
-        protected int _iMp;
+        protected float _mp;
+        protected float _hpMax;
+        protected float _mpMax;
         protected int _iLevel;
         protected float _fExp;
         /*protected int _iCritChance = 5;
@@ -37,6 +39,23 @@ namespace C_aiguisé
             protected set { _hp = value; }
         }
 
+        public float _mHpMax
+        {
+            get { return _hpMax; }
+            protected set { _hpMax = value; }
+        }
+
+        public float _mMp
+        {
+            get { return _mp; }
+            protected set { _mp = value; }
+        }
+
+        public float _mMpMax
+        {
+            get { return _mpMax; }
+            protected set { _mpMax = value; }
+        }
 
         public bool _mIsDead
         {
@@ -52,5 +71,14 @@ namespace C_aiguisé
             }
         }
         public virtual void Update() { }
+        public void Heal()
+        {
+            _hp = _hpMax;
+            _mp = _mpMax;
+        }
+        public void Heal(int hp)
+        {
+            _hp += hp % _hpMax;
+        }
     }
 }
