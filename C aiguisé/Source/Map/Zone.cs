@@ -40,6 +40,23 @@ namespace C_aiguisé
                     }
                 }
             }
+            /*string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
+            for (int i = 0; i < asciiArt.Length; i++)
+            {
+                int x = i % Console.BufferWidth;
+                int y = i / Console.BufferWidth;
+
+                if (x != EventManager._transform.GetCoordinates().x() || y != EventManager._transform.GetCoordinates().y())
+                {
+                    Console.Write(asciiArt[i]);
+                }
+                else
+                {
+                    (int left, int top) = (Console.CursorLeft, Console.CursorTop);
+                    Console.SetCursorPosition(left + 1, top);
+                }
+            }
+            */
         }
 
     }
