@@ -42,10 +42,8 @@ namespace C_aiguisé
             if (coordinates.GetCoordinates().x() + x + dir.Length < Console.BufferWidth && coordinates.GetCoordinates().x() + x >= 0 &&
                 coordinates.GetCoordinates().y() + y + 1 < Console.BufferHeight && coordinates.GetCoordinates().y() + y >= 0)
             {
-                Console.SetCursorPosition(0, 0);
+/*                Console.SetCursorPosition(0, 0);*/
                 coordinates.Translate(x, y);
-                Console.SetCursorPosition(coordinates.GetCoordinates().x(), coordinates.GetCoordinates().y());
-                Console.WriteLine(dir);
             }
         }
 
@@ -54,7 +52,9 @@ namespace C_aiguisé
             if (Console.KeyAvailable)
             {
                 while (Console.KeyAvailable)
-                    Console.ReadKey(false);
+                { Console.ReadKey(false);
+                    Console.WriteLine("yolateam");
+                }
                 var key = Console.ReadKey(true).Key;
 
                 switch (key)

@@ -110,17 +110,17 @@ namespace C_aiguisé
                 }
             }
 
-            Console.WriteLine(pix);
+            /*Console.WriteLine(pix);*/
             //Console.ForegroundColor = ConsoleColor.Blue;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            Console.Clear();
+            /*Console.Clear();*/
 
-            string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
-            Console.WriteLine(asciiArt);
+            /*string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");*/
+            /*Console.WriteLine(asciiArt);*/
             //asciiArt = File.ReadAllText("../../../nahidwin2.txt");
            
-            Console.Read();
+            /*Console.Read();*/
         }
     }
 }
