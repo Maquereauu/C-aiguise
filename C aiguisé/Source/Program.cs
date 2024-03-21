@@ -18,8 +18,9 @@ public class Program
         SceneManager.Display();
         /*Cmd.test();*/
 
-        Weapon weapon = new Weapon();
-        Player player = new Player("noeil", weapon, "mage");
+        Weapon sword = new Weapon("Sword");
+        Weapon knife = new Weapon("Knife");
+        Player player = new Player("noeil", sword, "mage");
         Enemy enemy = new Enemy();
         Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
@@ -27,15 +28,21 @@ public class Program
         List<Summon> summonlist = new List<Summon>();
         Battle battle = new Battle(playerlist, summonlist, enemylist) ;
 
-        battle.Start();
+        /*battle.Start();
 
-        battle.Update();
+          battle.Update();*/
+
+        Bag bag = new Bag();
+
+        bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
+
+        bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });
 
         while (true)
         {
-            SceneManager.PreUpdate();  
+            /*SceneManager.PreUpdate();  
             SceneManager.Update();  
-            SceneManager.PostUpdate();  
+            SceneManager.PostUpdate();  */
            /* battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
