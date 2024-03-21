@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -22,6 +23,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
+            DetectBattle();
         }
 
         public override void PostUpdate()
@@ -49,6 +51,33 @@ namespace C_aiguisé
         public static void OpenMenu()
         {
             SceneManager.SwitchScene("Main Menu");
+        }
+
+        public static void DetectBattle()
+        {
+            Bitmap b = new Bitmap("../../../Content/Map/map.bmp");
+            Color pix = b.GetPixel(0, 0);
+            for (int k = 0; k < 190; k++)
+            {
+                for (int l = 0; l < 108; l++)
+                {
+                    Color grass = b.GetPixel(k, l);
+                    if (grass == pix)
+                    {
+                        Console.WriteLine(l);
+                        (int posLeft, int posTop) = Console.GetCursorPosition();
+                        
+                        if(posLeft == k && posTop == l)
+                        {
+                            Console.WriteLine("fight");
+                        }
+                        //Console.WriteLine(Console.WindowWidth);
+                        //Console.WriteLine(Console.WindowHeight);
+                    }
+                }
+            }
+
+ 
         }
     }
 }
