@@ -5,7 +5,7 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Class
+    public class AttackMove
     {
     }
 }
