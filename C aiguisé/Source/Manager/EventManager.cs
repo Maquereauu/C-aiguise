@@ -14,6 +14,8 @@ namespace C_aiguisé
         public static event Action _upArrow;
         public static event Action _enter;
 
+        public static event Action _menu;
+
         public static Transform _transform = new Transform();
 
         public static void MoveLeft()
@@ -70,6 +72,9 @@ namespace C_aiguisé
                     case ConsoleKey.Enter:
                         _enter?.Invoke();
                         break;
+                    case ConsoleKey.Escape:
+                        _menu?.Invoke();
+                        break; 
                 }
             }
         }

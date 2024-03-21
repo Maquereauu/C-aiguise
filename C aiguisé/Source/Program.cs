@@ -9,20 +9,14 @@ public class Program
     public static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        Map map = new Map();
-        Zone zone1 = new Zone("../../../Content/Map/nahidwin.txt");
-        Zone zone2 = new Zone("../../../Content/Map/nahidwin2.txt");
+        SceneManager.AddScene(new MainMenu());
+        SceneManager.AddScene(new Game());
 
-        map.SetCurrentZone(zone1);
+        SceneManager.Init();
+
+        SceneManager.SwitchScene("Game");
+        SceneManager.Display();
         /*Cmd.test();*/
-
-
-        EventManager._rightArrow += EventManager.MoveRight;
-        EventManager._leftArrow += EventManager.MoveLeft;
-        EventManager._downArrow += EventManager.MoveDown;
-        EventManager._upArrow += EventManager.MoveUp;
-
-        map.Update();
 
         Weapon weapon = new Weapon();
         Player player = new Player("noeil", weapon, "mage");
@@ -39,7 +33,10 @@ public class Program
 
         while (true)
         {
-            EventManager.Update();
+            SceneManager.PreUpdate();  
+            SceneManager.Update();  
+            SceneManager.PostUpdate();  
+           /* battle.Update();*/
         }
         /*        Console.OutputEncoding = System.Text.Encoding.UTF8;
                 for (var i = 0; i <= 1000; i++)
