@@ -93,28 +93,11 @@ namespace C_aiguisé
         {
             IntPtr handle = GetConsoleWindow();
             ShowWindow(handle, SW_MAXIMIZE);
-            Bitmap b = new Bitmap("../../../map.bmp");
-            Color pix = b.GetPixel(0, 0);
-            for(int i = 0; i <190; i++)
-            {
-                for(int j = 0; j < 108; j++) {
-                    Color grass = b.GetPixel(i, j);
-                    if(grass == pix)
-                    {
-                        Console.WriteLine("grass");
-                        (int posLeft, int posTop) = Console.GetCursorPosition();
-                        
-                        //Console.WriteLine(Console.WindowWidth);
-                        //Console.WriteLine(Console.WindowHeight);
-                    }
-                }
-            }
-
-            Console.WriteLine(pix);
+            
             //Console.ForegroundColor = ConsoleColor.Blue;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            Console.Clear();
+            //Console.Clear();
 
             string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
