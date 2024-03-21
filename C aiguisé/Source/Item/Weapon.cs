@@ -15,7 +15,7 @@ namespace C_aiguisé
         private string _sClass = "";
 
         public Weapon() {
-            _iDamage = 18;
+            _iDamage = 10;
         }
 
         public int GetDamage()
