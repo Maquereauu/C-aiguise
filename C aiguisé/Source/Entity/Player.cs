@@ -6,53 +6,40 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Player : GameObject
+    public class Player : Character
     {
-        private string _sName;
-        private int _iHp;
-        private int _iMp;
+
         private Weapon _wWeapon;
-        private int _iLevel;
-        private float _fExp;
-        /*      private int _iCritChance ;
-                private int _iCritDamage ;*/
-        private int _iDodgeChance;
         private string _sClasse;
-        private float _speed;
-        private string _sSprite;//?
-        public float _mSpeed{
-            get { return _speed; }
-            set { _speed = value; }
-        }
+
         public Player(string name, Weapon weapon, string classe)
         {
             _sName = name;
             _wWeapon = weapon;
             _sClasse = classe;
-            _iHp = 100;
+            _hp = 100;
             _iMp = 100;
             _iLevel = 1;
             _fExp = 0.0f;
             _iDodgeChance = 0;
             _speed = 1.0f;
+            _sprite = "gentil";
         }
 
-        public void Attack()
+        public int Attack()
         {
             int damage = this._wWeapon.GetDamage();
+            return damage;
         }
 
-        public void TakeDamage()
-        {
-
-        }
 
         public void Heal(int heal)
         {
-            if (this._iHp < 100)
+            if (this._hp < 100)
             {
-                this._iHp += heal;
+                this._hp += heal;
             }
         }
+        public override void Update() { }
     }
 }

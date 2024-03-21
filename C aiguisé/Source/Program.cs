@@ -21,11 +21,15 @@ public class Program
         Weapon weapon = new Weapon();
         Player player = new Player("noeil", weapon, "mage");
         Enemy enemy = new Enemy();
+        Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
-        List<Enemy> enemylist = new List<Enemy>() { enemy };
+        List<Enemy> enemylist = new List<Enemy>() { enemy, enemy1 };
         List<Summon> summonlist = new List<Summon>();
         Battle battle = new Battle(playerlist, summonlist, enemylist) ;
+
         battle.Start();
+
+        battle.Update();
 
         while (true)
         {
