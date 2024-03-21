@@ -12,6 +12,9 @@ namespace C_aiguisé
         //unique effects
         private string _sSetBuff;
         private string _Class;
-        public Armor() { }
+        public Armor(string name) : base(name, true)
+        { 
+
+        }
     }
 }

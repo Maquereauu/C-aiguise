@@ -7,5 +7,10 @@ namespace C_aiguisé
 {
     public class Consumable : Item
     {
+        public Consumable(string  name) : base(name, false) 
+        { 
+
+        }
+
     }
 }

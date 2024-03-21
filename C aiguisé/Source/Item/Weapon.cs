@@ -14,7 +14,8 @@ namespace C_aiguisé
         //unique effect
         private string _sClass = "";
 
-        public Weapon() {
+        public Weapon(string name) : base(name, true)
+        {
             _iDamage = 10;
         }
 
