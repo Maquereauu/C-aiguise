@@ -18,16 +18,13 @@ namespace C_aiguisé
         }
         public override void PreUpdate()
         {
-            base.PreUpdate();
         }
         public override void Update()
         {
-            base.Update();
         }
 
         public override void PostUpdate()
         {
-            base.PostUpdate();
         }
         public override void LoadScene()
         {

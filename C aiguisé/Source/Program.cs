@@ -36,10 +36,9 @@ public class Program
 
         while (true)
         {
-            EventManager.Update();
-/*            SceneManager.PreUpdate();  
-            SceneManager.Update();  
-            SceneManager.PostUpdate();  */
+            SceneManager.PreUpdate();
+            SceneManager.Update();
+            SceneManager.PostUpdate();
         }
     }
 }
