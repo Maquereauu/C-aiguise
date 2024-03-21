@@ -99,8 +99,8 @@ namespace C_aiguisé
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             //Console.Clear();
 
-            string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
-            Console.WriteLine(asciiArt);
+            //string asciiArt = File.ReadAllText("../../../nahidwin.txt").Replace("\\x1b", "\x1b");
+            //Console.WriteLine(asciiArt);
             //asciiArt = File.ReadAllText("../../../nahidwin2.txt");
            
             Console.Read();

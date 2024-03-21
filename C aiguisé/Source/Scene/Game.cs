@@ -64,15 +64,11 @@ namespace C_aiguisé
                     Color grass = b.GetPixel(k, l);
                     if (grass == pix)
                     {
-                        Console.WriteLine(l);
-                        (int posLeft, int posTop) = Console.GetCursorPosition();
                         
-                        if(posLeft == k && posTop == l)
+                        if(EventManager._transform.GetCoordinates().x() == k && EventManager._transform.GetCoordinates().y() == l)
                         {
                             Console.WriteLine("fight");
                         }
-                        //Console.WriteLine(Console.WindowWidth);
-                        //Console.WriteLine(Console.WindowHeight);
                     }
                 }
             }
