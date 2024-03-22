@@ -30,6 +30,7 @@ public class Program
         Weapon sword = new Weapon("Sword");
         Weapon knife = new Weapon("Knife");
         Player player = new Player("noeil", sword, new Tank());
+        Player player2 = new Player("jean", knife, new BlackWizard());
         Enemy enemy = new Enemy();
         Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
@@ -49,12 +50,21 @@ public class Program
                 bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
                 bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
+        Save save = new Save();
+        save._mPlayer = new List<Character>() { player, player2 };
+        save._mCurrentZone = "Main Menu";
+        save._mItem.Add(knife);
+        save._mItem.Add(sword);
+        save._mItemNumber.Add(1);
+        save._mItemNumber.Add(1);
 
+        save.SaveGame("../../../Content/Saves/Save1.json");
+        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
-            SceneManager.PreUpdate();
-            SceneManager.Update();
-            SceneManager.PostUpdate();
+            /*            SceneManager.PreUpdate();
+                        SceneManager.Update();
+                        SceneManager.PostUpdate();*/
         }
     }
 }

@@ -13,9 +13,9 @@ namespace C_aiguisé
             _mpMax = 100;
             _hp = _hpMax;
             _mp = _mpMax;
-            _iLevel = 1;
-            _fExp = 0.0f;
-            _iDodgeChance = 0;
+            _level = 1;
+            _exp = 0.0f;
+            _dodgeChance = 0;
             _speed = 0.5f;
         }
         public override void Update()

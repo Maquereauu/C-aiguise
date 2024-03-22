@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace C_aiguisé
@@ -8,6 +9,13 @@ namespace C_aiguisé
     public class Transform
     {
         private Utils.vect2 _coordinates;
+
+        public Utils.vect2 _mCoordinates
+        {
+            get { return _coordinates; }
+            set { _coordinates = value; }
+        }
+
         public Transform()
         {
             _coordinates = new Utils.vect2();

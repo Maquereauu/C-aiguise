@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace C_aiguisé
@@ -9,8 +10,21 @@ namespace C_aiguisé
    {
         public struct vect2
         {
-            int _x;
-            int _y;
+            private int _x;
+            private int _y;
+
+            public int _mX
+            {
+                get { return _x; }
+                set { _x = value; }
+            }
+            public int _mY
+            {
+                get { return _y; }
+                set { _y = value; }
+            }
+
+
             public vect2(int x, int y)
             {
                 _x = x; _y = y;

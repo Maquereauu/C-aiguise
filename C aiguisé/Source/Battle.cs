@@ -73,7 +73,7 @@ namespace C_aiguisé
             }
             if(_indexSpeedList < _allies.Count)
             {
-                _allies[_indexSpeedList]._mRole.Update();
+                _allies[_indexSpeedList].GetRole().Update();
             }
         }
         public void addSpeed()

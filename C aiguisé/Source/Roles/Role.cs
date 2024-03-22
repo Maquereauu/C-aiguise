@@ -9,6 +9,13 @@ namespace C_aiguisé
     {
         protected float _id;
         protected Player _player;
+
+        public float _mId
+        {
+            get { return _id; }
+            protected set { _id = value; }
+        }
+
         public Role() 
         {
         }
