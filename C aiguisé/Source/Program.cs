@@ -52,9 +52,9 @@ public class Program
 
         while (true)
         {
-/*            SceneManager.PreUpdate();*/
+            SceneManager.PreUpdate();
             SceneManager.Update();
-/*            SceneManager.PostUpdate();*/
+            SceneManager.PostUpdate();
         }
     }
 }

@@ -54,7 +54,6 @@ namespace C_aiguisé
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(false);
-                    Console.WriteLine("yolateam");
                 }
                 var key = Console.ReadKey(true).Key;
 
