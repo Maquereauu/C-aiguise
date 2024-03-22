@@ -60,6 +60,18 @@ namespace C_aiguisé
             }
 
         }
-   }
+        static class MathHelper
+        {
+            public static int Modulo(int a, int b)
+            {
+                int c = a % b;
+                if ((c < 0 && b > 0) || (c > 0 && b < 0))
+                {
+                    c += b;
+                }
+                return c;
+            }
+        }
+    }
 
 }

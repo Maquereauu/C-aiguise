@@ -1,4 +1,4 @@
-﻿using C_aiguisé.Source;
+﻿using C_aiguisé;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 namespace C_aiguisé
 {
     public class TitleScreen : Scene
-    {//les players/inv/pos map/zone
+    {
         private List<(int, int)> _hudList = new List<(int, int)>() { (30, 10), (50, 10), (70, 10) };
         private (int, int) _test = (30,10);
         private int _index = 0;
@@ -67,12 +67,12 @@ namespace C_aiguisé
         }
         public void SwitchLeft()
         {
-            _index = MathHelper.Mod(_index - 1,_hudList.Count);
+            _index = Utils.MathHelper.Modulo(_index - 1,_hudList.Count);
             _test = _hudList[_index];
         }
         public void SwitchRight()
         {
-            _index = MathHelper.Mod(_index + 1, _hudList.Count);
+            _index = Utils.MathHelper.Modulo(_index + 1, _hudList.Count);
             _test = _hudList[_index];
         }
     }

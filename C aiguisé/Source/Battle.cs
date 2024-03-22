@@ -1,4 +1,4 @@
-﻿using C_aiguisé.Source;
+﻿using C_aiguisé;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,7 +97,7 @@ namespace C_aiguisé
 
         public void switchActionUp()
         {
-            _selectedAction = (Actions)MathHelper.Mod(((int)_selectedAction - 1), (int)Actions.Total);
+            _selectedAction = (Actions)Utils.MathHelper.Modulo(((int)_selectedAction - 1), (int)Actions.Total);
             Console.Clear();
             needsToUpdate?.Invoke();
         }
@@ -120,11 +120,11 @@ namespace C_aiguisé
         {
             if (Enemy)
             {
-                _selectedTarget = MathHelper.Mod((_selectedTarget - 1) , (_enemies.Count));
+                _selectedTarget = Utils.MathHelper.Modulo((_selectedTarget - 1) , (_enemies.Count));
             }
             else
             {
-                _selectedTarget = MathHelper.Mod((_selectedTarget - 1), (_allies.Count));
+                _selectedTarget = Utils.MathHelper.Modulo((_selectedTarget - 1), (_allies.Count));
             }
             Console.Clear();
             needsToUpdate?.Invoke();
