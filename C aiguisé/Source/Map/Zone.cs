@@ -28,7 +28,7 @@ namespace C_aiguisé
 
                             if (xPosition == characterPosition.x() && yPosition == characterPosition.y())
                             {
-                                continue; // Skip drawing over the character position
+                                continue; 
                             }
 
                             Console.Write(asciiArt[i]);
@@ -37,29 +37,24 @@ namespace C_aiguisé
             Console.WriteLine(asciiArt);
             /*EventManager._transform.SetPos(0, 0);*/
             Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
-
+            /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
             Console.Write("P");
-            Console.SetCursorPosition(0, 0);
-            /*for (int i = 0; i < asciiArt.Length; i++)
-            {
-                if ((EventManager._transform.GetCoordinates().x() != i % Console.BufferWidth) && (EventManager._transform.GetCoordinates().y() != i / Console.BufferWidth))
-                {
-                    Console.Write(asciiArt[i]);
-                }
-                else
-                {
+            /*            Console.SetCursorPosition(EventManager._transform2.GetCoordinates().x(), EventManager._transform2.GetCoordinates().y());
+                        Console.Write("X");*//*
+                        Console.SetCursorPosition(0, 0);*/
+            /*            for (int i = 0; i < asciiArt.Length; i++)
+                        {
+                            if ((EventManager._transform.GetCoordinates().x() != i % Console.BufferWidth) && (EventManager._transform.GetCoordinates().y() != i / Console.BufferWidth))
+                            {
+                                Console.Write(asciiArt[i]);
+                            }
+                            else
+                            {
 
-                    (int, int) pos = Console.GetCursorPosition();
-                    if (Console.GetCursorPosition().Left % (Console.BufferWidth - 1) == 0 && Console.GetCursorPosition().Left != 0)
-                    {
-                        Console.SetCursorPosition(0, Console.GetCursorPosition().Top + 1);
-                    }
-                    else
-                    {
-                        Console.SetCursorPosition(Console.GetCursorPosition().Left + 1, Console.GetCursorPosition().Top);
-                    }
-                }
-            }*/
+                                Console.Write("P");
+                            }
+                        }*/
+            Console.SetCursorPosition(0, 0);
             /*string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             for (int i = 0; i < asciiArt.Length; i++)
             {

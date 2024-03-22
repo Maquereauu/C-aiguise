@@ -18,6 +18,7 @@ namespace C_aiguisé
         public static event Action _menu;
 
         public static Transform _transform = new Transform();
+        public static Transform _transform2 = new Transform();
 
         public static void MoveLeft()
         {
@@ -49,10 +50,10 @@ namespace C_aiguisé
 
         public static void Update()
         {
-            if (Console.KeyAvailable)
             {
                 while (Console.KeyAvailable)
-                { Console.ReadKey(false);
+                {
+                    Console.ReadKey(false);
                     Console.WriteLine("yolateam");
                 }
                 var key = Console.ReadKey(true).Key;
