@@ -67,5 +67,17 @@ namespace C_aiguisé
             /*_currentScene.Update();*/
         }
 
+        public static bool IsSceneExist(string sceneName)
+        {
+            for (int i = 0; i < _sceneList.Count; i++)
+            {
+                if (_sceneList[i].GetName() == sceneName)
+                {
+                   return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
