@@ -49,12 +49,17 @@ public class Program
                 bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
                 bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
+        Save save = new Save();
+        save._player = "teuse";
+        save._name = "pel";    
 
         while (true)
         {
-            SceneManager.PreUpdate();
+            FileReader.WriteFile(save, "../../../Content/Saves/Save1.json");
+            FileReader.ReadFile("../../../Content/Saves/Save1.json");
+/*            SceneManager.PreUpdate();
             SceneManager.Update();
-            SceneManager.PostUpdate();
+            SceneManager.PostUpdate();*/
         }
     }
 }
