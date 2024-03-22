@@ -28,8 +28,8 @@ namespace C_aiguisé
         }
         public static void Update()
         {
-            EventManager.Update();
             _currentScene.Update();
+            EventManager.Update();
         }
         public static void PostUpdate()
         {
