@@ -140,11 +140,13 @@ namespace C_aiguisé
         {
             for (int i = 0; i < _allies.Count; i++)
             {
-                Console.WriteLine(_allies[i]._mSprite + _allies[i]._mHp);
+                Console.WriteLine(_allies[i]._mName);
+                Console.WriteLine(_allies[i]._mSprite + " " + _allies[i]._mHp + "/" + _allies[i]._mHpMax);
             }
             for (int i = 0; i < _enemies.Count; i++)
             {
-                Console.WriteLine(_enemies[i]._mSprite + _enemies[i]._mHp);
+                Console.WriteLine(_enemies[i]._mName);
+                Console.WriteLine(_enemies[i]._mSprite + " " + _enemies[i]._mHp + "/" + _enemies[i]._mHpMax);
             }
             for (int i = 0; i < _summons.Count; i++)
             {

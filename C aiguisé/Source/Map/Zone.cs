@@ -54,7 +54,6 @@ namespace C_aiguisé
                                 Console.Write("P");
                             }
                         }*/
-            Console.SetCursorPosition(0, 0);
             /*string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             for (int i = 0; i < asciiArt.Length; i++)
             {
