@@ -22,6 +22,7 @@ namespace C_aiguisé
         }
         public virtual void Update()
         {
+            Console.SetCursorPosition(0, 0);
             _map.Update();
         }
         public virtual void PostUpdate()
