@@ -9,12 +9,14 @@ namespace C_aiguisé
 {
     public class TitleScreen : Scene
     {
-        private List<(int, int)> _hudList = new List<(int, int)>() { (30, 10), (50, 10), (70, 10) };
-        private (int, int) _test = (30,10);
-        private int _index = 0;
+        private List<(int, int)> _hudList;
+        private (int, int) _test;
+        private int _index;
         public TitleScreen() : base("Title Screen")
         {
-
+            _hudList = new List<(int, int)>() { (30, 10), (50, 10), (70, 10) }; // list of pos (x, y)
+            _test = (30, 10);
+            _index = 0;
         }
         public override void Init()
         {
