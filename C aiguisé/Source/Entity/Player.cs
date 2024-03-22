@@ -11,6 +11,7 @@ namespace C_aiguisé
 
         protected Weapon _weapon ;
         protected Role _role;
+        protected int _summonBar = 0;
         public Weapon _mWeapon
         {
         get { return _weapon; }
@@ -22,6 +23,7 @@ namespace C_aiguisé
         {
             get { return _role; }
             protected set { _role = value; }
+        }
 
         public int _mSummonBar
         {
@@ -50,7 +52,7 @@ namespace C_aiguisé
 
         public int Attack()
         {
-            int damage = _wWeapon.GetDamage();
+            int damage = _weapon.GetDamage();
             return damage;
         }
 
