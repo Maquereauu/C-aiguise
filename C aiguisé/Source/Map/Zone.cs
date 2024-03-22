@@ -36,9 +36,6 @@ namespace C_aiguisé
             string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
             /*EventManager._transform.SetPos(0, 0);*/
-            Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
-            /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
-            Console.Write("P");
             /*            Console.SetCursorPosition(EventManager._transform2.GetCoordinates().x(), EventManager._transform2.GetCoordinates().y());
                         Console.Write("X");*//*
                         Console.SetCursorPosition(0, 0);*/

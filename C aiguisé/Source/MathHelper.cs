@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_aiguisé.Source
 {
-    internal class MathHelper
+    static class MathHelper
     {
         public static int Mod(int a, int b)
         {
