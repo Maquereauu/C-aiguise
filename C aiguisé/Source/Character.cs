@@ -7,17 +7,23 @@ namespace C_aiguisé
 {
     public class Character : GameObject
     {
+        protected enum Type
+        {
+            Red,
+            Blue,
+            Green
+        } 
         protected string _name;
         protected float _hp;
         protected float _mp;
         protected float _hpMax;
         protected float _mpMax;
-        protected int _iLevel;
-        protected float _fExp;
-        /*protected int _iCritChance = 5;
-        protected int _iCritDamage = 0;*/
-        protected int _iDodgeChance = 0;
-        protected string _sType;
+        protected int _level;
+        protected float _exp;
+        protected int _critChance = 5;
+        protected int _critDamage = 20;
+        protected int _dodgeChance = 0;
+        protected string _type;
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
@@ -67,6 +73,22 @@ namespace C_aiguisé
             get { return _name; }
             protected set { _name = value; }
         }
+
+        public int _mDodgeChance
+        {
+            get { return _dodgeChance; }
+            protected set { _dodgeChance = value; }
+        }
+        public int _mCritChance
+        {
+            get { return _critChance; }
+            protected set { _critChance = value; }
+        }
+        public int _mCritDamage
+        {
+            get { return _critDamage; }
+            protected set { _critDamage = value; }
+        }
         public void TakeDamage(int damage)
         {
             _hp -= damage;
@@ -84,6 +106,26 @@ namespace C_aiguisé
         public void Heal(int hp)
         {
             _hp += hp % _hpMax;
+        }
+        public virtual int Attack(/*Attack attack*/Character character)
+        {
+            Random random = new Random();
+            if (random.Next(101) < character._mDodgeChance) {  
+                return 0;
+            }
+            //if(MathHelper.Mod(attack.type - 1,3) == character.type )
+            //if(random.Next(101) < _critChance)
+            //return attack.damage * 2 + attack.damage * 2 * _critDamage/100
+            //return attack.damage*2 
+            //else if(MathHelper.Mod(attack.type + 1,3) == character.type )
+            //if(random.Next(101) < _critChance)
+            //return attack.damage + attack.damage * _critDamage/100
+            //return attack.damage*0.5
+            //else
+            //if(random.Next(101) < _critChance)
+            //return attack.damage + attack.damage * _critDamage/100
+            //return attack.damage
+            return 10;
         }
     }
 }

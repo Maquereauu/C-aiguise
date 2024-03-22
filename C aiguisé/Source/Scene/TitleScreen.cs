@@ -38,7 +38,7 @@ namespace C_aiguisé
         public override void LoadScene()
         {
             Console.CursorVisible = false;
-            EventManager._enter += Play;
+            EventManager._enter += Confirm;
             EventManager._leftArrow += SwitchLeft;
             EventManager._rightArrow += SwitchRight;
         }
@@ -47,13 +47,23 @@ namespace C_aiguisé
         {
             base.UnLoad();
             Console.CursorVisible = true;
-            EventManager._enter -= Play;
+            EventManager._enter -= Confirm;
             EventManager._leftArrow -= SwitchLeft;
             EventManager._rightArrow -= SwitchRight;
         }
-        public void Play()
+        public void Confirm()
         {
-            SceneManager.SwitchScene("Game");
+            switch (_index)
+            {
+                case 0:
+                    SceneManager.SwitchScene("Game");
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    Environment.Exit(0);
+                    break;
+            }
         }
         public void SwitchLeft()
         {

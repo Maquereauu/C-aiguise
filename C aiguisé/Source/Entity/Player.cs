@@ -11,10 +11,17 @@ namespace C_aiguisé
 
         private Weapon _wWeapon;
         private Role _role;
+        private int _summonBar;
         public Role _mRole
         {
             get { return _role; }
             protected set { _role = value; }
+        }
+
+        public int _mSummonBar
+        {
+            get { return _summonBar; }
+            set { _summonBar = value; }
         }
 
         public Player(string name, Weapon weapon, Role role)
@@ -26,30 +33,35 @@ namespace C_aiguisé
             _mpMax = 100;
             _hp = _hpMax;
             _mp = _mpMax;
-            _iLevel = 1;
-            _fExp = 0.0f;
-            _iDodgeChance = 0;
+            _level = 1;
+            _exp = 0.0f;
+            _dodgeChance = 0;
             _speed = 1.0f;
+            _summonBar = 0;
             _sprite = "gentil";
             _role.setPlayer(this);
         }
 
         public int Attack()
         {
-            int damage = this._wWeapon.GetDamage();
+            int damage = _wWeapon.GetDamage();
             return damage;
         }
 
 
+
         public void Heal(int heal)
         {
-            if (this._hp < 100)
+            if (_hp < 100)
             {
-                this._hp += heal;
+                _hp += heal;
             }
         }
 
-
+        public void GetExp(int exp)
+        {
+            _exp += exp;
+        }
         public override void Update() { }
     }
 }
