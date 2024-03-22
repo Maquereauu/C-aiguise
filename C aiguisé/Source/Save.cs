@@ -14,7 +14,6 @@ namespace C_aiguisé
         private List<Item> _item;
         private List<int> _itemNumber;
         private string _currentZone;
-        private Transform _transform;
 
         public List<Character> _mPlayer
         {
@@ -36,19 +35,29 @@ namespace C_aiguisé
             get { return _currentZone; }
             set { _currentZone = value; }
         }
-        public Transform _mTransform
-        {
-            get { return _transform; }
-            set { _transform = value; }
-        }
         public Save()
         {
             _player = new List<Character>();
             _item = new List<Item>();   
             _itemNumber = new List<int>();
             _currentZone = "";
-            _transform = new Transform();
-    }
+        }
+
+        public void SaveGame(string path)
+        {
+            FileReader.WriteFile(this, path);
+        }
+
+        public void LoadGame(string path)
+        {
+            Save loadedScene = FileReader.ReadFile(path);
+
+            Bag bag = new Bag();
+            bag.AddItem(loadedScene._item, loadedScene._itemNumber);
+
+            SceneManager.SwitchScene(loadedScene._currentZone);
+        }
+
     }
 }
 

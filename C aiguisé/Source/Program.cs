@@ -52,15 +52,14 @@ public class Program
                 bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
         Save save = new Save();
         save._mPlayer = new List<Character>() { player, player2 };
-        save._mCurrentZone = "Game";
+        save._mCurrentZone = "Main Menu";
         save._mItem.Add(knife);
         save._mItem.Add(sword);
         save._mItemNumber.Add(1);
         save._mItemNumber.Add(1);
 
-        FileReader.WriteFile(save, "../../../Content/Saves/Save1.json");
-        FileReader.ReadFile("../../../Content/Saves/Save1.json");
-
+        save.SaveGame("../../../Content/Saves/Save1.json");
+        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
             /*            SceneManager.PreUpdate();

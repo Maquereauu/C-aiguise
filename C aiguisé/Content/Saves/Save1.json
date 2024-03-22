@@ -17,7 +17,13 @@
       "_mExp": 0.0,
       "_mLevel": 1,
       "_mType": null,
-      "_mDodgeChance": 0.0
+      "_mDodgeChance": 0.0,
+      "_mTranform": {
+        "_mCoordinates": {
+          "_mX": 0,
+          "_mY": 0
+        }
+      }
     },
     {
       "_mWeapon": {
@@ -36,7 +42,13 @@
       "_mExp": 0.0,
       "_mLevel": 1,
       "_mType": null,
-      "_mDodgeChance": 0.0
+      "_mDodgeChance": 0.0,
+      "_mTranform": {
+        "_mCoordinates": {
+          "_mX": 0,
+          "_mY": 0
+        }
+      }
     }
   ],
   "_mItem": [
@@ -50,11 +62,5 @@
     }
   ],
   "_mItemNumber": [ 1, 1 ],
-  "_mCurrentZone": "Game",
-  "_mTransform": {
-    "_mCoordinates": {
-      "_mX": 0,
-      "_mY": 0
-    }
-  }
+  "_mCurrentZone": "Main Menu"
 }
