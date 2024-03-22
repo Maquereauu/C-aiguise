@@ -2,12 +2,22 @@
 
 using C_aiguisé;
 using Microsoft.VisualBasic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 public class Program
 {
+    [DllImport("user32.dll")]
+    private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+    [DllImport("kernel32.dll")]
+    private static extern IntPtr GetConsoleWindow();
+
+    const int SW_MAXIMIZE = 3;
     public static void Main(string[] args)
     {
+        IntPtr handle = GetConsoleWindow();
+        ShowWindow(handle, SW_MAXIMIZE);
         Console.OutputEncoding = Encoding.UTF8;
 
         BattleScene scene = new BattleScene();
@@ -29,8 +39,8 @@ public class Program
 
         SceneManager.Init();
         scene.SetBattle(battle);
-        SceneManager.SwitchScene("Game");
-        SceneManager.Display();
+        SceneManager.SwitchScene("BattleScene");
+        /*SceneManager.Display();*/
 
         /*battle.Start();*/
 

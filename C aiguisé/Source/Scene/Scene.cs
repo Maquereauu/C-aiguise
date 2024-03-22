@@ -44,6 +44,11 @@ namespace C_aiguisé
         {
             _map.AddZone(zone);
         }
+        public static void OpenMenu()
+        {
+            SceneManager.SwitchScene("Main Menu");
+        }
+
         public virtual void SetBattle(Battle battle)
         {
 

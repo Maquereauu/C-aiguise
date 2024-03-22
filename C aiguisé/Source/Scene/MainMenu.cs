@@ -37,11 +37,11 @@ namespace C_aiguisé
         public override void UnLoad()
         {
             Console.CursorVisible = true;
-            EventManager._menu += CloseMenu;
+            EventManager._menu -= CloseMenu;
         }
         public static void CloseMenu()
         {
-            SceneManager.SwitchScene("Game");
+            SceneManager.SwitchScene();
         }
     }
 }

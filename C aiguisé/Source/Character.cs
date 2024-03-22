@@ -7,7 +7,7 @@ namespace C_aiguisé
 {
     public class Character : GameObject
     {
-        protected string _sName;
+        protected string _name;
         protected float _hp;
         protected float _mp;
         protected float _hpMax;
@@ -61,6 +61,11 @@ namespace C_aiguisé
         {
             get { return _isDead; }
             protected set { _isDead = value; }
+        }
+        public string _mName
+        {
+            get { return _name; }
+            protected set { _name = value; }
         }
         public void TakeDamage(int damage)
         {

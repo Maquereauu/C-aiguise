@@ -18,23 +18,24 @@ namespace C_aiguisé
         public static event Action _menu;
 
         public static Transform _transform = new Transform();
+        public static Transform _transform2 = new Transform();
 
         public static void MoveLeft()
         {
-            Movement(_transform, -1, 0, "Left");
+            Movement(_transform, -1, 0, "P");
         }
         public static void MoveRight() 
         {
-            Movement(_transform, 1, 0, "Right");
+            Movement(_transform, 1, 0, "P");
         }
 
         public static void MoveUp() 
         {
-            Movement(_transform, 0, -1, "Up");
+            Movement(_transform, 0, -1, "P");
         }
         public static void MoveDown() 
         {
-            Movement(_transform, 0, 1, "Down");
+            Movement(_transform, 0, 1, "P");
         }
 
         public static void Movement(Transform coordinates, int x, int y, string dir)
@@ -42,17 +43,18 @@ namespace C_aiguisé
             if (coordinates.GetCoordinates().x() + x + dir.Length < Console.BufferWidth && coordinates.GetCoordinates().x() + x >= 0 &&
                 coordinates.GetCoordinates().y() + y + 1 < Console.BufferHeight && coordinates.GetCoordinates().y() + y >= 0)
             {
-                Console.SetCursorPosition(0, 0);
+/*                Console.SetCursorPosition(0, 0);*/
                 coordinates.Translate(x, y);
-                Console.SetCursorPosition(coordinates.GetCoordinates().x(), coordinates.GetCoordinates().y());
-                Console.WriteLine(dir);
             }
         }
 
         public static void Update()
         {
-            if (Console.KeyAvailable)
             {
+                while (Console.KeyAvailable)
+                {
+                    Console.ReadKey(false);
+                }
                 var key = Console.ReadKey(true).Key;
 
                 switch (key)

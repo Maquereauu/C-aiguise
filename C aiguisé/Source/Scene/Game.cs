@@ -44,11 +44,7 @@ namespace C_aiguisé
             EventManager._leftArrow -= EventManager.MoveLeft;
             EventManager._downArrow -= EventManager.MoveDown;
             EventManager._upArrow -= EventManager.MoveUp;
-        }
-
-        public static void OpenMenu()
-        {
-            SceneManager.SwitchScene("Main Menu");
+            EventManager._menu -= OpenMenu;
         }
     }
 }
