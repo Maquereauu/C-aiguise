@@ -22,6 +22,7 @@ public class Program
 
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
+        SceneManager.AddScene(new TitleScreen());
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
@@ -29,17 +30,17 @@ public class Program
 
         Weapon sword = new Weapon("Sword");
         Weapon knife = new Weapon("Knife");
-        Player player = new Player("noeil", sword, new Tank());
-        Player player2 = new Player("jean", knife, new BlackWizard());
-        Enemy enemy = new Enemy();
+        EntityManager.CreatePlayer();
+       /* Player player = new Player("noeil", sword, new Tank());*/
+/*        Enemy enemy = new Enemy();
         Enemy enemy1 = new Enemy();
         List<Player> playerlist = new List<Player>() { player };
         List<Enemy> enemylist = new List<Enemy>() { enemy, enemy1 };
         List<Summon> summonlist = new List<Summon>();
-        Battle battle = new Battle(playerlist, summonlist, enemylist) ;
+        Battle battle = new Battle(playerlist, summonlist, enemylist) ;*/
 
         SceneManager.Init();
-        scene.SetBattle(battle);
+/*        scene.SetBattle(battle);*/
         SceneManager.SwitchScene("BattleScene");
         /*SceneManager.Display();*/
 
@@ -62,9 +63,9 @@ public class Program
         /*save.LoadGame("../../../Content/Saves/Save1.json");*/
         while (true)
         {
-            /*            SceneManager.PreUpdate();
-                        SceneManager.Update();
-                        SceneManager.PostUpdate();*/
+            SceneManager.PreUpdate();
+            SceneManager.Update();
+            SceneManager.PostUpdate();
         }
     }
 }

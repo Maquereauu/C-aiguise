@@ -7,6 +7,12 @@ namespace C_aiguisé
 {
     public class Character : GameObject
     {
+        protected enum Type
+        {
+            Red,
+            Blue,
+            Green
+        } 
         protected string _name;
         protected float _hp;
         protected float _mp;
@@ -14,13 +20,14 @@ namespace C_aiguisé
         protected float _mpMax;
         protected int _level;
         protected float _exp;
-        /*protected int _iCritChance = 5;
-        protected int _iCritDamage = 0;*/
-        protected float _dodgeChance = 0.0f;
+        protected int _critChance = 5;
+        protected int _critDamage = 20;
+        protected int _dodgeChance = 0;
         protected string _type;
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
+        protected List<AttackMove> attackMoves = new List<AttackMove>();
         public float _mSpeed
         {
             get { return _speed; }
@@ -67,25 +74,21 @@ namespace C_aiguisé
             get { return _name; }
             protected set { _name = value; }
         }
-        public float _mExp
-        {
-            get { return _exp; }
-            protected set { _exp = value; }
-        }
-        public int _mLevel
-        {
-            get { return _level; }
-            protected set { _level = value; }
-        }
-        public string _mType
-        {
-            get { return _type; }
-            protected set { _type = value; }
-        }
-        public float _mDodgeChance
+
+        public int _mDodgeChance
         {
             get { return _dodgeChance; }
             protected set { _dodgeChance = value; }
+        }
+        public int _mCritChance
+        {
+            get { return _critChance; }
+            protected set { _critChance = value; }
+        }
+        public int _mCritDamage
+        {
+            get { return _critDamage; }
+            protected set { _critDamage = value; }
         }
         public void TakeDamage(int damage)
         {
@@ -104,6 +107,30 @@ namespace C_aiguisé
         public void Heal(int hp)
         {
             _hp += hp % _hpMax;
+        }
+        public virtual int Attack(/*Attack attack*/Character character)
+        {
+            Random random = new Random();
+            if (random.Next(101) < character._mDodgeChance) {  
+                return 0;
+            }
+            //if(MathHelper.Mod(attack.type - 1,3) == character.type )
+            //if(random.Next(101) < _critChance)
+            //return attack.damage * 2 + attack.damage * 2 * _critDamage/100
+            //return attack.damage*2 
+            //else if(MathHelper.Mod(attack.type + 1,3) == character.type )
+            //if(random.Next(101) < _critChance)
+            //return attack.damage + attack.damage * _critDamage/100
+            //return attack.damage*0.5
+            //else
+            //if(random.Next(101) < _critChance)
+            //return attack.damage + attack.damage * _critDamage/100
+            //return attack.damage
+            return 10;
+        }
+        public void AddAttack(AttackMove attack)
+        {
+            attackMoves.Add(attack);
         }
     }
 }

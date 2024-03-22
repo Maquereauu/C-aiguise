@@ -7,8 +7,8 @@ namespace C_aiguisé
 {
     public class Npc
     {
-        private string _sName;
-        private string _sSprite;//?
+        private string _name;
+        private string _sprite;//?
         public Npc() { }
     }
 }
