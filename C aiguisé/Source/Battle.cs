@@ -138,6 +138,7 @@ namespace C_aiguisé
 
         public void Display()
         {
+            Console.SetCursorPosition(0, 0);
             for (int i = 0; i < _allies.Count; i++)
             {
                 Console.WriteLine(_allies[i]._mName);
