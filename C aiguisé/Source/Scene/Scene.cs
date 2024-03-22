@@ -49,7 +49,10 @@ namespace C_aiguisé
         }
         public static void OpenMenu()
         {
-            SceneManager.SwitchScene("Main Menu");
+            if (SceneManager.IsSceneExist("Main Menu"))
+            {
+                SceneManager.SwitchScene("Main Menu");
+            }
         }
 
         public virtual void SetBattle(Battle battle)

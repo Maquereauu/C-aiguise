@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace C_aiguisé
@@ -8,9 +9,11 @@ namespace C_aiguisé
     public class Bag
     {
         private Dictionary<Item, int> _bag;
-        public Bag() 
+
+        public Dictionary<Item, int> _mBag
         {
-            _bag = new Dictionary<Item, int>();
+            get { return _bag; }
+            protected set { _bag = value; }
         }
 
         public void AddItem(Item item, int number = 1)

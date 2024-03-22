@@ -9,7 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\Saves\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties content_4saves_4save1_1json__JsonSchema="https://alec016.github.io/Custom-Machinery/Json%20Schema/src/main/resources/schemas/custom_machinery_machine.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

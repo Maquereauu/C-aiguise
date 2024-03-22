@@ -9,14 +9,19 @@ namespace C_aiguisé
     public class Player : Character
     {
 
-        private Weapon _wWeapon;
-        private Role _role;
-        private int _summonBar;
+        protected Weapon _weapon ;
+        protected Role _role;
+        public Weapon _mWeapon
+        {
+        get { return _weapon; }
+        protected set { _weapon = value; }
+
+        }
+
         public Role _mRole
         {
             get { return _role; }
             protected set { _role = value; }
-        }
 
         public int _mSummonBar
         {
@@ -27,7 +32,7 @@ namespace C_aiguisé
         public Player(string name, Weapon weapon, Role role)
         {
             _name = name;
-            _wWeapon = weapon;
+            _weapon = weapon;
             _role = role;
             _hpMax = 100;
             _mpMax = 100;
@@ -57,6 +62,11 @@ namespace C_aiguisé
             {
                 _hp += heal;
             }
+        }
+
+        public Role GetRole()
+        { 
+            return _role; 
         }
 
         public void GetExp(int exp)
