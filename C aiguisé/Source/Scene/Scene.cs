@@ -29,7 +29,10 @@ namespace C_aiguisé
         }
         public abstract void LoadScene();
 
-        public abstract void UnLoad();
+        public virtual void UnLoad()
+        {
+            Console.Clear();
+        }
 
         public string GetName()
         {
