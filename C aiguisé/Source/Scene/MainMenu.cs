@@ -41,7 +41,7 @@ namespace C_aiguisé
         }
         public static void CloseMenu()
         {
-            SceneManager.SwitchScene("Game");
+            SceneManager.SwitchScene();
         }
     }
 }
