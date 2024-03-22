@@ -27,6 +27,7 @@ namespace C_aiguisé
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
+        protected List<AttackMove> attackMoves = new List<AttackMove>();
         public float _mSpeed
         {
             get { return _speed; }
@@ -126,6 +127,10 @@ namespace C_aiguisé
             //return attack.damage + attack.damage * _critDamage/100
             //return attack.damage
             return 10;
+        }
+        public void AddAttack(AttackMove attack)
+        {
+            attackMoves.Add(attack);
         }
     }
 }

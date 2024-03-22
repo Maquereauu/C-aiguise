@@ -40,6 +40,7 @@ namespace C_aiguisé
             _summonBar = 0;
             _sprite = "gentil";
             _role.setPlayer(this);
+            AddAttack(new AttackMove(0,false,40,0,false,true));
         }
 
         public int Attack()
