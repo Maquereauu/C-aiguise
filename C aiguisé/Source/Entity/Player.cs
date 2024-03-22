@@ -16,9 +16,10 @@ namespace C_aiguisé
             get { return _role; }
             protected set { _role = value; }
         }
+
         public Player(string name, Weapon weapon, Role role)
         {
-            _sName = name;
+            _name = name;
             _wWeapon = weapon;
             _role = role;
             _hpMax = 100;

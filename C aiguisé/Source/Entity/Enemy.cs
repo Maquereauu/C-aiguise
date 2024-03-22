@@ -9,6 +9,7 @@ namespace C_aiguisé
     {
         public Enemy()
         {
+            _name = "mon ennemi oh la misère";
             _hpMax = 100;
             _mpMax = 100;
             _hp = _hpMax;
