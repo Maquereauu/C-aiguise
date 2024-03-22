@@ -9,26 +9,33 @@ namespace C_aiguisé
     public class Player : Character
     {
 
-        private Weapon _wWeapon;
-        private Role _role;
+        protected Weapon _weapon ;
+        protected Role _role;
+        public Weapon _mWeapon
+        {
+        get { return _weapon; }
+        protected set { _weapon = value; }
+
+        }
+
         public Role _mRole
         {
             get { return _role; }
             protected set { _role = value; }
-        }
 
+        }
         public Player(string name, Weapon weapon, Role role)
         {
             _name = name;
-            _wWeapon = weapon;
+            _weapon = weapon;
             _role = role;
             _hpMax = 100;
             _mpMax = 100;
             _hp = _hpMax;
             _mp = _mpMax;
-            _iLevel = 1;
-            _fExp = 0.0f;
-            _iDodgeChance = 0;
+            _level = 1;
+            _exp = 0.0f;
+            _dodgeChance = 0;
             _speed = 1.0f;
             _sprite = "gentil";
             _role.setPlayer(this);
@@ -36,7 +43,7 @@ namespace C_aiguisé
 
         public int Attack()
         {
-            int damage = this._wWeapon.GetDamage();
+            int damage = this._weapon.GetDamage();
             return damage;
         }
 
@@ -47,6 +54,11 @@ namespace C_aiguisé
             {
                 this._hp += heal;
             }
+        }
+
+        public Role GetRole()
+        { 
+            return _role; 
         }
 
 

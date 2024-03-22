@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
+using Newtonsoft.Json;
+
 
 namespace C_aiguisé
 {
@@ -12,15 +13,17 @@ namespace C_aiguisé
         public static Save ReadFile(string filePath)
         {
             using StreamReader streamReader = new(filePath);
-            var json = streamReader.ReadToEnd();
-            var save = JsonSerializer.Deserialize<Save>(json);
+            string json = streamReader.ReadToEnd();
+
+            var save = JsonConvert.DeserializeObject<Save>(json);
 
             return save;
         }
 
         public static void WriteFile(Save save, string filePath) 
         {
-            string json = JsonSerializer.Serialize(save);
+            File.Delete(filePath);
+            string json = JsonConvert.SerializeObject(save);
             File.WriteAllText(filePath, json);
         }
     }

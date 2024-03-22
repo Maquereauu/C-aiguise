@@ -12,12 +12,12 @@ namespace C_aiguisé
         protected float _mp;
         protected float _hpMax;
         protected float _mpMax;
-        protected int _iLevel;
-        protected float _fExp;
+        protected int _level;
+        protected float _exp;
         /*protected int _iCritChance = 5;
         protected int _iCritDamage = 0;*/
-        protected int _iDodgeChance = 0;
-        protected string _sType;
+        protected float _dodgeChance = 0.0f;
+        protected string _type;
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
@@ -66,6 +66,26 @@ namespace C_aiguisé
         {
             get { return _name; }
             protected set { _name = value; }
+        }
+        public float _mExp
+        {
+            get { return _exp; }
+            protected set { _exp = value; }
+        }
+        public int _mLevel
+        {
+            get { return _level; }
+            protected set { _level = value; }
+        }
+        public string _mType
+        {
+            get { return _type; }
+            protected set { _type = value; }
+        }
+        public float _mDodgeChance
+        {
+            get { return _dodgeChance; }
+            protected set { _dodgeChance = value; }
         }
         public void TakeDamage(int damage)
         {
