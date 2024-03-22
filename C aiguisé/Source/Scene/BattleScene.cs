@@ -36,6 +36,7 @@ namespace C_aiguisé
         }
         public override void UnLoad()
         {
+            base.UnLoad();
             Console.CursorVisible = true;
             EventManager._downArrow -= _battle.switchActionDown;
             EventManager._upArrow -= _battle.switchActionUp;

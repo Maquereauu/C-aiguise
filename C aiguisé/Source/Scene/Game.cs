@@ -41,6 +41,7 @@ namespace C_aiguisé
         }
         public override void UnLoad()
         {
+            base.UnLoad();
             Console.CursorVisible = true;
             EventManager._rightArrow -= EventManager.MoveRight;
             EventManager._leftArrow -= EventManager.MoveLeft;
@@ -64,10 +65,11 @@ namespace C_aiguisé
                     Color grass = b.GetPixel(k, l);
                     if (grass == pix)
                     {
-                        
-                        if(EventManager._transform.GetCoordinates().x() == k && EventManager._transform.GetCoordinates().y() == l)
+                        int test = EventManager._transform.GetCoordinates().x();
+                        int testy = EventManager._transform.GetCoordinates().y();
+                        if ( test== k && testy == l)
                         {
-                            Console.WriteLine("fight");
+                            SceneManager.SwitchScene("BattleScene");
                         }
                     }
                 }
