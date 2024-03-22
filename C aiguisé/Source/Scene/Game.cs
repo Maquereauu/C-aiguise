@@ -44,6 +44,7 @@ namespace C_aiguisé
             EventManager._leftArrow -= EventManager.MoveLeft;
             EventManager._downArrow -= EventManager.MoveDown;
             EventManager._upArrow -= EventManager.MoveUp;
+            EventManager._menu -= OpenMenu;
         }
 
         public static void OpenMenu()
