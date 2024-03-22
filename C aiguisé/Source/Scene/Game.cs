@@ -39,6 +39,7 @@ namespace C_aiguisé
         }
         public override void UnLoad()
         {
+            base.UnLoad();
             Console.CursorVisible = true;
             EventManager._rightArrow -= EventManager.MoveRight;
             EventManager._leftArrow -= EventManager.MoveLeft;
