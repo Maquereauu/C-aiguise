@@ -39,7 +39,7 @@ public class Program
 
         SceneManager.Init();
         scene.SetBattle(battle);
-        SceneManager.SwitchScene("BattleScene");
+        SceneManager.SwitchScene("Game");
         /*SceneManager.Display();*/
 
         /*battle.Start();*/

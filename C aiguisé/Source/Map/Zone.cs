@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -38,7 +39,25 @@ namespace C_aiguisé
             /*EventManager._transform.SetPos(0, 0);*/
             Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
-            Console.Write("P");
+
+            Bitmap b = new Bitmap("../../../Content/Map/map.bmp");
+            Color pix = b.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2);
+            byte pixR = pix.R;
+            
+            byte pixG = pix.G;
+          
+            byte pixB = pix.B;
+            
+            if(pixR ==0 && pixG ==0 && pixB == 0)
+            {
+                Console.Write("\x1b[39mP");
+
+            }
+            else
+            {
+                Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "mP");
+            }
+            //Console.WriteLine(pixB);
             /*            Console.SetCursorPosition(EventManager._transform2.GetCoordinates().x(), EventManager._transform2.GetCoordinates().y());
                         Console.Write("X");*//*
                         Console.SetCursorPosition(0, 0);*/
