@@ -29,6 +29,11 @@ namespace C_aiguisé
         public override void LoadScene()
         {
             Console.CursorVisible = false;
+            Enemy enemy = new Enemy();
+            Enemy enemy1 = new Enemy();
+            List<Summon> summons = new List<Summon>();
+            List<Enemy> enemies = new List<Enemy>() { enemy,enemy1};
+            _battle = new Battle(EntityManager.players, summons,enemies);
             EventManager._downArrow += _battle.switchActionDown;
             EventManager._upArrow += _battle.switchActionUp;
             EventManager._enter += _battle.SelectMove;
