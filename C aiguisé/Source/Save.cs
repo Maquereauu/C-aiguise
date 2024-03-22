@@ -52,8 +52,10 @@ namespace C_aiguisé
         {
             Save loadedScene = FileReader.ReadFile(path);
 
-            Bag bag = new Bag();
-            bag.AddItem(loadedScene._item, loadedScene._itemNumber);
+            for (int i = 0; i < loadedScene._item.Count; i++)
+            {
+                Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
+            }
 
             SceneManager.SwitchScene(loadedScene._currentZone);
         }

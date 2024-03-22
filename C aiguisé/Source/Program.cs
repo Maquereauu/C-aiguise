@@ -60,7 +60,7 @@ public class Program
         save._mItemNumber.Add(1);
 
         save.SaveGame("../../../Content/Saves/Save1.json");
-        /*save.LoadGame("../../../Content/Saves/Save1.json");*/
+        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
             SceneManager.PreUpdate();
