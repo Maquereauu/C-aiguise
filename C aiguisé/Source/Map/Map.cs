@@ -32,7 +32,7 @@ namespace C_aiguisé
 
         public void Update()
         {
-            Console.SetCursorPosition(0, 0);
+            /*Console.SetCursorPosition(0, 0);*/
             _currentZone.Display();
         }
 
