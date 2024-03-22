@@ -32,6 +32,7 @@ namespace C_aiguisé
             EventManager._downArrow += _battle.switchActionDown;
             EventManager._upArrow += _battle.switchActionUp;
             EventManager._enter += _battle.SelectMove;
+            EventManager._menu += OpenMenu;
             _battle.Start();
         }
         public override void UnLoad()
@@ -39,6 +40,7 @@ namespace C_aiguisé
             Console.CursorVisible = true;
             EventManager._downArrow -= _battle.switchActionDown;
             EventManager._upArrow -= _battle.switchActionUp;
+            EventManager._menu -= OpenMenu;
         }
 
         public override void SetBattle(Battle battle)
