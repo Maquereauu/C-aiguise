@@ -22,6 +22,7 @@ public class Program
 
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
+        SceneManager.AddScene(new House());
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
@@ -39,7 +40,7 @@ public class Program
 
         SceneManager.Init();
         scene.SetBattle(battle);
-        SceneManager.SwitchScene("Game");
+        SceneManager.SwitchScene("BattleScene");
         /*SceneManager.Display();*/
 
         /*battle.Start();*/

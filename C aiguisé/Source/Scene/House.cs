@@ -6,14 +6,14 @@ using System.Text;
 
 namespace C_aiguisé
 {
-    public class Game : Scene
+    public class House : Scene
     {
-        public Game() : base("Game")
+        public House() : base("House")
         {
         }
         public override void Init()
         {
-            AddZone(new Zone("../../../Content/Map/map.txt"));
+            AddZone(new Zone("../../../Content/Map/maison.txt"));
             _map.SetCurrentZone();
         }
         public override void PreUpdate()
@@ -23,8 +23,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-            //DetectBattle();
-            Swap();
+           
         }
 
         public override void PostUpdate()
@@ -51,40 +50,11 @@ namespace C_aiguisé
             EventManager._menu -= OpenMenu;
         }
 
-        public static void DetectBattle()
-        {
-            Bitmap b = new Bitmap("../../../Content/Map/map.bmp");
-            Color pix = b.GetPixel(0, 0);
-            for (int k = 0; k < 192; k++)
-            {
-                for (int l = 0; l < 108; l++)
-                {
-                    Color grass = b.GetPixel(k,l);
-
-                    
-
-                    if (grass == pix)
-                    {
-                        if (EventManager._transform.GetCoordinates().x() == k && EventManager._transform.GetCoordinates().y() == l / 2)
-                        {
-                            //Console.WriteLine(grass);
-                            Random rnd = new Random();
-                            int battleRate = rnd.Next(10);
-                            if(battleRate == 0)
-                            {
-                                SceneManager.SwitchScene("BattleScene");
-                            }
-                        }
-                            
-                    }
-                }
-            }
-        }
 
 
         public static void Swap()
         {
-            if (EventManager._transform.GetCoordinates().x() == 148 && EventManager._transform.GetCoordinates().y() == 12)
+            if (EventManager._transform.GetCoordinates().x() == 148)
             {
                 SceneManager.SwitchScene("House");
             }

@@ -57,6 +57,9 @@ namespace C_aiguisé
                 }
                 var key = Console.ReadKey(true).Key;
 
+
+                
+
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:

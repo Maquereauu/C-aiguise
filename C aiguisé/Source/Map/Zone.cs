@@ -40,7 +40,7 @@ namespace C_aiguisé
             Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
 
-            Bitmap b = new Bitmap("../../../Content/Map/map.bmp");
+            Bitmap b = new Bitmap("../../../Content/Map/map.bmp"); // récupérer la zone actuelle
             Color pix = b.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2);
             byte pixR = pix.R;
             
@@ -50,8 +50,8 @@ namespace C_aiguisé
             
             if(pixR ==0 && pixG ==0 && pixB == 0)
             {
-                Console.Write("\x1b[39mP");
-
+                EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x()-1, EventManager._transform.GetCoordinates().y() * 2);
+                //Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "mP");
             }
             else
             {
