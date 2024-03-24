@@ -11,25 +11,24 @@ namespace C_aiguisé
     {
 
         private List<(int, int)> _hudPosList;
+        private List<string> _hudNameList;
         private (int, int) _hudPos;
         private int _index;
         public MainMenu() : base("Main Menu")
         {
-            for (int i = 0; i < 4; i++) 
-            {
-                _hudPosList = new List<(int, int)>() {(Console.WindowWidth / 2 - 13, Console.WindowHeight / 3),
-                (Console.WindowWidth / 2 - 13, Console.WindowHeight / 3 + 2),
-                (Console.WindowWidth / 2 - 13, Console.WindowHeight / 3 + 4),
-                (Console.WindowWidth / 2 - 13, Console.WindowHeight / 3 + 6)};
-            }
+            _hudPosList = new List<(int, int)>() {((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 4),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 2),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2)),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2)};
+
+            _hudNameList = new List<string>() { "    Option   ", "Retour au jeu", " Sauvegarder" , "   Quitter   "};
             _index = 0;
-            _hudPos = (Console.WindowWidth / 2 - 13, Console.WindowHeight / 3);
+            _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
 
         }
         public override void Init()
         {
-            AddZone(new Zone("../../../Content/MainMenu.txt"));
-            _map.SetCurrentZone();
+
         }
         public override void PreUpdate()
         {
@@ -38,9 +37,13 @@ namespace C_aiguisé
         }
         public override void Update()
         {
-            base.Update();
-            Console.SetCursorPosition(_hudPos.Item1, _hudPos.Item2);
-            Console.Write("yo");
+            for (int i = 0; i < _hudPosList.Count; i++)
+            {
+                Console.SetCursorPosition(_hudPosList[i].Item1, _hudPosList[i].Item2);
+                Console.Write(_hudNameList[i]);
+            }
+            Console.SetCursorPosition(_hudPos.Item1 - 10, _hudPos.Item2);
+            Console.Write(">");
         }
         public override void PostUpdate()
         {
@@ -63,6 +66,7 @@ namespace C_aiguisé
             EventManager._enter -= Confirm;
             EventManager._upArrow -= SwitchTop;
             EventManager._downArrow -= SwitchBottom;
+            _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
         }
         public static void CloseMenu()
         {
