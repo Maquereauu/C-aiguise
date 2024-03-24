@@ -23,11 +23,24 @@ namespace C_aiguisé
         protected int _critChance = 5;
         protected int _critDamage = 20;
         protected int _dodgeChance = 0;
-        protected string _type;
+        protected int _type;
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
-        protected List<AttackMove> attackMoves = new List<AttackMove>();
+        protected List<AttackMove> _attackMoves = new List<AttackMove>();
+        protected List<MagicMove> _magicMoves = new List<MagicMove>();
+
+        public List<AttackMove> _mAttackMoves
+        {
+            get { return _attackMoves; }
+            protected set { _attackMoves = value; }
+        }
+
+        public List<MagicMove> _mMagicMoves
+        {
+            get { return _magicMoves; }
+            protected set { _magicMoves = value; }
+        }
         public float _mSpeed
         {
             get { return _speed; }
@@ -108,29 +121,39 @@ namespace C_aiguisé
         {
             _hp += hp % _hpMax;
         }
-        public virtual int Attack(/*Attack attack*/Character character)
+        public virtual int Attack(Move move, Character character)
         {
             Random random = new Random();
-            if (random.Next(101) < character._mDodgeChance) {  
+            if (random.Next(101) < character._mDodgeChance) {
                 return 0;
             }
-            //if(MathHelper.Mod(attack.type - 1,3) == character.type )
-            //if(random.Next(101) < _critChance)
-            //return attack.damage * 2 + attack.damage * 2 * _critDamage/100
-            //return attack.damage*2 
-            //else if(MathHelper.Mod(attack.type + 1,3) == character.type )
-            //if(random.Next(101) < _critChance)
-            //return attack.damage + attack.damage * _critDamage/100
-            //return attack.damage*0.5
-            //else
-            //if(random.Next(101) < _critChance)
-            //return attack.damage + attack.damage * _critDamage/100
-            //return attack.damage
-            return 10;
+            if (Utils.MathHelper.Modulo(move._mType - 1, 3) == character._type)
+            { if (random.Next(101) < _critChance)
+                    return move._mDamage * 2 + move._mDamage * 2 * _critDamage / 100;
+                return move._mDamage * 2; }
+            else if (Utils.MathHelper.Modulo(move._mType + 1, 3) == character._type) {
+                if (random.Next(101) < _critChance)
+                    return move._mDamage + move._mDamage * _critDamage / 100;
+            return (int)(move._mDamage * 0.5); }
+            else if (random.Next(101) < _critChance)
+                return move._mDamage + move._mDamage * _critDamage / 100;
+            return move._mDamage;
         }
         public void AddAttack(AttackMove attack)
         {
-            attackMoves.Add(attack);
+            _attackMoves.Add(attack);
+        }
+        public void RemoveAttack(AttackMove attack)
+        {
+            _attackMoves.Remove(attack);
+        }
+        public void AddMagic(MagicMove magic)
+        {
+            _magicMoves.Add(magic);
+        }
+        public void RemoveMagic(MagicMove magic)
+        {
+            _magicMoves.Remove(magic);
         }
     }
 }

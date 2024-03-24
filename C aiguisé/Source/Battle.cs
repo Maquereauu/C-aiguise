@@ -24,6 +24,8 @@ namespace C_aiguisé
         private List<Character> _characters;
         private List<Actions> _actions = new List<Actions> { Actions.Attack , Actions.Magic,Actions.Item,Actions.Flee };
         private Actions _selectedAction = Actions.Attack;
+        private int _selectedAttack = 0;
+        private int _selectedMagic = 0;
         private int _selectedTarget;
         private int _indexSpeedList;
         private float _maxSpeed;
@@ -102,6 +104,32 @@ namespace C_aiguisé
             needsToUpdate?.Invoke();
         }
 
+        public void switchAttackUp()
+        {
+            _selectedAttack = Utils.MathHelper.Modulo((_selectedAttack - 1), _characters[_indexSpeedList]._mAttackMoves.Count);
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+        public void switchAttackDown()
+        {
+            _selectedAttack = Utils.MathHelper.Modulo((_selectedAttack + 1), _characters[_indexSpeedList]._mAttackMoves.Count);
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+
+        public void switchMagicUp()
+        {
+            _selectedMagic = Utils.MathHelper.Modulo((_selectedMagic - 1), _characters[_indexSpeedList]._mMagicMoves.Count);
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+        public void switchMagicDown()
+        {
+            _selectedAttack = Utils.MathHelper.Modulo((_selectedMagic + 1), _characters[_indexSpeedList]._mMagicMoves.Count);
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+
         public void switchTargetDown()
         {
             if(Enemy)
@@ -163,6 +191,15 @@ namespace C_aiguisé
             {
                 case (int)Actions.Attack:
                     Console.WriteLine("attack!");
+                    EventManager._downArrow -= switchActionDown;
+                    EventManager._downArrow += switchAttackDown;
+                    EventManager._upArrow -= switchActionUp;
+                    EventManager._upArrow += switchAttackUp;
+                    EventManager._enter -= SelectMove;
+                    EventManager._enter += ExecuteAction;
+                    EventManager._backspace += Cancel;
+                    Console.Clear();
+                    needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Magic:
                     Console.WriteLine("magic!");
@@ -174,7 +211,7 @@ namespace C_aiguisé
                     Console.WriteLine("flee!");
                     break;
             }
-            EventManager._downArrow -= switchActionDown;
+/*            EventManager._downArrow -= switchActionDown;
             EventManager._downArrow += switchTargetDown;
             EventManager._upArrow -= switchActionUp;
             EventManager._upArrow += switchTargetUp;
@@ -182,9 +219,12 @@ namespace C_aiguisé
             EventManager._enter += ExecuteAction;
             EventManager._backspace += Cancel;
             Console.Clear();
-            needsToUpdate?.Invoke();
+            needsToUpdate?.Invoke();*/
         }
+        public void SelectTarget()
+        {
 
+        }
         public void ExecuteAction()
         {
             if (Enemy)
@@ -192,11 +232,13 @@ namespace C_aiguisé
                 switch ((int)_selectedAction)
                 {
                     case (int)Actions.Attack:
-                        if(_enemies[_selectedTarget]._mHp <= 0)
+                        for (int i = 0; i < _characters[_indexSpeedList]._mAttackMoves.Count; i++)
+                            Console.WriteLine(_characters[_indexSpeedList]._mAttackMoves[i]);
+                      /*  if(_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;
                         }
-                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack());
+                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack());*/
                         break;
                     case (int)Actions.Magic:
                         break;

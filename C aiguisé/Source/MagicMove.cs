@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 
 namespace C_aiguisé
-{
-    public class AttackMove : Move
+{ 
+    public class MagicMove : Move
     {
-        public AttackMove(int type,int damage,bool isAoe,bool isTargetingEnemy) { 
+        int _mpCost;
+        public MagicMove(int type, int damage, int mpCost, bool isAoe, bool isTargetingEnemy)
+        {
             _type = type;
             _damage = damage;
-            _isAoe = isAoe; 
+            _mpCost = mpCost;
+            _isAoe = isAoe;
             _isTargetingEnemy = isTargetingEnemy;
         }
     }
