@@ -26,10 +26,14 @@ public class Program
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
-        Tank role = new Tank();
+        Tank tank = new Tank();
+        Knight knight = new Knight();
         Weapon sword = new Weapon("Sword");
         Weapon knife = new Weapon("Knife");
-        EntityManager.CreatePlayer("Jean", sword, role);
+        EntityManager.CreatePlayer("Jean", sword, tank);
+        EntityManager.CreatePlayer("Pierre", knife, knight);
+
+        Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
         SceneManager.Init();
 /*        scene.SetBattle(battle);*/
@@ -38,21 +42,9 @@ public class Program
 
         /*battle.Start();*/
 
-        /*        Bag bag = new Bag();
-
-                bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
-
-                bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
         Save save = new Save();
-        save._mPlayer = new List<Player>() { EntityManager.players[0] };
-        save._mCurrentZone = "MainMenu";
-        save._mItem.Add(knife);
-        save._mItem.Add(sword);
-        save._mItemNumber.Add(1);
-        save._mItemNumber.Add(1);
-
-        /*save.SaveGame("../../../Content/Saves/Save1.json");*/
         save.LoadGame("../../../Content/Saves/Save1.json");
+
         while (true)
         {
             SceneManager.PreUpdate();
