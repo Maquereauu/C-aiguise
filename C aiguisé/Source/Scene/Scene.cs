@@ -59,12 +59,9 @@ namespace C_aiguisé
         {
 
         }
-
-        public Color CheckPixel()
+        public virtual void Swap()
         {
-            Bitmap b = new Bitmap("../../../Content/Map/map.bmp"); // récupérer la zone actuelle
-            Color pix = b.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2);
-            return pix;
+
         }
     }
 }

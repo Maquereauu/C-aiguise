@@ -23,7 +23,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-           
+            Swap();
         }
 
         public override void PostUpdate()
@@ -54,9 +54,11 @@ namespace C_aiguisé
 
         public static void Swap()
         {
-            if (EventManager._transform.GetCoordinates().x() == 148)
+            if (EventManager._transform.GetCoordinates().y() == 105/2)
             {
-                SceneManager.SwitchScene("House");
+                SceneManager.SwitchScene("Game");
+                EventManager._transform.SetPos(152,24) ;
+                Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             }
         }
     }

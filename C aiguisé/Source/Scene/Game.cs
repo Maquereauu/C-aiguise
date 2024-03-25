@@ -23,7 +23,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-            //DetectBattle();
+            DetectBattle();
             Swap();
         }
 
@@ -53,17 +53,21 @@ namespace C_aiguisé
 
         public static void DetectBattle()
         {
-            Bitmap b = new Bitmap("../../../Content/Map/map.bmp");
-            Color pix = b.GetPixel(0, 0);
+            Bitmap bm = new Bitmap("../../../Content/Map/map.bmp");
+            //byte a = 255;
+            byte r = 34;
+            byte g = 177;
+            byte b = 76;
+            //Color pix = { 34, 177, 76, 255 };
             for (int k = 0; k < 192; k++)
             {
                 for (int l = 0; l < 108; l++)
                 {
-                    Color grass = b.GetPixel(k,l);
+                    Color grass = bm.GetPixel(k,l);
 
                     
 
-                    if (grass == pix)
+                    if (grass.R == r && grass.G == g && grass.B == b)
                     {
                         if (EventManager._transform.GetCoordinates().x() == k && EventManager._transform.GetCoordinates().y() == l / 2)
                         {
@@ -82,12 +86,25 @@ namespace C_aiguisé
         }
 
 
-        public static void Swap()
+        public override void Swap()
         {
-            if (EventManager._transform.GetCoordinates().x() == 148 && EventManager._transform.GetCoordinates().y() == 12)
+            if (EventManager._transform.GetCoordinates().x() >= 148 && EventManager._transform.GetCoordinates().x() <= 155 && EventManager._transform.GetCoordinates().y() == 24/2)
             {
                 SceneManager.SwitchScene("House");
             }
+            if (EventManager._transform.GetCoordinates().x() >= 72 && EventManager._transform.GetCoordinates().x() <= 115 && EventManager._transform.GetCoordinates().y() == 0)
+            {
+                SceneManager.SwitchScene("House");
+            }
+            if (EventManager._transform.GetCoordinates().x() == 0 && EventManager._transform.GetCoordinates().y() >= 35/2 )
+            {
+                SceneManager.SwitchScene("House");
+            }
+            if (EventManager._transform.GetCoordinates().x() <= 116 && EventManager._transform.GetCoordinates().y() == 105/2)
+            {
+                SceneManager.SwitchScene("House");
+            }
+
         }
     }
 }

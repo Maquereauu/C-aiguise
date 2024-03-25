@@ -10,6 +10,7 @@ namespace C_aiguisé
     {
         public static List<Scene> _sceneList = new List<Scene>();
         public static Scene _currentScene = new MainMenu();
+        public static Scene CurrentScene { get { return _currentScene; } }
         public static Scene _previousScene = new MainMenu();
 
         public static void AddScene(Scene scene)
