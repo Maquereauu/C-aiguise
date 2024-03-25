@@ -71,14 +71,13 @@ namespace C_aiguisé
 
             for (int i = 0; i < loadedScene._item.Count; i++)
             {
-               /* Weapon weapon = new Weapon(loadedScene._item[i]._mName, loadedScene._item[i]._mIdamage)*/
                 Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
             }
 
             SceneManager.SwitchScene(loadedScene._currentZone);
 
-            List<Player> list = EntityManager.players;
-            Dictionary<Item, int> bag = Bag.GetBag();
+            /*List<Player> list = EntityManager.players;
+            Dictionary<Item, int> bag = Bag.GetBag();*/
         }
 
     }
