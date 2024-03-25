@@ -198,6 +198,7 @@ namespace C_aiguisé
                     EventManager._enter -= SelectMove;
                     EventManager._enter += ExecuteAction;
                     EventManager._backspace += Cancel;
+                    needsToUpdate += ShowAttack;
                     Console.Clear();
                     needsToUpdate?.Invoke();
                     break;
@@ -225,6 +226,18 @@ namespace C_aiguisé
         {
 
         }
+
+        public void ShowAttack()
+        {
+            for (int i = 0; i < _characters[_indexSpeedList]._mAttackMoves.Count; i++)
+                Console.WriteLine(_characters[_indexSpeedList]._mAttackMoves[i]._mName);
+        }
+
+        public void ShowMagic()
+        {
+            for (int i = 0; i < _characters[_indexSpeedList]._mMagicMoves.Count; i++)
+                Console.WriteLine(_characters[_indexSpeedList]._mMagicMoves[i]._mName);
+        }
         public void ExecuteAction()
         {
             if (Enemy)
@@ -232,8 +245,6 @@ namespace C_aiguisé
                 switch ((int)_selectedAction)
                 {
                     case (int)Actions.Attack:
-                        for (int i = 0; i < _characters[_indexSpeedList]._mAttackMoves.Count; i++)
-                            Console.WriteLine(_characters[_indexSpeedList]._mAttackMoves[i]);
                       /*  if(_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;

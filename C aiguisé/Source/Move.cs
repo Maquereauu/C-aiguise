@@ -13,6 +13,7 @@ namespace C_aiguisé
         protected int _damage;
         protected bool _isAoe;
         protected bool _isTargetingEnemy;
+        protected string _name;
         public int _mType
         {
             get { return _type; }
@@ -22,6 +23,11 @@ namespace C_aiguisé
         {
             get { return _damage; }
             protected set { _damage = value; }
+        }
+        public string _mName
+        {
+            get { return _name; }
+            protected set { _name = value; }
         }
     }
 }

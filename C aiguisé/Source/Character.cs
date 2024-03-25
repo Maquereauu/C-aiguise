@@ -108,6 +108,7 @@ namespace C_aiguisé
             _hp -= damage;
             if(_hp <= 0)
             {
+                _hp = 0;
                 _isDead = true;
             }
         }
@@ -119,7 +120,11 @@ namespace C_aiguisé
         }
         public void Heal(int hp)
         {
-            _hp += hp % _hpMax;
+            _hp += hp;
+            if(_hp > _hpMax)
+            {
+                _hp = _hpMax;
+            }
         }
         public virtual int Attack(Move move, Character character)
         {
