@@ -13,6 +13,7 @@ namespace C_aiguisé
         }
         public override void Init()
         {
+            _bitmap = new Bitmap("../../../Content/Map/maison.bmp");
             AddZone(new Zone("../../../Content/Map/maison.txt"));
             _map.SetCurrentZone();
         }
@@ -57,8 +58,8 @@ namespace C_aiguisé
             if (EventManager._transform.GetCoordinates().y() == 105/2)
             {
                 SceneManager.SwitchScene("Game");
-                EventManager._transform.SetPos(152,24) ;
-                Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
+                EventManager._transform.SetPos(148,24) ; //qu'est ce que quoi? 148,24 ça veut pas !!
+                //Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             }
         }
     }

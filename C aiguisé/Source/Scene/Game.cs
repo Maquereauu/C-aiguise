@@ -13,6 +13,7 @@ namespace C_aiguisé
         }
         public override void Init()
         {
+            _bitmap = new Bitmap("../../../Content/Map/map.bmp");
             AddZone(new Zone("../../../Content/Map/map.txt"));
             _map.SetCurrentZone();
         }
@@ -23,7 +24,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-            DetectBattle();
+            //DetectBattle();
             Swap();
         }
 
@@ -51,9 +52,9 @@ namespace C_aiguisé
             EventManager._menu -= OpenMenu;
         }
 
-        public static void DetectBattle()
+        public void DetectBattle()
         {
-            Bitmap bm = new Bitmap("../../../Content/Map/map.bmp");
+            
             //byte a = 255;
             byte r = 34;
             byte g = 177;
@@ -63,7 +64,8 @@ namespace C_aiguisé
             {
                 for (int l = 0; l < 108; l++)
                 {
-                    Color grass = bm.GetPixel(k,l);
+                   
+                    Color grass = _bitmap.GetPixel(k,l);
 
                     
 

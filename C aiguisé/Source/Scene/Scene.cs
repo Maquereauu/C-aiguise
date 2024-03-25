@@ -12,6 +12,7 @@ namespace C_aiguisé
         protected Map _map;
         protected Battle _battle;
         protected Bitmap _bitmap;
+        public Bitmap bitmap { get { return _bitmap; } }
 
         public Scene(string name)
         {
