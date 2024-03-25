@@ -50,9 +50,9 @@ namespace C_aiguisé
         }
         public static void OpenMenu()
         {
-            if (SceneManager.IsSceneExist("Main Menu"))
+            if (SceneManager.IsSceneExist("MainMenu"))
             {
-                SceneManager.SwitchScene("Main Menu");
+                SceneManager.SwitchScene("MainMenu");
             }
         }
 

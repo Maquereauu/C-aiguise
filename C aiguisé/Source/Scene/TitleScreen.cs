@@ -12,7 +12,7 @@ namespace C_aiguisé
         private List<(int, int)> _hudList;
         private (int, int) _test;
         private int _index;
-        public TitleScreen() : base("Title Screen")
+        public TitleScreen() : base("TitleScreen")
         {
             _hudList = new List<(int, int)>() { (30, 10), (50, 10), (70, 10) }; // list of pos (x, y)
             _test = (30, 10);

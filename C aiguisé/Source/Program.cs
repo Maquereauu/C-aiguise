@@ -41,7 +41,7 @@ public class Program
 
         SceneManager.Init();
 /*        scene.SetBattle(battle);*/
-        SceneManager.SwitchScene("Title Screen");
+        SceneManager.SwitchScene("TitleScreen");
         /*SceneManager.Display();*/
 
         /*battle.Start();*/
@@ -53,7 +53,7 @@ public class Program
                 bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
         Save save = new Save();
         save._mPlayer = new List<Character>() { EntityManager.players[0] };
-        save._mCurrentZone = "Main Menu";
+        save._mCurrentZone = "TitleScreen";
         save._mItem.Add(knife);
         save._mItem.Add(sword);
         save._mItemNumber.Add(1);

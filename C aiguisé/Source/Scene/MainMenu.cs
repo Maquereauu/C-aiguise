@@ -14,7 +14,7 @@ namespace C_aiguisé
         private List<string> _hudNameList;
         private (int, int) _hudPos;
         private int _index;
-        public MainMenu() : base("Main Menu")
+        public MainMenu() : base("MainMenu")
         {
             _hudPosList = new List<(int, int)>() {((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 4),
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 2),
