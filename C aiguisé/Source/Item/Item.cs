@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -11,16 +12,19 @@ namespace C_aiguisé
         private string _name;
         private bool _unique;
 
+        [JsonProperty]
         public string _mName
         {
             get { return _name; }
             protected set { _name = value; }
         }
+        [JsonProperty]
         public bool _mUnique
         {
             get { return _unique; }
             protected set { _unique = value; }
         }
+
         public Item(string name, bool unique)
         {
             _name = name;

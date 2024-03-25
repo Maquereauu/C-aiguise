@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,69 +28,105 @@ namespace C_aiguisé
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
-        protected List<AttackMove> attackMoves = new List<AttackMove>();
+        protected List<AttackMove> _attackMoves = new List<AttackMove>();
+
+        [JsonProperty]
         public float _mSpeed
         {
             get { return _speed; }
             protected set { _speed = value; }
         }
 
+        [JsonProperty]
         public string _mSprite
         {
             get { return _sprite; }
             protected set { _sprite = value; }
         }
 
+        [JsonProperty]
         public float _mHp
         {
             get { return _hp; }
             protected set { _hp = value; }
         }
-
+        [JsonProperty]
         public float _mHpMax
         {
             get { return _hpMax; }
             protected set { _hpMax = value; }
         }
 
+        [JsonProperty]
         public float _mMp
         {
             get { return _mp; }
             protected set { _mp = value; }
         }
 
+        [JsonProperty]
         public float _mMpMax
         {
             get { return _mpMax; }
             protected set { _mpMax = value; }
         }
 
+        [JsonProperty]
         public bool _mIsDead
         {
             get { return _isDead; }
             protected set { _isDead = value; }
         }
+        [JsonProperty]
         public string _mName
         {
             get { return _name; }
             protected set { _name = value; }
         }
 
+        [JsonProperty]
         public int _mDodgeChance
         {
             get { return _dodgeChance; }
             protected set { _dodgeChance = value; }
         }
+        [JsonProperty]
         public int _mCritChance
         {
             get { return _critChance; }
             protected set { _critChance = value; }
         }
+        [JsonProperty]
         public int _mCritDamage
         {
             get { return _critDamage; }
             protected set { _critDamage = value; }
         }
+        [JsonProperty]
+        public int _mLevel
+        {
+            get { return _level; }
+            protected set { _level = value; }
+        }
+        [JsonProperty]
+        public float _mExp
+        {
+            get { return _exp; }
+            protected set { _exp = value; }
+        }
+        [JsonProperty]
+        public string _mType
+        {
+            get { return _type; }
+            protected set { _type = value; }
+        }
+
+        public List<AttackMove> _mAttackMove
+        {
+            get { return _attackMoves; }
+            protected set { _attackMoves = value; }
+        }
+
         public void TakeDamage(int damage)
         {
             _hp -= damage;
@@ -130,7 +167,16 @@ namespace C_aiguisé
         }
         public void AddAttack(AttackMove attack)
         {
-            attackMoves.Add(attack);
+            _attackMoves.Add(attack);
+        }
+
+        public void AddAttack(List<AttackMove> attack)
+        {
+            for (int i=0; i<attack.Count; i++)
+            {
+                _attackMoves.Add(attack[i]);
+            }
+            
         }
     }
 }
