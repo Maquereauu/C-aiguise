@@ -42,8 +42,8 @@ public class Program
 
         /*battle.Start();*/
 
-        Save save = new Save();
-        save.LoadGame("../../../Content/Saves/Save1.json");
+/*        Save save = new Save();
+        save.LoadGame("../../../Content/Saves/Save1.json");*/
 
         while (true)
         {

@@ -75,8 +75,8 @@ namespace C_aiguisé
             }
 
             SceneManager.SwitchScene(loadedScene._currentZone);
-
-            /*List<Player> list = EntityManager.players;
+/*
+            List<Player> list = EntityManager.players;
             Dictionary<Item, int> bag = Bag.GetBag();*/
         }
 
