@@ -83,6 +83,7 @@ namespace C_aiguisé
                     SceneManager.SwitchScene("Game");
                     break;
                 case 2:
+                    SaveGame();
                     break;
                 case 3:
                     Environment.Exit(0);
@@ -99,6 +100,32 @@ namespace C_aiguisé
         {
             _index = Utils.MathHelper.Modulo(_index + 1, _hudPosList.Count);
             _hudPos = _hudPosList[_index];
+        }
+        public void SaveGame()
+        {
+            Save save = new Save();
+
+            // save players info
+            for (int i = 0; i < EntityManager.players.Count; i++)
+            {
+                save._mPlayer.Add(EntityManager.players[i]);
+            }
+
+            // save curretnScene
+            save._mCurrentZone = SceneManager._previousScene.ToString().Replace("C_aiguisé.", "");
+
+            // save inventory
+
+            foreach (var el in Bag._mBag)
+            {
+                save._mItem.Add(el.Key);
+                save._mItemNumber.Add(Bag._mBag[el.Key]);
+            }
+
+            save.SaveGame("../../../Content/Saves/Save1.json");
+
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("Game saved");
         }
     }
 }

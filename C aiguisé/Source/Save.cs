@@ -10,12 +10,12 @@ namespace C_aiguisé
     public class Save
     {
         // player
-        private List<Character> _player;
+        private List<Player> _player;
         private List<Item> _item;
         private List<int> _itemNumber;
         private string _currentZone;
 
-        public List<Character> _mPlayer
+        public List<Player> _mPlayer
         {
             get { return _player; }
             set { _player = value; }
@@ -37,7 +37,7 @@ namespace C_aiguisé
         }
         public Save()
         {
-            _player = new List<Character>();
+            _player = new List<Player>();
             _item = new List<Item>();   
             _itemNumber = new List<int>();
             _currentZone = "";
@@ -52,12 +52,32 @@ namespace C_aiguisé
         {
             Save loadedScene = FileReader.ReadFile(path);
 
+            for (int i = 0; i < loadedScene._player.Count; i++)
+            {
+                Player player = loadedScene._player[i];
+                EntityManager.CreatePlayer(player._mName, player._mHp, player._mHpMax,
+                    player._mMp, player._mMpMax, player._mLevel, player._mExp,
+                    player._mCritChance, player._mCritDamage, player._mDodgeChance,
+                    player._mType, player._mSpeed, player._mSprite, player._mIsDead,
+                    player._mAttackMove, player._mSummonBar,
+
+                    new Weapon(player._mWeapon._mName, player._mWeapon._mIdamage, player._mWeapon._mCritRate,
+                    player._mWeapon._mCritDamage, player._mWeapon._mType, player._mWeapon._mClass),
+
+                    Role.CreateRole(player._mRole._mId)
+                    
+                    );
+            }
+
             for (int i = 0; i < loadedScene._item.Count; i++)
             {
                 Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
             }
 
             SceneManager.SwitchScene(loadedScene._currentZone);
+
+            /*List<Player> list = EntityManager.players;
+            Dictionary<Item, int> bag = Bag.GetBag();*/
         }
 
     }

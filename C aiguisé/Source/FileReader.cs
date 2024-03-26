@@ -15,7 +15,7 @@ namespace C_aiguisé
             using StreamReader streamReader = new(filePath);
             string json = streamReader.ReadToEnd();
 
-            var save = JsonConvert.DeserializeObject<Save>(json);
+             var save = JsonConvert.DeserializeObject<Save>(json);
 
             return save;
         }
