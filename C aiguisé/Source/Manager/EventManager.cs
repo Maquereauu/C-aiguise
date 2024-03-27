@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace C_aiguisé
@@ -14,6 +16,7 @@ namespace C_aiguisé
         public static event Action _upArrow;
         public static event Action _enter;
         public static event Action _backspace;
+        public static string _lastTouch;
 
         public static event Action _menu;
 
@@ -23,19 +26,23 @@ namespace C_aiguisé
         public static void MoveLeft()
         {
             Movement(_transform, -1, 0, "P");
+            _lastTouch = "left";
         }
         public static void MoveRight() 
         {
             Movement(_transform, 1, 0, "P");
+            _lastTouch = "right";
         }
 
         public static void MoveUp() 
         {
             Movement(_transform, 0, -1, "P");
+            _lastTouch = "up";
         }
         public static void MoveDown() 
         {
             Movement(_transform, 0, 1, "P");
+            _lastTouch = "down";
         }
 
         public static void Movement(Transform coordinates, int x, int y, string dir)
@@ -57,18 +64,90 @@ namespace C_aiguisé
                 }
                 var key = Console.ReadKey(true).Key;
 
-                switch (key)
+                Scene Currentscene = SceneManager.CurrentScene;
+                Bitmap map = Currentscene.bitmap;
+           
+
+                    switch (key)
                 {
                     case ConsoleKey.LeftArrow:
-                        _leftArrow?.Invoke();
+                        if (EventManager._transform.GetCoordinates().x() > 0)
+                        {
+                            Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x() - 1, EventManager._transform.GetCoordinates().y() * 2);
+                            byte pixR = pix.R;
+
+                            byte pixG = pix.G;
+
+                            byte pixB = pix.B;
+                            if (pixR == 0 && pixG == 0 && pixB == 0)
+                            {
+                                return;
+                            }
+                        }
+                        
+                            _leftArrow?.Invoke();
                         break;
                     case ConsoleKey.RightArrow:
+                        if(EventManager._transform.GetCoordinates().x() < 192)
+                        {
+                            Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x() + 1, EventManager._transform.GetCoordinates().y() * 2);
+                            byte pixR = pix.R;
+
+                            byte pixG = pix.G;
+
+                            byte pixB = pix.B;
+                            if (pixR == 0 && pixG == 0 && pixB == 0)
+                            {
+                                return;
+                            }
+                        }
+                        
                         _rightArrow?.Invoke();
                         break;
                     case ConsoleKey.UpArrow:
+                        if(EventManager._transform.GetCoordinates().y() > 0)
+                        {
+                            Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2 - 2);
+                            byte pixR = pix.R;
+
+                            byte pixG = pix.G;
+
+                            byte pixB = pix.B;
+                            Color pix2 = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2 - 1);
+                            byte pix2R = pix2.R;
+
+                            byte pix2G = pix2.G;
+
+                            byte pix2B = pix2.B;
+                            if (pixR == 0 && pixG == 0 && pixB == 0 || pix2R == 0 && pix2G == 0 && pix2B == 0)
+                            {
+                                return;
+                            }
+                        }
+                        
                         _upArrow?.Invoke();
                         break;
                     case ConsoleKey.DownArrow:
+                        if(EventManager._transform.GetCoordinates().y() < 107/2)
+                        {
+                            Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2 + 1);
+                            byte pixR = pix.R;
+
+                            byte pixG = pix.G;
+
+                            byte pixB = pix.B;
+                            Color pix2 = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2 + 2);
+                            byte pix2R = pix2.R;
+
+                            byte pix2G = pix2.G;
+
+                            byte pix2B = pix2.B;
+                            if (pixR == 0 && pixG == 0 && pixB == 0 || pix2R == 0 && pix2G == 0 && pix2B == 0)
+                            {
+                                return;
+                            }
+                        }
+                        
                         _downArrow?.Invoke();
                         break;
                     case ConsoleKey.Enter:
