@@ -16,21 +16,17 @@ namespace C_aiguisé
         void DrawBox(string text,int i)
         {
 
-            int boxWidth = text.Length + 4; // Adjusting box width based on text length
+            int boxWidth = text.Length + 4;
             int boxHeight = 3;
 
-            // Top line of the box
             Console.Write("╔" + new string('═', boxWidth ) + "╗");
             Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 1);
-            // Middle lines with text
             Console.Write("║" + new string(' ', boxWidth) + "║");
             Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 2);
             Console.Write("║  " + text + "  ║");
             Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 3);
             Console.Write("║" + new string(' ', boxWidth ) + "║");
             Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 4);
-
-            // Bottom line of the box
             Console.Write("╚" + new string('═', boxWidth) + "╝");
         }
         public TitleScreen() : base("Title Screen")

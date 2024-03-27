@@ -48,13 +48,14 @@ namespace C_aiguisé
             _sprite = "gentil";
             _role.setPlayer(this);
             AddAttack(new AttackMove(0,40,false,true,"yo"));
+            AddAttack(new AttackMove(0, 20, false, true, "heheheha"));
         }
 
-        public int Attack()
+/*        public int Attack()
         {
             int damage = _weapon.GetDamage();
             return damage;
-        }
+        }*/
 
 
 
