@@ -129,11 +129,8 @@ namespace C_aiguisé
         }
         #endregion
 
-        public Character(string sprite)
+        public Character()
         {
-            _sprite = sprite;
-            (int, int) size = FileReader.GetSizeFromFile(_sprite);
-            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public void TakeDamage(int damage)

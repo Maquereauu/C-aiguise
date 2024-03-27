@@ -33,9 +33,9 @@ namespace C_aiguisé
         }
 
         [JsonConstructor]
-        public Player() : base("../../../Content/Role/Player.txt")  { }
+        public Player(){ }
 
-        public Player(string name, Weapon weapon, Role role) : base("../../../Content/Role/Player.txt")
+        public Player(string name, Weapon weapon, Role role)
         {
             _name = name;
             _weapon = weapon;
@@ -49,14 +49,17 @@ namespace C_aiguisé
             _dodgeChance = 0;
             _speed = 1.0f;
             _summonBar = 0;
+            _sprite = _role._mSprite;
             _role.setPlayer(this);
             AddAttack(new AttackMove(0,false,40,0,false,true));
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
-            int critChance, int critDamage, int dodgeChance, string type, float speed, string sprite, bool isDead,
+            int critChance, int critDamage, int dodgeChance, string type, float speed, bool isDead,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
-            : base("../../../Content/Role/Player.txt")
         {
             _name = name;
             _weapon = weapon;
@@ -70,13 +73,16 @@ namespace C_aiguisé
             _dodgeChance = dodgeChance;
             _speed = speed;
             _summonBar = summonBar;
-            _sprite = sprite;
+            _sprite = _role._mSprite;
             _critChance = critChance;
             _critDamage = critDamage;
             _type = type;
             _isDead = isDead;
             _role.setPlayer(this);
             AddAttack(attackMove);
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public int Attack()

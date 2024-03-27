@@ -10,6 +10,7 @@ namespace C_aiguisé
     {
         protected int _id;
         protected Player _player;
+        protected string _sprite;
 
         [JsonProperty]
         public int _mId
@@ -17,9 +18,16 @@ namespace C_aiguisé
             get { return _id; }
             protected set { _id = value; }
         }
-
-        public Role() 
+        [JsonProperty]
+        public string _mSprite
         {
+            get { return _sprite; }
+            protected set { _sprite = value; }
+        }
+
+        public Role(string sprite) 
+        {
+            _sprite = sprite;
         }
         public void setPlayer(Player player)
         {

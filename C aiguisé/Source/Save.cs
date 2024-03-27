@@ -58,7 +58,7 @@ namespace C_aiguisé
                 EntityManager.CreatePlayer(player._mName, player._mHp, player._mHpMax,
                     player._mMp, player._mMpMax, player._mLevel, player._mExp,
                     player._mCritChance, player._mCritDamage, player._mDodgeChance,
-                    player._mType, player._mSpeed, player._mSprite, player._mIsDead,
+                    player._mType, player._mSpeed, player._mIsDead,
                     player._mAttackMove, player._mSummonBar,
 
                     new Weapon(player._mWeapon._mName, player._mWeapon._mIdamage, player._mWeapon._mCritRate,

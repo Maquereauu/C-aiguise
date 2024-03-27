@@ -10,7 +10,10 @@
         "_mName": "Sword",
         "_mUnique": true
       },
-      "_mRole": { "_mId": 2 },
+      "_mRole": {
+        "_mId": 2,
+        "_mSprite": "../../../Content/Role/Player.txt"
+      },
       "_mSummonBar": 0,
       "_mSpeed": 1.0,
       "_mSprite": "../../../Content/Role/Player.txt",
@@ -48,7 +51,10 @@
         "_mName": "Knife",
         "_mUnique": true
       },
-      "_mRole": { "_mId": 1 },
+      "_mRole": {
+        "_mId": 1,
+        "_mSprite": "../../../Content/Role/Player.txt"
+      },
       "_mSummonBar": 0,
       "_mSpeed": 1.0,
       "_mSprite": "../../../Content/Role/Player.txt",
