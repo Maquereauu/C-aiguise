@@ -49,6 +49,7 @@ namespace C_aiguisé
             _role.setPlayer(this);
             AddAttack(new AttackMove(0,40,false,true,"yo"));
             AddAttack(new AttackMove(0, 20, false, true, "heheheha"));
+            AddMagic(new MagicMove(0, 20,20, false, true, "Salut"));
         }
 
 /*        public int Attack()

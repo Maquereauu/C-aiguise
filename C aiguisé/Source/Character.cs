@@ -20,10 +20,10 @@ namespace C_aiguisé
         protected float _mpMax;
         protected int _level;
         protected float _exp;
-        protected int _critChance = 5;
+        protected int _critChance = 10;
         protected int _critDamage = 20;
         protected int _dodgeChance = 0;
-        protected int _type;
+        protected int _type = 0;
         protected float _speed;
         protected string _sprite;
         protected bool _isDead = false;
@@ -129,6 +129,14 @@ namespace C_aiguisé
         public virtual int Attack(Move move, Character character)
         {
             Random random = new Random();
+            if(move._mMpCost != null)
+            {
+                this._mp -= move._mMpCost;
+/*                if (this._mp < 0)
+                {
+                    _mp = 0;
+                }*/
+            }
             if (random.Next(101) < character._mDodgeChance) {
                 return 0;
             }

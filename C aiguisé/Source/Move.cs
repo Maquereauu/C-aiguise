@@ -14,6 +14,8 @@ namespace C_aiguisé
         protected bool _isAoe;
         protected bool _isTargetingEnemy;
         protected string _name;
+        protected int _mpCost;
+
         public int _mType
         {
             get { return _type; }
@@ -28,6 +30,11 @@ namespace C_aiguisé
         {
             get { return _name; }
             protected set { _name = value; }
+        }
+        public int _mMpCost
+        {
+            get { return _mpCost; }
+            protected set { _mpCost = value; }
         }
     }
 }

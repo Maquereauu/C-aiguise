@@ -263,6 +263,18 @@ namespace C_aiguisé
                     break;
                 case (int)Actions.Magic:
                     Console.WriteLine("magic!");
+                    EventManager._downArrow -= switchActionDown;
+                    EventManager._downArrow += switchMagicDown;
+                    EventManager._upArrow -= switchActionUp;
+                    EventManager._upArrow += switchMagicUp;
+                    EventManager._rightArrow -= switchActionRight;
+                    EventManager._leftArrow -= switchActionLeft;
+                    EventManager._enter -= SelectMove;
+                    EventManager._enter += SelectTarget;
+                    EventManager._backspace += Cancel1;
+                    needsToUpdate += ShowMagic;
+                    Console.Clear();
+                    needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Item:
                     Console.WriteLine("item!");
@@ -270,6 +282,7 @@ namespace C_aiguisé
                 case (int)Actions.Flee:
                     Console.WriteLine("flee!");
                     Flee = true;
+                    needsToUpdate?.Invoke();
                     break;
             }
 /*            EventManager._downArrow -= switchActionDown;
@@ -296,10 +309,23 @@ namespace C_aiguisé
                         EventManager._enter -= SelectTarget;
                         EventManager._enter += ExecuteAction;
                         EventManager._backspace += Cancel2;
+                        EventManager._backspace -= Cancel1;
                         Console.Clear();
                         needsToUpdate?.Invoke(); 
                         break;
                     case (int)Actions.Magic:
+                        if (_allies[_indexSpeedList]._mMp < _allies[_indexSpeedList]._mMagicMoves[_selectedMagic]._mMpCost)
+                            return;
+                        EventManager._downArrow -= switchMagicDown;
+                        EventManager._downArrow += switchTargetDown;
+                        EventManager._upArrow -= switchMagicUp;
+                        EventManager._upArrow += switchTargetUp;
+                        EventManager._enter -= SelectTarget;
+                        EventManager._enter += ExecuteAction;
+                        EventManager._backspace += Cancel2;
+                        EventManager._backspace -= Cancel1;
+                        Console.Clear();
+                        needsToUpdate?.Invoke();
                         break;
                     case (int)Actions.Item:
                         break;
@@ -354,8 +380,29 @@ namespace C_aiguisé
 
         public void ShowMagic()
         {
+            Console.SetCursorPosition(90, 19);
+            Console.Write("╔" + new string('═', 40) + "╗");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.SetCursorPosition(90, 20 + i);
+                Console.Write("║" + new string(' ', 40) + "║");
+            }
+            Console.SetCursorPosition(90, 30);
+            Console.Write("╚" + new string('═', 40) + "╝");
+            Console.SetCursorPosition(100, 20);
             for (int i = 0; i < _characters[_indexSpeedList]._mMagicMoves.Count; i++)
-                Console.WriteLine(_characters[_indexSpeedList]._mMagicMoves[i]._mName);
+            {
+                if (i == _selectedMagic)
+                {
+                    Console.SetCursorPosition(100, 21 + i);
+                    Console.Write(">" + _characters[_indexSpeedList]._mMagicMoves[i]._mName);
+                }
+                else
+                {
+                    Console.SetCursorPosition(100, 21 + i);
+                    Console.Write(_characters[_indexSpeedList]._mMagicMoves[i]._mName);
+                }
+            }
         }
 
         public void ShowTarget()
@@ -378,6 +425,11 @@ namespace C_aiguisé
                         _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
                         break;
                     case (int)Actions.Magic:
+                        if (_enemies[_selectedTarget]._mHp <= 0)
+                        {
+                            return;
+                        }
+                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
                         break;
                     case (int)Actions.Item:
                         break;
@@ -420,20 +472,38 @@ namespace C_aiguisé
             EventManager._leftArrow += switchActionLeft;
             //EventManager._upArrow -= switchItemUp;
             needsToUpdate -= ShowAttack;
+            needsToUpdate -= ShowMagic;
             EventManager._enter += SelectMove;
             EventManager._enter -= SelectTarget;
+            Console.Clear();
+            needsToUpdate?.Invoke();
         }
         public void Cancel2()
-        { //à faire
+        { 
             EventManager._backspace -= Cancel2;
-            EventManager._downArrow += switchActionDown;
             EventManager._downArrow -= switchAttackDown;
             EventManager._downArrow -= switchMagicDown;
             //EventManager._downArrow -= switchItemDown;
+            EventManager._downArrow -= switchTargetDown;
+            /*EventManager._downArrow += switchActionDown;*/
+
+            EventManager._upArrow -= switchAttackUp;
+            EventManager._upArrow -= switchMagicUp;
+            //EventManager._upArrow -= switchItemup;
+            EventManager._upArrow -= switchTargetUp;
+            /*EventManager._upArrow += switchActionUp;*/
+
+
+            /*EventManager._rightArrow += switchActionRight;
+            EventManager._leftArrow += switchActionLeft;*/
 
             EventManager._enter += SelectMove;
             EventManager._enter -= ExecuteAction;
-            
+            needsToUpdate -= ShowTarget;
+            Cancel1();
+            Console.Clear();
+            needsToUpdate?.Invoke();
+
         }
         public void Update()
         {
