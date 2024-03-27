@@ -614,11 +614,20 @@ namespace C_aiguisé
             }
             if(_indexSpeedList >= _allies.Count + _summons.Count)
             {
-                _allies[0].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _allies[0]));
-                checkTurn();
-                addSpeed();
-                Console.Clear();
-                needsToUpdate?.Invoke();
+                Random random = new Random();
+                while (true)
+                {
+                    int target = random.Next(_allies.Count);
+                    if (_allies[target]._mIsDead == false)
+                    {
+                        _allies[target].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _allies[target]));
+                        checkTurn();
+                        addSpeed();
+                        Console.Clear();
+                        needsToUpdate?.Invoke();
+                        break;
+                    }
+                }
             }
         }
 
