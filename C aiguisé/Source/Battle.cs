@@ -222,7 +222,7 @@ namespace C_aiguisé
                 Console.SetCursorPosition(30, 3 + 10 * i + 2);
                 Console.Write(_allies[i]._mMp + "/" + _allies[i]._mMpMax);
                 Console.SetCursorPosition(30, 3 + 10 * i + 3);
-                Console.Write(_allies[i]._mSprite);
+                Console.Write(File.ReadAllText(_allies[i]._mSprite));
             }
             for (int i = 0; i < _enemies.Count; i++)
             {
@@ -233,7 +233,7 @@ namespace C_aiguisé
                 Console.SetCursorPosition(170, 3 + 10 * i + 2);
                 Console.Write(_enemies[i]._mMp + "/" + _enemies[i]._mMpMax);
                 Console.SetCursorPosition(170, 3 + 10 * i + 3);
-                Console.Write(_enemies[i]._mSprite);
+                Console.Write(File.ReadAllText(_enemies[i]._mSprite));
             }
             for (int i = 0; i < _summons.Count; i++)
             {

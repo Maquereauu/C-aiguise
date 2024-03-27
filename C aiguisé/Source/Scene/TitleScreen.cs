@@ -81,9 +81,17 @@ namespace C_aiguisé
             switch (_index)
             {
                 case 0:
-                    SceneManager.SwitchScene("Game");
+                    Tank tank = new Tank();
+                    Knight knight = new Knight();
+                    Weapon sword = new Weapon("Sword");
+                    Weapon knife = new Weapon("Knife");
+                    EntityManager.CreatePlayer("Jean", sword, tank);
+                    EntityManager.CreatePlayer("Pierre", knife, knight);
+                    Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
+                    SceneManager.SwitchScene("BattleScene");
                     break;
                 case 1:
+
                     break;
                 case 2:
                     Environment.Exit(0);
