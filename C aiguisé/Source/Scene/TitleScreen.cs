@@ -82,11 +82,15 @@ namespace C_aiguisé
             {
                 case 0:
                     Tank tank = new Tank();
-                    Knight knight = new Knight();
+                    WhiteWizard him = new WhiteWizard();
                     Weapon sword = new Weapon("Sword");
                     Weapon knife = new Weapon("Knife");
                     EntityManager.CreatePlayer("Jean", sword, tank);
-                    EntityManager.CreatePlayer("Pierre", knife, knight);
+                    EntityManager.CreatePlayer("Gojo", knife, him);
+                    tank.setPlayer(EntityManager.players[0]);
+                    him.setPlayer(EntityManager.players[1]);
+                    tank.setAttack();
+                    him.setAttack();
                     Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
                     SceneManager.SwitchScene("BattleScene");
                     break;

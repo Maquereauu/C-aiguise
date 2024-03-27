@@ -25,7 +25,7 @@ namespace C_aiguisé
         protected int _critDamage = 20;
         protected int _dodgeChance = 0;
         protected int _type = 0;
-        protected float _speed;
+        protected int _speed;
         protected string _sprite;
         protected bool _isDead = false;
         protected List<AttackMove> _attackMoves = new List<AttackMove>();
@@ -33,7 +33,7 @@ namespace C_aiguisé
 
         #region get/set
         [JsonProperty]
-        public float _mSpeed
+        public int _mSpeed
         {
             get { return _speed; }
             protected set { _speed = value; }
@@ -90,7 +90,7 @@ namespace C_aiguisé
         public int _mDodgeChance
         {
             get { return _dodgeChance; }
-            protected set { _dodgeChance = value; }
+            set { _dodgeChance = value; }
         }
         [JsonProperty]
         public int _mCritChance

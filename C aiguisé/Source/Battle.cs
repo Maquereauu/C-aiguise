@@ -208,6 +208,8 @@ namespace C_aiguisé
         {
             needsToUpdate += Display;
             needsToUpdate += Update;
+            checkTurn();
+            addSpeed();
             needsToUpdate?.Invoke();
         }
 
@@ -222,7 +224,16 @@ namespace C_aiguisé
                 Console.SetCursorPosition(30, 3 + 10 * i + 2);
                 Console.Write(_allies[i]._mMp + "/" + _allies[i]._mMpMax);
                 Console.SetCursorPosition(30, 3 + 10 * i + 3);
-                Console.Write(File.ReadAllText(_allies[i]._mSprite));
+
+
+                string spriteText = File.ReadAllText(_allies[i]._mSprite);
+                string[] lines = spriteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.Write(line);
+                    Console.SetCursorPosition(30, Console.CursorTop + 1);
+                }
+                /*Console.Write(File.ReadAllText(_allies[i]._mSprite));*/
             }
             for (int i = 0; i < _enemies.Count; i++)
             {
@@ -233,7 +244,14 @@ namespace C_aiguisé
                 Console.SetCursorPosition(170, 3 + 10 * i + 2);
                 Console.Write(_enemies[i]._mMp + "/" + _enemies[i]._mMpMax);
                 Console.SetCursorPosition(170, 3 + 10 * i + 3);
-                Console.Write(File.ReadAllText(_enemies[i]._mSprite));
+                string spriteText = File.ReadAllText(_enemies[i]._mSprite);
+                string[] lines = spriteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.Write(line);
+                    Console.SetCursorPosition(170, Console.CursorTop + 1);
+                }
+                //Console.Write(File.ReadAllText(_enemies[i]._mSprite));
             }
             for (int i = 0; i < _summons.Count; i++)
             {
@@ -466,7 +484,7 @@ namespace C_aiguisé
             EventManager._downArrow -= switchMagicDown;
             //EventManager._downArrow -= switchItemDown;
             EventManager._upArrow += switchActionUp;
-            EventManager._upArrow -= switchMagicUp;
+            EventManager._upArrow -= switchAttackUp;
             EventManager._upArrow -= switchMagicUp;
             EventManager._rightArrow += switchActionRight;
             EventManager._leftArrow += switchActionLeft;
@@ -596,7 +614,7 @@ namespace C_aiguisé
             }
             if(_indexSpeedList >= _allies.Count + _summons.Count)
             {
-                _allies[0].TakeDamage(10);
+                _allies[0].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _allies[0]));
                 checkTurn();
                 addSpeed();
                 Console.Clear();
