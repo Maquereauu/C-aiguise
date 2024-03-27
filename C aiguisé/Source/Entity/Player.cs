@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace C_aiguisé
 {
@@ -14,15 +15,15 @@ namespace C_aiguisé
         protected int _summonBar = 0;
         public Weapon _mWeapon
         {
-        get { return _weapon; }
-        protected set { _weapon = value; }
+            get { return _weapon; }
+            set { _weapon = value; }
 
         }
 
         public Role _mRole
         {
             get { return _role; }
-            protected set { _role = value; }
+            set { _role = value; }
         }
 
         public int _mSummonBar
@@ -30,6 +31,9 @@ namespace C_aiguisé
             get { return _summonBar; }
             set { _summonBar = value; }
         }
+
+        [JsonConstructor]
+        public Player(){ }
 
         public Player(string name, Weapon weapon, Role role)
         {
@@ -45,11 +49,40 @@ namespace C_aiguisé
             _dodgeChance = 0;
             _speed = 1.0f;
             _summonBar = 0;
-            _sprite = "gentil";
+            _sprite = _role._mSprite;
             _role.setPlayer(this);
-            AddAttack(new AttackMove(0,40,false,true,"yo"));
-            AddAttack(new AttackMove(0, 20, false, true, "heheheha"));
-            AddMagic(new MagicMove(0, 20,20, false, true, "Salut"));
+            AddAttack(new AttackMove(0,false,40,0,false,true));
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
+        }
+
+        public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
+            int critChance, int critDamage, int dodgeChance, string type, float speed, bool isDead,
+            List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
+        {
+            _name = name;
+            _weapon = weapon;
+            _role = role;
+            _hpMax = hpMax;
+            _mpMax = mpMax;
+            _hp = hp;
+            _mp = mp;
+            _level = level;
+            _exp = exp;
+            _dodgeChance = dodgeChance;
+            _speed = speed;
+            _summonBar = summonBar;
+            _sprite = _role._mSprite;
+            _critChance = critChance;
+            _critDamage = critDamage;
+            _type = type;
+            _isDead = isDead;
+            _role.setPlayer(this);
+            AddAttack(attackMove);
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
 /*        public int Attack()

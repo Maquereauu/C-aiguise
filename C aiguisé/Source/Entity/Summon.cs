@@ -7,7 +7,7 @@ namespace C_aiguisé
 {
     public class Summon : Character
     {
-        public Summon()
+        public Summon(string sprite)
         {
             _hpMax = 100;
             _mpMax = 100;
@@ -17,6 +17,10 @@ namespace C_aiguisé
             _exp = 0.0f;
             _dodgeChance = 0;
             _speed = 0.5f;
+            _sprite = sprite;
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
         public override void Update()
         {

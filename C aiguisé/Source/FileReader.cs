@@ -10,21 +10,39 @@ namespace C_aiguisé
 {
     public static class FileReader
     {
-        public static Save ReadFile(string filePath)
+        public static Save ReadJsonFile(string filePath)
         {
             using StreamReader streamReader = new(filePath);
             string json = streamReader.ReadToEnd();
 
-            var save = JsonConvert.DeserializeObject<Save>(json);
+             var save = JsonConvert.DeserializeObject<Save>(json);
 
             return save;
         }
 
-        public static void WriteFile(Save save, string filePath) 
+        public static void WriteJsonFile(Save save, string filePath) 
         {
             File.Delete(filePath);
             string json = JsonConvert.SerializeObject(save);
             File.WriteAllText(filePath, json);
+        }
+
+        public static (int, int) GetSizeFromFile(string filePath)
+        {
+            string[] file = File.ReadAllText(filePath).Split("\r\n");
+
+            int sizeY = file.Length;
+            int sizeX = 0;
+
+            foreach (string line in file)
+            {
+                if (line.Length > sizeX)
+                {
+                    sizeX = line.Length;
+                }
+            }
+
+            return (sizeX, sizeY);
         }
     }
 }

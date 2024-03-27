@@ -26,42 +26,30 @@ public class Program
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
-        /*Cmd.test();*/
-
+        Tank tank = new Tank();
+        Knight knight = new Knight();
         Weapon sword = new Weapon("Sword");
         Weapon knife = new Weapon("Knife");
-        EntityManager.CreatePlayer();
-       /* Player player = new Player("noeil", sword, new Tank());*/
-/*        Enemy enemy = new Enemy();
-        Enemy enemy1 = new Enemy();
-        List<Player> playerlist = new List<Player>() { player };
-        List<Enemy> enemylist = new List<Enemy>() { enemy, enemy1 };
-        List<Summon> summonlist = new List<Summon>();
-        Battle battle = new Battle(playerlist, summonlist, enemylist) ;*/
+        EntityManager.CreatePlayer("Jean", sword, tank);
+        EntityManager.CreatePlayer("Pierre", knife, knight);
+
+        Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
         SceneManager.Init();
 /*        scene.SetBattle(battle);*/
-        //SceneManager.SwitchScene("Title Screen");
-        SceneManager.SwitchScene("BattleScene");
+        SceneManager.SwitchScene("TitleScreen");
         /*SceneManager.Display();*/
 
         /*battle.Start();*/
 
-        /*        Bag bag = new Bag();
+        /*        Save save = new Save();
+                save.LoadGame("../../../Content/Saves/Save1.json");*/
 
-                bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
-
-                bag.RemoveItem(new List<Item>() { sword, knife }, new List<int>() { 1, 4 });*/
-     /*   Save save = new Save();
-        save._mPlayer = new List<Character>() { EntityManager.players[0] };
-        save._mCurrentZone = "Main Menu";
-        save._mItem.Add(knife);
-        save._mItem.Add(sword);
-        save._mItemNumber.Add(1);
-        save._mItemNumber.Add(1);
+        //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
+        FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
 
         save.SaveGame("../../../Content/Saves/Save1.json");
-        save.LoadGame("../../../Content/Saves/Save1.json");*/
+        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
             SceneManager.PreUpdate();

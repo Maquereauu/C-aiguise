@@ -29,8 +29,8 @@ namespace C_aiguisé
         public override void LoadScene()
         {
             Console.CursorVisible = false;
-            Enemy enemy = new Enemy();
-            Enemy enemy1 = new Enemy();
+            Enemy enemy = new Enemy("../../../Content/Role/Enemy.txt");
+            Enemy enemy1 = new Enemy("../../../Content/Role/Enemy.txt");
             List<Summon> summons = new List<Summon>();
             List<Enemy> enemies = new List<Enemy>() { enemy,enemy1};
             _battle = new Battle(EntityManager.players, summons,enemies);

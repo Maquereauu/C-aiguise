@@ -7,7 +7,7 @@ namespace C_aiguisé
 {
     public class Enemy : Character
     {
-        public Enemy()
+        public Enemy(string sprite)
         {
             _name = "mon ennemi oh la misère";
             _hpMax = 100;
@@ -18,7 +18,10 @@ namespace C_aiguisé
             _exp = 0.0f;
             _dodgeChance = 0;
             _speed = 0.5f;
-            _sprite = "méchant";
+            _sprite = sprite;
+
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
         public override void Update()
         {
