@@ -47,21 +47,24 @@ namespace C_aiguisé
             {
                 return;
             }
-            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2);
+            string sprite = File.ReadAllText(EntityManager.players[1]._mSprite) ;
+            int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
+            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() / y);
             byte pixR = pix.R;
             
             byte pixG = pix.G;
           
             byte pixB = pix.B;
             
+            
             if(pixR ==0 && pixG ==0 && pixB == 0)
             {
                 //EventManager._transform.SetPos(EventManager._transform._mCoordinates.x()-1, EventManager._transform._mCoordinates.y() * 2);
-                Console.Write("\x1b[37;40mP");
+                Console.Write("\x1b[37;40m" + sprite);
             }
             else
             {
-                Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "mP");
+                Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "m" + sprite);
             }
         }
 

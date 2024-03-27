@@ -26,8 +26,9 @@ namespace C_aiguisé
             base.Update();
             Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
+            
             //Console.Write("P");
-            DetectBattle();
+           //DetectBattle();
             Swap();
         }
 
@@ -78,7 +79,7 @@ namespace C_aiguisé
                         {
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
-                            int battleRate = rnd.Next(10);
+                            int battleRate = rnd.Next(20);
                             if(battleRate == 0)
                             {
                                 SceneManager.SwitchScene("BattleScene");
@@ -93,6 +94,8 @@ namespace C_aiguisé
 
         public override void Swap()
         {
+            int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
+            int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
             if (EventManager._transform._mCoordinates.x() >= 148 && EventManager._transform._mCoordinates.x() <= 155 && EventManager._transform._mCoordinates.y() == 24/2 && EventManager._lastTouch == "up")
             {
                 EventManager._transform.SetPos(192/2, 107 / 2);

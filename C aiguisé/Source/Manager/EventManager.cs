@@ -66,9 +66,10 @@ namespace C_aiguisé
 
                 Scene Currentscene = SceneManager.CurrentScene;
                 Bitmap map = Currentscene.bitmap;
-           
+                int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
+                int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
 
-                    switch (key)
+                switch (key)
                 {
                     case ConsoleKey.LeftArrow:
                         if (EventManager._transform._mCoordinates.x() > 0 && map != null)
