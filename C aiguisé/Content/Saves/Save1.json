@@ -1,1 +1,102 @@
-{"_mPlayer":[{"_mWeapon":{"_mIdamage":10,"_mCritRate":0,"_mCritDamage":0,"_mType":"","_mClass":"","_mName":"Sword","_mUnique":true},"_mRole":{"_mId":2},"_mSummonBar":0,"_mSpeed":1.0,"_mSprite":"gentil","_mHp":100.0,"_mHpMax":100.0,"_mMp":100.0,"_mMpMax":100.0,"_mIsDead":false,"_mName":"Jean","_mDodgeChance":0,"_mCritChance":5,"_mCritDamage":20,"_mLevel":1,"_mExp":0.0,"_mType":null,"_mAttackMove":[{}],"_mTranform":{"_mCoordinates":{"_mX":0,"_mY":0}}},{"_mWeapon":{"_mIdamage":10,"_mCritRate":0,"_mCritDamage":0,"_mType":"","_mClass":"","_mName":"Knife","_mUnique":true},"_mRole":{"_mId":1},"_mSummonBar":0,"_mSpeed":1.0,"_mSprite":"gentil","_mHp":100.0,"_mHpMax":100.0,"_mMp":100.0,"_mMpMax":100.0,"_mIsDead":false,"_mName":"Pierre","_mDodgeChance":0,"_mCritChance":5,"_mCritDamage":20,"_mLevel":1,"_mExp":0.0,"_mType":null,"_mAttackMove":[{}],"_mTranform":{"_mCoordinates":{"_mX":0,"_mY":0}}}],"_mItem":[{"_mIdamage":10,"_mCritRate":0,"_mCritDamage":0,"_mType":"","_mClass":"","_mName":"Sword","_mUnique":true},{"_mIdamage":10,"_mCritRate":0,"_mCritDamage":0,"_mType":"","_mClass":"","_mName":"Knife","_mUnique":true}],"_mItemNumber":[1,1],"_mCurrentZone":"Game"}
+{
+  "_mPlayer": [
+    {
+      "_mWeapon": {
+        "_mIdamage": 10,
+        "_mCritRate": 0,
+        "_mCritDamage": 0,
+        "_mType": "",
+        "_mClass": "",
+        "_mName": "Sword",
+        "_mUnique": true
+      },
+      "_mRole": { "_mId": 2 },
+      "_mSummonBar": 0,
+      "_mSpeed": 1.0,
+      "_mSprite": "../../../Content/Role/Player.txt",
+      "_mHp": 100.0,
+      "_mHpMax": 100.0,
+      "_mMp": 100.0,
+      "_mMpMax": 100.0,
+      "_mIsDead": false,
+      "_mName": "Jean",
+      "_mDodgeChance": 0,
+      "_mCritChance": 5,
+      "_mCritDamage": 20,
+      "_mLevel": 1,
+      "_mExp": 0.0,
+      "_mType": null,
+      "_mAttackMove": [ {} ],
+      "_mTranform": {
+        "_mCoordinates": {
+          "_mX": 0,
+          "_mY": 0
+        },
+        "_mSize": {
+          "_mX": 17,
+          "_mY": 10
+        }
+      }
+    },
+    {
+      "_mWeapon": {
+        "_mIdamage": 10,
+        "_mCritRate": 0,
+        "_mCritDamage": 0,
+        "_mType": "",
+        "_mClass": "",
+        "_mName": "Knife",
+        "_mUnique": true
+      },
+      "_mRole": { "_mId": 1 },
+      "_mSummonBar": 0,
+      "_mSpeed": 1.0,
+      "_mSprite": "../../../Content/Role/Player.txt",
+      "_mHp": 100.0,
+      "_mHpMax": 100.0,
+      "_mMp": 100.0,
+      "_mMpMax": 100.0,
+      "_mIsDead": false,
+      "_mName": "Pierre",
+      "_mDodgeChance": 0,
+      "_mCritChance": 5,
+      "_mCritDamage": 20,
+      "_mLevel": 1,
+      "_mExp": 0.0,
+      "_mType": null,
+      "_mAttackMove": [ {} ],
+      "_mTranform": {
+        "_mCoordinates": {
+          "_mX": 0,
+          "_mY": 0
+        },
+        "_mSize": {
+          "_mX": 17,
+          "_mY": 10
+        }
+      }
+    }
+  ],
+  "_mItem": [
+    {
+      "_mIdamage": 10,
+      "_mCritRate": 0,
+      "_mCritDamage": 0,
+      "_mType": "",
+      "_mClass": "",
+      "_mName": "Sword",
+      "_mUnique": true
+    },
+    {
+      "_mIdamage": 10,
+      "_mCritRate": 0,
+      "_mCritDamage": 0,
+      "_mType": "",
+      "_mClass": "",
+      "_mName": "Knife",
+      "_mUnique": true
+    }
+  ],
+  "_mItemNumber": [ 1, 1 ],
+  "_mCurrentZone": "Game"
+}

@@ -45,12 +45,12 @@ namespace C_aiguisé
 
         public void SaveGame(string path)
         {
-            FileReader.WriteFile(this, path);
+            FileReader.WriteJsonFile(this, path);
         }
 
         public void LoadGame(string path)
         {
-            Save loadedScene = FileReader.ReadFile(path);
+            Save loadedScene = FileReader.ReadJsonFile(path);
 
             for (int i = 0; i < loadedScene._player.Count; i++)
             {

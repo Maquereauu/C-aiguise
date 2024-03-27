@@ -30,6 +30,7 @@ namespace C_aiguisé
         protected bool _isDead = false;
         protected List<AttackMove> _attackMoves = new List<AttackMove>();
 
+        #region get/set
         [JsonProperty]
         public float _mSpeed
         {
@@ -125,6 +126,14 @@ namespace C_aiguisé
         {
             get { return _attackMoves; }
             protected set { _attackMoves = value; }
+        }
+        #endregion
+
+        public Character(string sprite)
+        {
+            _sprite = sprite;
+            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public void TakeDamage(int damage)

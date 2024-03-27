@@ -33,9 +33,9 @@ namespace C_aiguisé
         }
 
         [JsonConstructor]
-        public Player() { }
+        public Player() : base("../../../Content/Role/Player.txt")  { }
 
-        public Player(string name, Weapon weapon, Role role)
+        public Player(string name, Weapon weapon, Role role) : base("../../../Content/Role/Player.txt")
         {
             _name = name;
             _weapon = weapon;
@@ -49,7 +49,6 @@ namespace C_aiguisé
             _dodgeChance = 0;
             _speed = 1.0f;
             _summonBar = 0;
-            _sprite = "gentil";
             _role.setPlayer(this);
             AddAttack(new AttackMove(0,false,40,0,false,true));
         }
@@ -57,6 +56,7 @@ namespace C_aiguisé
         public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
             int critChance, int critDamage, int dodgeChance, string type, float speed, string sprite, bool isDead,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
+            : base("../../../Content/Role/Player.txt")
         {
             _name = name;
             _weapon = weapon;

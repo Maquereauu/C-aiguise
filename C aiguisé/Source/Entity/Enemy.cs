@@ -7,7 +7,7 @@ namespace C_aiguisé
 {
     public class Enemy : Character
     {
-        public Enemy()
+        public Enemy() : base("../../../Content/Role/Enemy.txt")
         {
             _name = "mon ennemi oh la misère";
             _hpMax = 100;
@@ -18,7 +18,6 @@ namespace C_aiguisé
             _exp = 0.0f;
             _dodgeChance = 0;
             _speed = 0.5f;
-            _sprite = "méchant";
         }
         public override void Update()
         {

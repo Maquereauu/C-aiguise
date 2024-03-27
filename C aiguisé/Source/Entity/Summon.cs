@@ -7,7 +7,7 @@ namespace C_aiguisé
 {
     public class Summon : Character
     {
-        public Summon()
+        public Summon() : base("")
         {
             _hpMax = 100;
             _mpMax = 100;

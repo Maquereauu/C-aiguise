@@ -40,8 +40,8 @@ namespace C_aiguisé
 
         public static void Movement(Transform coordinates, int x, int y, string dir)
         {
-            if (coordinates.GetCoordinates().x() + x + dir.Length < Console.BufferWidth && coordinates.GetCoordinates().x() + x >= 0 &&
-                coordinates.GetCoordinates().y() + y + 1 < Console.BufferHeight && coordinates.GetCoordinates().y() + y >= 0)
+            if (coordinates._mCoordinates.x() + x + dir.Length < Console.BufferWidth && coordinates._mCoordinates.x() + x >= 0 &&
+                coordinates._mCoordinates.y() + y + 1 < Console.BufferHeight && coordinates._mCoordinates.y() + y >= 0)
             {
 /*                Console.SetCursorPosition(0, 0);*/
                 coordinates.Translate(x, y);
