@@ -42,14 +42,11 @@ public class Program
 
         /*battle.Start();*/
 
-        /*        Save save = new Save();
-                save.LoadGame("../../../Content/Saves/Save1.json");*/
+/*        Save save = new Save();
+        save.LoadGame("../../../Content/Saves/Save1.json");*/
 
         //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
         FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
-
-        save.SaveGame("../../../Content/Saves/Save1.json");
-        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
             SceneManager.PreUpdate();

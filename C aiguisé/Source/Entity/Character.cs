@@ -117,13 +117,13 @@ namespace C_aiguisé
             protected set { _exp = value; }
         }
         [JsonProperty]
-        public string _mType
+        public int _mType
         {
             get { return _type; }
             protected set { _type = value; }
         }
         [JsonProperty]
-        public List<AttackMove> _mAttackMove
+        public List<AttackMove> _mAttackMoves
         {
             get { return _attackMoves; }
             protected set { _attackMoves = value; }

@@ -29,7 +29,7 @@ namespace C_aiguisé
             Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 4);
             Console.Write("╚" + new string('═', boxWidth) + "╝");
         }
-        public TitleScreen() : base("Title Screen")
+        public TitleScreen() : base("TitleScreen")
         {
             _hudList = new List<(int, int)>() { (30, 40), (90, 40), (160, 40) }; // list of pos (x, y)
             _test = (30, 40);

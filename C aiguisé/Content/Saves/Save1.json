@@ -5,7 +5,7 @@
         "_mIdamage": 10,
         "_mCritRate": 0,
         "_mCritDamage": 0,
-        "_mType": "",
+        "_mType": 0,
         "_mClass": "",
         "_mName": "Sword",
         "_mUnique": true
@@ -24,12 +24,20 @@
       "_mIsDead": false,
       "_mName": "Jean",
       "_mDodgeChance": 0,
-      "_mCritChance": 5,
+      "_mCritChance": 10,
       "_mCritDamage": 20,
       "_mLevel": 1,
       "_mExp": 0.0,
-      "_mType": null,
-      "_mAttackMove": [ {} ],
+      "_mType": 0,
+      "_mAttackMoves": [
+        {
+          "_mType": 0,
+          "_mDamage": 40,
+          "_mName": "yo",
+          "_mMpCost": 0
+        }
+      ],
+      "_mMagicMoves": [],
       "_mTranform": {
         "_mCoordinates": {
           "_mX": 0,
@@ -46,7 +54,7 @@
         "_mIdamage": 10,
         "_mCritRate": 0,
         "_mCritDamage": 0,
-        "_mType": "",
+        "_mType": 0,
         "_mClass": "",
         "_mName": "Knife",
         "_mUnique": true
@@ -65,12 +73,20 @@
       "_mIsDead": false,
       "_mName": "Pierre",
       "_mDodgeChance": 0,
-      "_mCritChance": 5,
+      "_mCritChance": 10,
       "_mCritDamage": 20,
       "_mLevel": 1,
       "_mExp": 0.0,
-      "_mType": null,
-      "_mAttackMove": [ {} ],
+      "_mType": 0,
+      "_mAttackMoves": [
+        {
+          "_mType": 0,
+          "_mDamage": 40,
+          "_mName": "yo",
+          "_mMpCost": 0
+        }
+      ],
+      "_mMagicMoves": [],
       "_mTranform": {
         "_mCoordinates": {
           "_mX": 0,
@@ -88,7 +104,7 @@
       "_mIdamage": 10,
       "_mCritRate": 0,
       "_mCritDamage": 0,
-      "_mType": "",
+      "_mType": 0,
       "_mClass": "",
       "_mName": "Sword",
       "_mUnique": true
@@ -97,7 +113,7 @@
       "_mIdamage": 10,
       "_mCritRate": 0,
       "_mCritDamage": 0,
-      "_mType": "",
+      "_mType": 0,
       "_mClass": "",
       "_mName": "Knife",
       "_mUnique": true
