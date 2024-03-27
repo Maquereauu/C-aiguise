@@ -92,8 +92,10 @@ namespace C_aiguisé
         {
             if (EventManager._transform.GetCoordinates().x() >= 64 && EventManager._transform.GetCoordinates().x() <= 132 && EventManager._transform.GetCoordinates().y() >= 105 / 2 && EventManager._lastTouch == "down")
             {
-                SceneManager.SwitchScene("Game");
                 EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x(), 0);
+                SceneManager.SwitchScene("Game");
+                
+                //Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             }
 
         }

@@ -92,22 +92,30 @@ namespace C_aiguisé
         {
             if (EventManager._transform.GetCoordinates().x() >= 148 && EventManager._transform.GetCoordinates().x() <= 155 && EventManager._transform.GetCoordinates().y() == 24/2 && EventManager._lastTouch == "up")
             {
+                EventManager._transform.SetPos(192/2, 107 / 2);
                 SceneManager.SwitchScene("House");
             }
             if (EventManager._transform.GetCoordinates().x() >= 72 && EventManager._transform.GetCoordinates().x() <= 115 && EventManager._transform.GetCoordinates().y() == 0 && EventManager._lastTouch == "up")
             {
+                EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x(), 107 / 2);
+                //Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
                 SceneManager.SwitchScene("ZoneNord");
+
+               
             }
             if (EventManager._transform.GetCoordinates().x() == 0 && EventManager._transform.GetCoordinates().y() >= 35/2 && EventManager._lastTouch == "left")
             {
+                EventManager._transform.SetPos(190, EventManager._transform.GetCoordinates().y());
                 SceneManager.SwitchScene("ZoneNord");
             }
-            if (EventManager._transform.GetCoordinates().x() <= 116 && EventManager._transform.GetCoordinates().y() == 105/2 && EventManager._lastTouch == "down")
+            if (EventManager._transform.GetCoordinates().x() <= 116 && EventManager._transform.GetCoordinates().y() == 105 / 2 && EventManager._lastTouch == "down")
             {
+                EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x(), 0);
                 SceneManager.SwitchScene("ZoneNord");
             }
             if (EventManager._transform.GetCoordinates().x() >= 189 && EventManager._transform.GetCoordinates().y() >= 34 / 2 && EventManager._transform.GetCoordinates().y() <= 68 / 2 &&EventManager._lastTouch == "right")
             {
+                EventManager._transform.SetPos(0, EventManager._transform.GetCoordinates().y());
                 SceneManager.SwitchScene("ZoneNord");
             }
         }

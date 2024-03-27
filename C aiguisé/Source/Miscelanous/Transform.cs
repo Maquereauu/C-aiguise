@@ -16,7 +16,7 @@ namespace C_aiguisé
         public void SetPos(int x, int y)
         {
             _coordinates.SetX(x);
-            _coordinates.SetX(y);
+            _coordinates.SetY(y);
         }
 
         public void Translate(int x, int y)

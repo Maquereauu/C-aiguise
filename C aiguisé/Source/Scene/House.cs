@@ -57,8 +57,9 @@ namespace C_aiguisé
         {
             if (EventManager._transform.GetCoordinates().y() == 105/2 && EventManager._lastTouch == "down" )  // and last key = down
             {
+                EventManager._transform.SetPos(148, 24 / 2);
                 SceneManager.SwitchScene("Game");
-                EventManager._transform.SetPos(100,192/2) ; //qu'est ce que quoi? 148,24 ça veut pas !! genre le x bouge pas mais mon y change mon x mais pas assez?
+                //EventManager._transform.SetPos(100,192/2) ; //qu'est ce que quoi? 148,24 ça veut pas !! genre le x bouge pas mais mon y change mon x mais pas assez?
                 //Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             }
         }
