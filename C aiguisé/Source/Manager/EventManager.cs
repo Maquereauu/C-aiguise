@@ -66,10 +66,7 @@ namespace C_aiguisé
 
                 Scene Currentscene = SceneManager.CurrentScene;
                 Bitmap map = Currentscene.bitmap;
-                
-                
-
-                
+           
 
                     switch (key)
                 {

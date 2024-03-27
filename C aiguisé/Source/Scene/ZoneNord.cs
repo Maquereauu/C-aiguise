@@ -93,6 +93,7 @@ namespace C_aiguisé
             if (EventManager._transform.GetCoordinates().x() >= 64 && EventManager._transform.GetCoordinates().x() <= 132 && EventManager._transform.GetCoordinates().y() >= 105 / 2 && EventManager._lastTouch == "down")
             {
                 SceneManager.SwitchScene("Game");
+                EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x(), 0);
             }
 
         }

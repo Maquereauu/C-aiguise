@@ -42,7 +42,10 @@ namespace C_aiguisé
             Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
 
-           
+           if(map == null )
+            {
+                return;
+            }
             Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2);
             byte pixR = pix.R;
             
@@ -59,39 +62,6 @@ namespace C_aiguisé
             {
                 Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "mP");
             }
-            //Console.WriteLine(pixB);
-            /*            Console.SetCursorPosition(EventManager._transform2.GetCoordinates().x(), EventManager._transform2.GetCoordinates().y());
-                        Console.Write("X");*//*
-                        Console.SetCursorPosition(0, 0);*/
-            /*            for (int i = 0; i < asciiArt.Length; i++)
-                        {
-                            if ((EventManager._transform.GetCoordinates().x() != i % Console.BufferWidth) && (EventManager._transform.GetCoordinates().y() != i / Console.BufferWidth))
-                            {
-                                Console.Write(asciiArt[i]);
-                            }
-                            else
-                            {
-
-                                Console.Write("P");
-                            }
-                        }*/
-            /*string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
-            for (int i = 0; i < asciiArt.Length; i++)
-            {
-                int x = i % Console.BufferWidth;
-                int y = i / Console.BufferWidth;
-
-                if (x != EventManager._transform.GetCoordinates().x() || y != EventManager._transform.GetCoordinates().y())
-                {
-                    Console.Write(asciiArt[i]);
-                }
-                else
-                {
-                    (int left, int top) = (Console.CursorLeft, Console.CursorTop);
-                    Console.SetCursorPosition(left + 1, top);
-                }
-            }
-            */
         }
 
     }
