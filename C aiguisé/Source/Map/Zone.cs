@@ -21,7 +21,7 @@ namespace C_aiguisé
 
 
             /*            string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
-                        var characterPosition = EventManager._transform.GetCoordinates();
+                        var characterPosition = EventManager._transform._mCoordinates;
 
                         for (int i = 0; i < asciiArt.Length; i++)
                         {
@@ -40,14 +40,14 @@ namespace C_aiguisé
             string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
             /*EventManager._transform.SetPos(0, 0);*/
-            Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
+            Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
 
            if(map == null )
             {
                 return;
             }
-            Color pix = map.GetPixel(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y() * 2);
+            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2);
             byte pixR = pix.R;
             
             byte pixG = pix.G;
@@ -56,7 +56,7 @@ namespace C_aiguisé
             
             if(pixR ==0 && pixG ==0 && pixB == 0)
             {
-                //EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x()-1, EventManager._transform.GetCoordinates().y() * 2);
+                //EventManager._transform.SetPos(EventManager._transform._mCoordinates.x()-1, EventManager._transform._mCoordinates.y() * 2);
                 Console.Write("\x1b[37;40mP");
             }
             else

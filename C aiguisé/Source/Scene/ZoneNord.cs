@@ -71,7 +71,7 @@ namespace C_aiguisé
 
                     if (grass.R == r && grass.G == g && grass.B == b)
                     {
-                        if (EventManager._transform.GetCoordinates().x() == k && EventManager._transform.GetCoordinates().y() == l / 2)
+                        if (EventManager._transform._mCoordinates.x() == k && EventManager._transform._mCoordinates.y() == l / 2)
                         {
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
@@ -90,12 +90,12 @@ namespace C_aiguisé
 
         public override void Swap()
         {
-            if (EventManager._transform.GetCoordinates().x() >= 64 && EventManager._transform.GetCoordinates().x() <= 132 && EventManager._transform.GetCoordinates().y() >= 105 / 2 && EventManager._lastTouch == "down")
+            if (EventManager._transform._mCoordinates.x() >= 64 && EventManager._transform._mCoordinates.x() <= 132 && EventManager._transform._mCoordinates.y() >= 105 / 2 && EventManager._lastTouch == "down")
             {
-                EventManager._transform.SetPos(EventManager._transform.GetCoordinates().x(), 0);
+                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 0);
                 SceneManager.SwitchScene("Game");
                 
-                //Console.SetCursorPosition(EventManager._transform.GetCoordinates().x(), EventManager._transform.GetCoordinates().y());
+                //Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
             }
 
         }

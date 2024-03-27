@@ -43,8 +43,8 @@ public class Program
 /*        scene.SetBattle(battle);*/
         SceneManager.SwitchScene("TitleScreen");
 
-        scene.SetBattle(battle);
-        SceneManager.SwitchScene("Game");
+        //scene.SetBattle(battle);
+        //SceneManager.SwitchScene("Game");
         /*SceneManager.Display();*/
 
         /*battle.Start();*/
