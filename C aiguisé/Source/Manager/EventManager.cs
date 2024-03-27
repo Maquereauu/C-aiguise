@@ -16,6 +16,7 @@ namespace C_aiguisé
         public static event Action _upArrow;
         public static event Action _enter;
         public static event Action _backspace;
+        public static string _lastTouch;
 
         public static event Action _menu;
 
@@ -25,19 +26,23 @@ namespace C_aiguisé
         public static void MoveLeft()
         {
             Movement(_transform, -1, 0, "P");
+            _lastTouch = "left";
         }
         public static void MoveRight() 
         {
             Movement(_transform, 1, 0, "P");
+            _lastTouch = "right";
         }
 
         public static void MoveUp() 
         {
             Movement(_transform, 0, -1, "P");
+            _lastTouch = "up";
         }
         public static void MoveDown() 
         {
             Movement(_transform, 0, 1, "P");
+            _lastTouch = "down";
         }
 
         public static void Movement(Transform coordinates, int x, int y, string dir)

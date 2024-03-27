@@ -23,6 +23,7 @@ public class Program
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new House());
+        SceneManager.AddScene(new ZoneNord());
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
