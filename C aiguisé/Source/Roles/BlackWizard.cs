@@ -2,7 +2,10 @@ namespace C_aiguisé
 {
     public class BlackWizard : Role
     {
-        public BlackWizard() { _id = 4; }
+        public BlackWizard() : base("../../../Content/Role/Player.txt")
+        { 
+            _id = 4; 
+        }
 
         public override void Update()
         {

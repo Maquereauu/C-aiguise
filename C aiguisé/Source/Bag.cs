@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace C_aiguisé
 {
-    public class Bag
+    public static class Bag
     {
-        private Dictionary<Item, int> _bag;
-        public Bag() 
+        private static Dictionary<Item, int> _bag = new Dictionary<Item, int>();
+
+        public static Dictionary<Item, int> _mBag
         {
-            _bag = new Dictionary<Item, int>();
+            get { return _bag; }
+            set { _bag = value; }
         }
 
-        public void AddItem(Item item, int number = 1)
+        public static void AddItem(Item item, int number = 1)
         {
             foreach (var el in _bag)
             {
@@ -37,7 +40,7 @@ namespace C_aiguisé
             }
             
         }
-        public void AddItem(List<Item> items, List<int> numbers)
+        public static void AddItem(List<Item> items, List<int> numbers)
         {
             if (items.Count != numbers.Count)
             {
@@ -53,7 +56,7 @@ namespace C_aiguisé
             }
 
         }
-        public void RemoveItem(Item item, int number = 1)  
+        public static void RemoveItem(Item item, int number = 1)  
         {
             foreach (var el in _bag)
             {
@@ -74,7 +77,7 @@ namespace C_aiguisé
                 }
             }
         }
-        public void RemoveItem(List<Item> items, List<int> numbers)
+        public static void RemoveItem(List<Item> items, List<int> numbers)
         {
             if (items.Count != numbers.Count)
             {
@@ -91,7 +94,7 @@ namespace C_aiguisé
             
         }
 
-        public Dictionary<Item, int> GetBag()
+        public static Dictionary<Item, int> GetBag()
         {
             return _bag;
         }

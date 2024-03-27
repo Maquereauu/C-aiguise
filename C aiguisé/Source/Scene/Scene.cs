@@ -25,6 +25,7 @@ namespace C_aiguisé
         }
         public virtual void Update()
         {
+            Console.SetCursorPosition(0, 0);
             _map.Update();
         }
         public virtual void PostUpdate()
@@ -53,7 +54,10 @@ namespace C_aiguisé
         }
         public static void OpenMenu()
         {
-            SceneManager.SwitchScene("Main Menu");
+            if (SceneManager.IsSceneExist("MainMenu"))
+            {
+                SceneManager.SwitchScene("MainMenu");
+            }
         }
 
         public virtual void SetBattle(Battle battle)

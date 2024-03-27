@@ -10,7 +10,7 @@
   <Class Name="C_aiguisé.Item" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAABAA=</HashCode>
       <FileName>Source\Item\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,7 +31,7 @@
   <Class Name="C_aiguisé.Player" Collapsed="true">
     <Position X="10.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAYAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAABAAIAAAA=</HashCode>
       <FileName>Source\Entity\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,7 +59,7 @@
   <Class Name="C_aiguisé.EventManager" Collapsed="true">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAAAAAAAAAAAAAhQgAIIAAAAAAAAAYQAAAACAAAAA=</HashCode>
+      <HashCode>AAUAAAAAAAAAAAAAhQgAIMAAAAAAAAAYQAAAACAACAA=</HashCode>
       <FileName>Source\Manager\EventManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,14 +101,14 @@
   <Class Name="C_aiguisé.Role">
     <Position X="14.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAEAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Roles\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Battle" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABYABgIAASAAABAIAAAAAYAAABgABAAACAAgBBIIgAA=</HashCode>
+      <HashCode>ABYAAgIAQSAAABAAQQAAAYAgABgIBAAACAAgBBIIgAA=</HashCode>
       <FileName>Source\Battle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -164,21 +164,21 @@
   <Class Name="C_aiguisé.Character" Collapsed="true">
     <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAAAAAIACAAAAAAAAAAgAgAEAAAAAAREECiAAAAYA=</HashCode>
+      <HashCode>AgQAYBAAKACAAACAAAgAAgAwAAAAAAAABEECiAAAAYA=</HashCode>
       <FileName>Source\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.SceneManager" Collapsed="true">
     <Position X="2" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAABAAAAAAAAAAAABECQAAAAAQAAAAAAACAIEAAAA=</HashCode>
+      <HashCode>AAQAABAAAAAQAAAAAABECQAAAAAQAAAAAAACAIEAACA=</HashCode>
       <FileName>Source\Manager\SceneManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Scene" Collapsed="true">
     <Position X="2" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQAIACAAAAAAACAAABACAAAAAAAAAAAAEACAAEABAA=</HashCode>
+      <HashCode>ABwAIACAAAACAACAAABACAAAAAAABAAAAEACAAEABAA=</HashCode>
       <FileName>Source\Scene\Scene.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -192,15 +192,29 @@
   <Class Name="C_aiguisé.Game" Collapsed="true">
     <Position X="3" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAACAAAAAAAAAAABACAAAAAAAAAAAAAACAAEAAAA=</HashCode>
+      <HashCode>AAQAAACAAAAAAAAAAABACAAAAAAAAAAAAAACAAEAAAA=</HashCode>
       <FileName>Source\Scene\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Bag">
     <Position X="2.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAEAAAA=</HashCode>
+      <FileName>Source\Bag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.FileReader">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\FileReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="C_aiguisé.Save">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Bag.cs</FileName>
+      <FileName>Save.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

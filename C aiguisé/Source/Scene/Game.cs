@@ -24,6 +24,9 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
+            Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
+            /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
+            Console.Write("P");
             //DetectBattle();
             Swap();
         }

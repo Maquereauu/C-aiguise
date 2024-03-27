@@ -19,6 +19,7 @@ namespace C_aiguisé
         {
 
 
+
             /*            string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
                         var characterPosition = EventManager._transform.GetCoordinates();
 
