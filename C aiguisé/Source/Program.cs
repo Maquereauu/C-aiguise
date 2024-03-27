@@ -48,6 +48,8 @@ public class Program
         //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
         FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
 
+        save.SaveGame("../../../Content/Saves/Save1.json");
+        save.LoadGame("../../../Content/Saves/Save1.json");
         while (true)
         {
             SceneManager.PreUpdate();

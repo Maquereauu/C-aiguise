@@ -12,15 +12,33 @@ namespace C_aiguisé
         private List<(int, int)> _hudList;
         private (int, int) _test;
         private int _index;
-        public TitleScreen() : base("TitleScreen")
+        private List<string> _text;
+        void DrawBox(string text,int i)
         {
-            _hudList = new List<(int, int)>() { (30, 10), (50, 10), (70, 10) }; // list of pos (x, y)
-            _test = (30, 10);
+
+            int boxWidth = text.Length + 4;
+            int boxHeight = 3;
+
+            Console.Write("╔" + new string('═', boxWidth ) + "╗");
+            Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 1);
+            Console.Write("║" + new string(' ', boxWidth) + "║");
+            Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 2);
+            Console.Write("║  " + text + "  ║");
+            Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 3);
+            Console.Write("║" + new string(' ', boxWidth ) + "║");
+            Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2 + 4);
+            Console.Write("╚" + new string('═', boxWidth) + "╝");
+        }
+        public TitleScreen() : base("Title Screen")
+        {
+            _hudList = new List<(int, int)>() { (30, 40), (90, 40), (160, 40) }; // list of pos (x, y)
+            _test = (30, 40);
             _index = 0;
+            _text = new List<string>() {"Play","Load Game","Quit" };
         }
         public override void Init()
         {
-            AddZone(new Zone("../../../Content/Map/nahidwin.txt"));
+            AddZone(new Zone("../../../Content/Map/titleScreen.txt"));
             _map.SetCurrentZone();
         }
         public override void PreUpdate()
@@ -30,8 +48,13 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-            Console.SetCursorPosition(_test.Item1, _test.Item2);
-            Console.Write("yo");
+            for (int i = 0; i < _hudList.Count; i++)
+            {
+                Console.SetCursorPosition(_hudList[i].Item1, _hudList[i].Item2);
+                DrawBox(_text[i],i);
+            }
+            Console.SetCursorPosition(_test.Item1 + 1, _test.Item2 + 2);
+            Console.Write(">");
         }
         public override void PostUpdate()
         {

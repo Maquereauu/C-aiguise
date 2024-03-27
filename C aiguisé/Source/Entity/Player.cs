@@ -85,11 +85,11 @@ namespace C_aiguisé
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
-        public int Attack()
+/*        public int Attack()
         {
             int damage = _weapon.GetDamage();
             return damage;
-        }
+        }*/
 
 
 

@@ -36,6 +36,8 @@ namespace C_aiguisé
             _battle = new Battle(EntityManager.players, summons,enemies);
             EventManager._downArrow += _battle.switchActionDown;
             EventManager._upArrow += _battle.switchActionUp;
+            EventManager._rightArrow += _battle.switchActionRight;
+            EventManager._leftArrow += _battle.switchActionLeft;
             EventManager._enter += _battle.SelectMove;
             EventManager._menu += OpenMenu;
             _battle.Start();
