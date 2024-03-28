@@ -89,11 +89,11 @@ namespace C_aiguisé
                     Potion HealingPotion = new Potion(25);
                     Ether MpPotion = new Ether(20);
                     EntityManager.CreatePlayer("Jean", sword, tank);
-                    //EntityManager.CreatePlayer("Gojo", knife, him);
+                    EntityManager.CreatePlayer("Gojo", knife, him);
                     tank.setPlayer(EntityManager.players[0]);
-                    //him.setPlayer(EntityManager.players[1]);
+                    him.setPlayer(EntityManager.players[1]);
                     tank.setAttack();
-                    //him.setAttack();
+                    him.setAttack();
                     Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
                     Bag.AddItem(new List<Item>() { HealingPotion, MpPotion }, new List<int>() { 10, 15 });
                     for (int i = 0; i < EntityManager.players.Count; i++)
