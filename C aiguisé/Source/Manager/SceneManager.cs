@@ -11,6 +11,7 @@ namespace C_aiguisé
         private static List<Scene> _sceneList = new List<Scene>();
         private static Scene _currentScene = new MainMenu();
         private static Scene _previousScene = new MainMenu();
+        private static Scene _lastGameZone = new Game();
 
         public static List<Scene> _mSceneList 
         {  
@@ -27,6 +28,12 @@ namespace C_aiguisé
         {
             get { return _previousScene; }
             set { _previousScene = value; }
+        }
+
+        public static Scene _mLastGameZone
+        {
+            get { return _lastGameZone; }
+            set { _lastGameZone = value; }
         }
 
 
@@ -65,6 +72,10 @@ namespace C_aiguisé
             {
                 if (_sceneList[i].GetName() == sceneName)
                 {
+                    if (_sceneList[i].GetIsGameZone())
+                    {
+                        _lastGameZone = _sceneList[i];
+                    }
                     _previousScene = _currentScene;
                     _previousScene.UnLoad();
 

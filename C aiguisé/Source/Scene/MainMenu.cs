@@ -120,8 +120,8 @@ namespace C_aiguisé
                 save._mPlayer.Add(EntityManager.players[i]);
             }
 
-            // save curretnScene
-            save._mCurrentZone = SceneManager._mPreviousScene.ToString().Replace("C_aiguisé.", "");
+            // save currentScene
+            save._mCurrentZone = SceneManager._mLastGameZone.ToString().Replace("C_aiguisé.", "");
 
             // save inventory
 

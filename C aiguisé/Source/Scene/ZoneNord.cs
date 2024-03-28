@@ -10,6 +10,7 @@ namespace C_aiguisé
     {
         public ZoneNord() : base("ZoneNord")
         {
+            _isGameZone = true;
         }
         public override void Init()
         {

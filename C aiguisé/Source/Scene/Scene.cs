@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,14 @@ namespace C_aiguisé
         protected Map _map;
         protected Battle _battle;
         protected Bitmap _bitmap;
+        protected bool _isGameZone;
         public Bitmap bitmap { get { return _bitmap; } }
 
         public Scene(string name)
         {
             _name = name;
             _map = new Map();
+            _isGameZone = false;
         }
         public abstract void Init();
         public virtual void PreUpdate()
@@ -46,6 +49,11 @@ namespace C_aiguisé
         public Map GetMap()
         {
             return _map;
+        }
+
+        public bool GetIsGameZone()
+        {
+            return _isGameZone;
         }
 
         public void AddZone(Zone zone)

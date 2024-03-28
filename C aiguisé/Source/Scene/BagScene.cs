@@ -10,7 +10,7 @@ namespace C_aiguisé
     {
         public BagScene() : base("BagScene")
         {
-
+            _isGameZone = false;
         }
         public override void Init()
         {

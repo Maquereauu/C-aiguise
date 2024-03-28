@@ -10,6 +10,7 @@ namespace C_aiguisé
     {
         public Game() : base("Game")
         {
+            _isGameZone = true;
         }
         public override void Init()
         {
