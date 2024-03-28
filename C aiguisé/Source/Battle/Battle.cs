@@ -630,6 +630,10 @@ namespace C_aiguisé
                             for (int i = 0; i < _enemies.Count; i++)
                             {
                                 _enemies[i].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mMagicMoves[_selectedMagic], _enemies[i]));
+                                if (i != 0)
+                                {
+                                    _characters[_indexSpeedList]._mMp += _characters[_indexSpeedList]._mMagicMoves[_selectedAttack]._mMpCost;
+                                }
                             }
                         }
                         else
