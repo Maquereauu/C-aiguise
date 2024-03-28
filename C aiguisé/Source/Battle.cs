@@ -28,13 +28,16 @@ namespace C_aiguisé
         private Actions _selectedAction = Actions.Attack;
         private int _selectedAttack = 0;
         private int _selectedMagic = 0;
-        private int _selectedTarget;
+        private int _selectedItem = 0;
+        private int _selectedTarget = 0;
         private int _indexSpeedList;
         private float _maxSpeed;
         public event Action needsToUpdate;
         private List<(int, int)> _hudList;
         private bool Flee = false;
-        private bool Enemy = true;
+        private bool _enemy = true;
+        private Dictionary<Item, int> _bag = Bag.GetBag();
+        private Item actualKey;
 
         public Battle(List<Player> allies, List<Summon> summons, List<Enemy> enemies) {
             _hudList = new List<(int, int)>() { (89, 43), (144, 43), (89, 48),(144,48) }; // list of pos (x, y)
@@ -89,6 +92,10 @@ namespace C_aiguisé
                 if (i != _indexSpeedList)
                 {
                     _speeds[i] += _baseSpeeds[i];
+                }
+                else
+                {
+                    _speeds[i] = _baseSpeeds[i];
                 }
             }
         }
@@ -176,9 +183,23 @@ namespace C_aiguisé
             needsToUpdate?.Invoke();
         }
 
+        public void switchItemUp()
+        {
+            _selectedItem = Utils.MathHelper.Modulo((_selectedItem - 1), Bag.NonUniqueCount());
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+        public void switchItemDown()
+        {
+            _selectedItem = Utils.MathHelper.Modulo((_selectedItem + 1), Bag.NonUniqueCount());
+            Console.Clear();
+            needsToUpdate?.Invoke();
+        }
+
+
         public void switchTargetDown()
         {
-            if(Enemy)
+            if(_enemy)
             {
                 _selectedTarget = (_selectedTarget + 1) % (_enemies.Count);
             }
@@ -192,7 +213,7 @@ namespace C_aiguisé
 
         public void switchTargetUp()
         {
-            if (Enemy)
+            if (_enemy)
             {
                 _selectedTarget = Utils.MathHelper.Modulo((_selectedTarget - 1) , (_enemies.Count));
             }
@@ -262,6 +283,8 @@ namespace C_aiguisé
 
         public void SelectMove()
         {
+            _enemy = true;
+            _selectedTarget = 0;
             switch ((int)_selectedAction)
             {
                 case (int)Actions.Attack:
@@ -296,6 +319,20 @@ namespace C_aiguisé
                     break;
                 case (int)Actions.Item:
                     Console.WriteLine("item!");
+                    EventManager._downArrow -= switchActionDown;
+                    EventManager._downArrow += switchItemDown;
+                    EventManager._upArrow -= switchActionUp;
+                    EventManager._upArrow += switchItemUp;
+                    EventManager._rightArrow -= switchActionRight;
+                    EventManager._leftArrow -= switchActionLeft;
+                    EventManager._enter -= SelectMove;
+                    EventManager._enter += SelectTarget;
+                    EventManager._backspace += Cancel1;
+                    needsToUpdate += ShowItems;
+                    _enemy = false;
+
+                    Console.Clear();
+                    needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Flee:
                     Console.WriteLine("flee!");
@@ -315,7 +352,7 @@ namespace C_aiguisé
         }
         public void SelectTarget()
         {
-            if (Enemy)
+            if (_enemy)
             {
                 switch ((int)_selectedAction)
                 {
@@ -353,7 +390,16 @@ namespace C_aiguisé
             }
             else
             {
-                Console.WriteLine(_allies[_selectedTarget]._mName);
+                EventManager._downArrow -= switchItemDown;
+                EventManager._downArrow += switchTargetDown;
+                EventManager._upArrow -= switchItemUp;
+                EventManager._upArrow += switchTargetUp;
+                EventManager._enter -= SelectTarget;
+                EventManager._enter += ExecuteAction;
+                EventManager._backspace += Cancel2;
+                EventManager._backspace -= Cancel1;
+                Console.Clear();
+                needsToUpdate?.Invoke();
             }
             /*            EventManager._downArrow += switchActionDown;
                         EventManager._downArrow -= switchTargetDown;
@@ -423,47 +469,90 @@ namespace C_aiguisé
             }
         }
 
+        public void ShowItems()
+        {
+            int counter = 0;
+            Console.SetCursorPosition(90, 19);
+            Console.Write("╔" + new string('═', 40) + "╗");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.SetCursorPosition(90, 20 + i);
+                Console.Write("║" + new string(' ', 40) + "║");
+            }
+            Console.SetCursorPosition(90, 30);
+            Console.Write("╚" + new string('═', 40) + "╝");
+            Console.SetCursorPosition(100, 20);
+            for (int i = 0; i < _bag.Count; i++)
+            {
+                if (_bag.ElementAt(i).Key.IsUnique() == false)
+                { if (i-counter == _selectedItem)
+                    {
+                        Console.SetCursorPosition(100, 21 + i);
+                        Console.Write(">" + _bag.ElementAt(i).Key._mName + " " + _bag.ElementAt(i).Value);
+                        actualKey = _bag.ElementAt(i).Key;
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(100, 21 + i);
+                        Console.Write(_bag.ElementAt(i).Key._mName + " " + _bag.ElementAt(i).Value);
+                    }
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+        }
+
         public void ShowTarget()
         {
-            switch (_selectedAction)
+            if (_enemy)
             {
-                case Actions.Attack:
-                    if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
-                    {
-                        for (int i = 0; i < _enemies.Count; i++)
+                switch (_selectedAction)
+                {
+                    case Actions.Attack:
+                        if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
                         {
-                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                Console.SetCursorPosition(169, 3 + 10 * i);
+                                Console.Write(">");
+                            }
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
                             Console.Write(">");
                         }
-                    }
-                    else
-                    {
-                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
-                        Console.Write(">");
-                    }
                         break;
 
-                case Actions.Magic:
-                    if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
-                    {
-                        for (int i = 0; i < _enemies.Count; i++)
+                    case Actions.Magic:
+                        if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
                         {
-                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                Console.SetCursorPosition(169, 3 + 10 * i);
+                                Console.Write(">");
+                            }
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
                             Console.Write(">");
                         }
-                    }
-                    else
-                    {
-                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
-                        Console.Write(">");
-                    }
-                    break;
+                        break;
+                }
+            }
+            else
+            {
+                Console.SetCursorPosition(29, 3 + 10 * _selectedTarget);
+                Console.Write(">");
             }
         }
 
         public void ExecuteAction()
         {
-            if (Enemy)
+            if (_enemy)
             {
                 switch ((int)_selectedAction)
                 {
@@ -503,6 +592,7 @@ namespace C_aiguisé
                         }
                         break;
                     case (int)Actions.Item:
+
                         break;
                     case (int)Actions.Flee:
                         break;
@@ -510,7 +600,7 @@ namespace C_aiguisé
             }
             else
             {
-                Console.WriteLine(_allies[_selectedTarget]._mSprite);
+                actualKey.Update(_allies[_selectedTarget]);
             }
             EventManager._downArrow += switchActionDown;
             EventManager._downArrow -= switchTargetDown;
@@ -523,6 +613,7 @@ namespace C_aiguisé
             EventManager._backspace -= Cancel2;
             needsToUpdate -= ShowAttack;
             needsToUpdate -= ShowMagic;
+            needsToUpdate -= ShowItems;
             needsToUpdate -= ShowTarget;
             checkTurn();
             addSpeed();
@@ -535,15 +626,16 @@ namespace C_aiguisé
             EventManager._downArrow += switchActionDown;
             EventManager._downArrow -= switchAttackDown;
             EventManager._downArrow -= switchMagicDown;
-            //EventManager._downArrow -= switchItemDown;
+            EventManager._downArrow -= switchItemDown;
             EventManager._upArrow += switchActionUp;
             EventManager._upArrow -= switchAttackUp;
             EventManager._upArrow -= switchMagicUp;
             EventManager._rightArrow += switchActionRight;
             EventManager._leftArrow += switchActionLeft;
-            //EventManager._upArrow -= switchItemUp;
+            EventManager._upArrow -= switchItemUp;
             needsToUpdate -= ShowAttack;
             needsToUpdate -= ShowMagic;
+            needsToUpdate -= ShowItems;
             EventManager._enter += SelectMove;
             EventManager._enter -= SelectTarget;
             Console.Clear();
@@ -554,13 +646,13 @@ namespace C_aiguisé
             EventManager._backspace -= Cancel2;
             EventManager._downArrow -= switchAttackDown;
             EventManager._downArrow -= switchMagicDown;
-            //EventManager._downArrow -= switchItemDown;
+            EventManager._downArrow -= switchItemDown;
             EventManager._downArrow -= switchTargetDown;
             /*EventManager._downArrow += switchActionDown;*/
 
             EventManager._upArrow -= switchAttackUp;
             EventManager._upArrow -= switchMagicUp;
-            //EventManager._upArrow -= switchItemup;
+            EventManager._upArrow -= switchItemUp;
             EventManager._upArrow -= switchTargetUp;
             /*EventManager._upArrow += switchActionUp;*/
 
@@ -578,7 +670,7 @@ namespace C_aiguisé
         }
         public void Update()
         {
-            if(Flee)
+            if (Flee)
             {
                 for(int i = 0; i<_enemies.Count;i++)
                 {

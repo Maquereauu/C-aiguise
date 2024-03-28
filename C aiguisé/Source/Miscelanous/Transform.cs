@@ -31,12 +31,14 @@ namespace C_aiguisé
         {
             _coordinates.SetX(x);
             _coordinates.SetY(y);
+
         }
 
         public void SetSize(int x, int y)
         {
             _size.SetX(x);
             _size.SetY(y);
+
         }
 
         public void Translate(int x, int y)

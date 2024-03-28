@@ -66,10 +66,11 @@ namespace C_aiguisé
                 if (_sceneList[i].GetName() == sceneName)
                 {
                     _previousScene = _currentScene;
+                    _previousScene.UnLoad();
 
-                    _currentScene.UnLoad();
                     _currentScene = _sceneList[i];
                     LoadScene();
+                    Update();
                     return;
                 }
             }
