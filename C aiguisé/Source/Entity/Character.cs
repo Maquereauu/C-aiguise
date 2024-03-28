@@ -50,7 +50,7 @@ namespace C_aiguisé
         public float _mHp
         {
             get { return _hp; }
-            protected set { _hp = value; }
+            set { _hp = value; }
         }
         [JsonProperty]
         public float _mHpMax
@@ -63,7 +63,7 @@ namespace C_aiguisé
         public float _mMp
         {
             get { return _mp; }
-            protected set { _mp = value; }
+            set { _mp = value; }
         }
 
         [JsonProperty]
