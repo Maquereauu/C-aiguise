@@ -19,6 +19,7 @@ namespace C_aiguisé
         public static string _lastTouch;
 
         public static event Action _menu;
+        public static event Action _tab;
 
         public static Transform _transform = new Transform();
         public static Transform _transform2 = new Transform();
@@ -168,6 +169,9 @@ namespace C_aiguisé
                     case ConsoleKey.Escape:
                         _menu?.Invoke();
                         break; 
+                    case ConsoleKey.Tab:
+                        _tab.Invoke();
+                        break;
                 }
             }
         }

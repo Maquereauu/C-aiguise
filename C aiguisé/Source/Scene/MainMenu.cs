@@ -16,12 +16,14 @@ namespace C_aiguisé
         private int _index;
         public MainMenu() : base("MainMenu")
         {
-            _hudPosList = new List<(int, int)>() {((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 4),
+            _hudPosList = new List<(int, int)>() {((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 6),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 4),
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 2),
-            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2)),
-            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2)};
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 0),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 4)};
 
-            _hudNameList = new List<string>() { "    Option   ", "Retour au jeu", " Sauvegarder" , "   Quitter   "};
+            _hudNameList = new List<string>() {"    Option    ", "Retour au jeu","   Players   " ," Sauvegarder " , "   Charger   ","   Quitter   "};
             _index = 0;
             _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
 
@@ -67,10 +69,11 @@ namespace C_aiguisé
             EventManager._upArrow -= SwitchTop;
             EventManager._downArrow -= SwitchBottom;
             _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
+            _index = 0;
         }
         public static void CloseMenu()
         {
-            SceneManager.SwitchScene();
+            SceneManager.SwitchScene(SceneManager._previousScene.GetName());
         }
 
         public void Confirm()
@@ -83,9 +86,15 @@ namespace C_aiguisé
                     SceneManager.SwitchScene("Game");
                     break;
                 case 2:
-                    SaveGame();
+                    SceneManager.SwitchScene("PlayerScene");
                     break;
                 case 3:
+                    SaveGame();
+                    break;
+                case 4:
+                    LoadGame();
+                    break;
+                case 5:
                     Environment.Exit(0);
                     break;
             }
@@ -126,6 +135,16 @@ namespace C_aiguisé
 
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("Game saved");
+        }
+
+        public void LoadGame()
+        {
+            Save load = new Save();
+
+            EntityManager.players.Clear();
+            Bag._mBag.Clear();
+
+            load.LoadGame("../../../Content/Saves/Save1.json");
         }
     }
 }

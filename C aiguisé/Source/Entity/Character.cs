@@ -21,18 +21,19 @@ namespace C_aiguisé
         protected float _mpMax;
         protected int _level;
         protected float _exp;
-        protected int _critChance = 5;
+        protected int _critChance = 10;
         protected int _critDamage = 20;
         protected int _dodgeChance = 0;
-        protected string _type;
-        protected float _speed;
+        protected int _type = 0;
+        protected int _speed;
         protected string _sprite;
         protected bool _isDead = false;
         protected List<AttackMove> _attackMoves = new List<AttackMove>();
+        protected List<MagicMove> _magicMoves = new List<MagicMove>();
 
         #region get/set
         [JsonProperty]
-        public float _mSpeed
+        public int _mSpeed
         {
             get { return _speed; }
             protected set { _speed = value; }
@@ -49,7 +50,7 @@ namespace C_aiguisé
         public float _mHp
         {
             get { return _hp; }
-            protected set { _hp = value; }
+            set { _hp = value; }
         }
         [JsonProperty]
         public float _mHpMax
@@ -62,7 +63,7 @@ namespace C_aiguisé
         public float _mMp
         {
             get { return _mp; }
-            protected set { _mp = value; }
+            set { _mp = value; }
         }
 
         [JsonProperty]
@@ -89,7 +90,7 @@ namespace C_aiguisé
         public int _mDodgeChance
         {
             get { return _dodgeChance; }
-            protected set { _dodgeChance = value; }
+            set { _dodgeChance = value; }
         }
         [JsonProperty]
         public int _mCritChance
@@ -116,16 +117,22 @@ namespace C_aiguisé
             protected set { _exp = value; }
         }
         [JsonProperty]
-        public string _mType
+        public int _mType
         {
             get { return _type; }
             protected set { _type = value; }
         }
-
-        public List<AttackMove> _mAttackMove
+        [JsonProperty]
+        public List<AttackMove> _mAttackMoves
         {
             get { return _attackMoves; }
             protected set { _attackMoves = value; }
+        }
+        [JsonProperty]
+        public List<MagicMove> _mMagicMoves
+        {
+            get { return _magicMoves; }
+            protected set { _magicMoves = value; }
         }
         #endregion
 
@@ -138,6 +145,7 @@ namespace C_aiguisé
             _hp -= damage;
             if(_hp <= 0)
             {
+                _hp = 0;
                 _isDead = true;
             }
         }
@@ -149,40 +157,61 @@ namespace C_aiguisé
         }
         public void Heal(int hp)
         {
-            _hp += hp % _hpMax;
+            _hp += hp;
+            if(_hp > _hpMax)
+            {
+                _hp = _hpMax;
+            }
         }
-        public virtual int Attack(/*Attack attack*/Character character)
+        public virtual int Attack(Move move, Character character)
         {
             Random random = new Random();
-            if (random.Next(101) < character._mDodgeChance) {  
+            if(move._mMpCost != null)
+            {
+                this._mp -= move._mMpCost;
+/*                if (this._mp < 0)
+                {
+                    _mp = 0;
+                }*/
+            }
+            if (random.Next(101) < character._mDodgeChance) {
                 return 0;
             }
-            //if(MathHelper.Mod(attack.type - 1,3) == character.type )
-            //if(random.Next(101) < _critChance)
-            //return attack.damage * 2 + attack.damage * 2 * _critDamage/100
-            //return attack.damage*2 
-            //else if(MathHelper.Mod(attack.type + 1,3) == character.type )
-            //if(random.Next(101) < _critChance)
-            //return attack.damage + attack.damage * _critDamage/100
-            //return attack.damage*0.5
-            //else
-            //if(random.Next(101) < _critChance)
-            //return attack.damage + attack.damage * _critDamage/100
-            //return attack.damage
-            return 10;
+            if (Utils.MathHelper.Modulo(move._mType - 1, 3) == character._type)
+            { if (random.Next(101) < _critChance)
+                    return move._mDamage * 2 + move._mDamage * 2 * _critDamage / 100;
+                return move._mDamage * 2; }
+            else if (Utils.MathHelper.Modulo(move._mType + 1, 3) == character._type) {
+                if (random.Next(101) < _critChance)
+                    return move._mDamage + move._mDamage * _critDamage / 100;
+            return (int)(move._mDamage * 0.5); }
+            else if (random.Next(101) < _critChance)
+                return move._mDamage + move._mDamage * _critDamage / 100;
+            return move._mDamage;
         }
         public void AddAttack(AttackMove attack)
         {
             _attackMoves.Add(attack);
         }
-
+        public void RemoveAttack(AttackMove attack)
+        {
+            _attackMoves.Remove(attack);
+        }
+        public void AddMagic(MagicMove magic)
+        {
+            _magicMoves.Add(magic);
+        }
+        public void RemoveMagic(MagicMove magic)
+        {
+            _magicMoves.Remove(magic);
+        }
         public void AddAttack(List<AttackMove> attack)
         {
-            for (int i=0; i<attack.Count; i++)
+            for (int i = 0; i < attack.Count; i++)
             {
                 _attackMoves.Add(attack[i]);
             }
-            
+
         }
     }
 }

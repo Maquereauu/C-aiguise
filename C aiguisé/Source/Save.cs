@@ -58,8 +58,8 @@ namespace C_aiguisé
                 EntityManager.CreatePlayer(player._mName, player._mHp, player._mHpMax,
                     player._mMp, player._mMpMax, player._mLevel, player._mExp,
                     player._mCritChance, player._mCritDamage, player._mDodgeChance,
-                    player._mType, player._mSpeed, player._mIsDead,
-                    player._mAttackMove, player._mSummonBar,
+                    player._mType, player._mSpeed, player._mIsDead, player._mExpToLevelUp,
+                    player._mAttackMoves, player._mSummonBar,
 
                     new Weapon(player._mWeapon._mName, player._mWeapon._mIdamage, player._mWeapon._mCritRate,
                     player._mWeapon._mCritDamage, player._mWeapon._mType, player._mWeapon._mClass),
@@ -67,6 +67,8 @@ namespace C_aiguisé
                     Role.CreateRole(player._mRole._mId)
                     
                     );
+
+                SceneManager.AddScene(new PlayerStatsScene(player));
             }
 
             for (int i = 0; i < loadedScene._item.Count; i++)

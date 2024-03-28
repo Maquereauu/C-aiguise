@@ -58,12 +58,6 @@ namespace C_aiguisé
                 }
             }
         }
-        public static void SwitchScene()
-        {
-            _currentScene.UnLoad();
-            _currentScene = _previousScene;
-            LoadScene();
-        }
         public static void Display()
         {
             /*_currentScene.Update();*/

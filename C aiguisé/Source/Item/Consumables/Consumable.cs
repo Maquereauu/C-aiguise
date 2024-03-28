@@ -9,8 +9,13 @@ namespace C_aiguisé
     {
         public Consumable(string  name) : base(name, false) 
         { 
-
+            _name = name;
+            _unique = false;
         }
 
+        public virtual void Update(Player player)
+        {
+
+        }
     }
 }

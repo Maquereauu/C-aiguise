@@ -9,8 +9,8 @@ namespace C_aiguisé
 { 
     public class Item
     {
-        private string _name;
-        private bool _unique;
+        protected string _name;
+        protected bool _unique;
 
         [JsonProperty]
         public string _mName

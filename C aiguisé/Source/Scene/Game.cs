@@ -25,11 +25,13 @@ namespace C_aiguisé
         {
             base.Update();
             Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
+
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
             
             //Console.Write("P");
            DetectBattle();
             Swap();
+
         }
 
         public override void PostUpdate()
@@ -44,6 +46,7 @@ namespace C_aiguisé
             EventManager._downArrow += EventManager.MoveDown;
             EventManager._upArrow += EventManager.MoveUp;
             EventManager._menu += OpenMenu;
+            EventManager._tab += ShowBag;
         }
         public override void UnLoad()
         {
@@ -54,6 +57,12 @@ namespace C_aiguisé
             EventManager._downArrow -= EventManager.MoveDown;
             EventManager._upArrow -= EventManager.MoveUp;
             EventManager._menu -= OpenMenu;
+            EventManager._tab -= ShowBag;
+        }
+
+        public void ShowBag()
+        {
+            SceneManager.SwitchScene("BagScene");
         }
 
         public void DetectBattle()
