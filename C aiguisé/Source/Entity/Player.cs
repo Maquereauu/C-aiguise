@@ -93,6 +93,40 @@ namespace C_aiguisé
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
+
+/*        public int Attack()
+        {
+            int damage = _weapon.GetDamage();
+            return damage;
+        }*/
+
+
+
+        public void Heal(int heal)
+        {
+            if (_hp < _hpMax)
+            {
+                _hp += heal;
+            }
+            if(_hp > _hpMax)
+            {
+                _hp = _hpMax;
+            }
+        }
+
+        public void HealMp(int mp)
+        {
+            if (_mp < _mpMax)
+            {
+                _mp += mp;
+            }
+            if (_mp > _mpMax)
+            {
+                _mp = _mpMax;
+            }
+        }
+
+
         public Role GetRole()
         { 
             return _role; 
