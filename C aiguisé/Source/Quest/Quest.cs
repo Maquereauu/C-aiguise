@@ -14,6 +14,7 @@ namespace C_aiguisé
         private int _total;
         private bool _done;
         private int _reward; // exp
+        private bool _clear;
 
         [JsonProperty]
         public string _mDescription
@@ -46,18 +47,26 @@ namespace C_aiguisé
             get { return _reward; }
             set { _reward = value; }
         }
+
+        [JsonProperty]
+        public bool _mClear
+        {
+            get { return _clear; }
+            set { _clear = value; }
+        }
         [JsonConstructor]
         public Quest()
         {
 
         }
-        public Quest(string description, int total, int progress = 0, bool done = false, int reward = 0)
+        public Quest(string description, int total, int progress = 0, bool done = false, int reward = 0, bool clear = false)
         {
             _description = description;
             _total = total;
             _progress = progress;
             _done = done;
             _reward = reward;
+            _clear = clear;
         }
 
         public void VerifyQuestStatus()

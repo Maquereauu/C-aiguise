@@ -24,17 +24,20 @@ public class Program
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
         SceneManager.AddScene(new GameOver());
+        SceneManager.AddScene(new QuestScene());
 
+        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new House());
         SceneManager.AddScene(new ZoneNord());
 
-        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new BagScene());
         SceneManager.AddScene(scene);
 
 
         SceneManager.Init();
         SceneManager.SwitchScene("TitleScreen");
+
+        QuestManager._mQuest = new Quest("Vous devez tuer 10 monstres", 10,0, false, 1000, false);
 
 
         while (true)

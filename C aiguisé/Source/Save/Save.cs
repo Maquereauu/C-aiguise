@@ -83,7 +83,7 @@ namespace C_aiguisé
                 Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
             }
 
-            Quest quest = new Quest(_mQuest._mDescription, _mQuest._mTotal, _mQuest._mProgress, _mQuest._mDone, _mQuest._mReward);
+            QuestManager._mQuest = new Quest(_mQuest._mDescription, _mQuest._mTotal, _mQuest._mProgress, _mQuest._mDone, _mQuest._mReward, _mQuest._mClear);
 
             SceneManager.AddScene(new PlayerScene());
 

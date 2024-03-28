@@ -56,43 +56,43 @@ namespace C_aiguisé
             }
 
             Console.SetCursorPosition(0, Console.CursorTop + 5);
-            Console.Write("Name : " + _player._mName + "\n");
+            Console.Write("Nom : " + _player._mName + "\n");
             Console.Write("Level : " + _player._mLevel + "\n");
             Console.Write("Exp : " + _player._mExp + "\n");
-            Console.Write("ExpToLevelUp : " + _player._mExpToLevelUp + "\n");
+            Console.Write("Exp avant level up : " + _player._mExpToLevelUp + "\n");
             Console.Write("Hp : " + _player._mHp + "\n");
             Console.Write("MaxHp : " + _player._mHpMax + "\n");
             Console.Write("Mp : " + _player._mMp + "\n");
             Console.Write("MaxMp : " + _player._mMpMax + "\n");
-            Console.Write("CritChance : " + _player._mCritChance + "\n");
-            Console.Write("CritDamage : " + _player._mCritDamage + "\n");
-            Console.Write("DodgeChance : " + _player._mDodgeChance + "\n");
-            Console.Write("Speed : " + _player._mSpeed + "\n");
+            Console.Write("Chance de critique : " + _player._mCritChance + "\n");
+            Console.Write("Dégât critique : " + _player._mCritDamage + "\n");
+            Console.Write("Chance d'esquive : " + _player._mDodgeChance + "\n");
+            Console.Write("Vitesse : " + _player._mSpeed + "\n");
             Console.Write("Type : " + _player._mType + "\n");
-            Console.Write("IsDead : " + _player._mIsDead + "\n");
+            Console.Write("Vivant : " + !_player._mIsDead + "\n");
             for (int i = 0; i < _player._mAttackMoves.Count; i++)
             {
-                Console.Write("Attack : \n");
+                Console.Write("Attaque : \n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("Name : " + _player._mAttackMoves[i]._mName + "\n");
+                Console.Write("Nom : " + _player._mAttackMoves[i]._mName + "\n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("Damage : " + _player._mAttackMoves[i]._mDamage + "\n");
+                Console.Write("Dégâts : " + _player._mAttackMoves[i]._mDamage + "\n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("IsAoe : " + _player._mAttackMoves[i]._mIsAoe + "\n");
+                Console.Write("Dégat de zone : " + _player._mAttackMoves[i]._mIsAoe + "\n");
                 Console.Write("\n");
             }
 
             for (int i = 0; i < _player._mMagicMoves.Count; i++)
             {
-                Console.Write("Magic Attack : \n");
+                Console.Write("Attaque magique : \n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("Name : " + _player._mMagicMoves[i]._mName + "\n");
+                Console.Write("Nom : " + _player._mMagicMoves[i]._mName + "\n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("Damage : " + _player._mMagicMoves[i]._mDamage + "\n");
+                Console.Write("Dégâts : " + _player._mMagicMoves[i]._mDamage + "\n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("IsAoe : " + _player._mMagicMoves[i]._mIsAoe + "\n");
+                Console.Write("Dégat de zone : " + _player._mMagicMoves[i]._mIsAoe + "\n");
                 Console.SetCursorPosition(Console.GetCursorPosition().Left + 20, Console.GetCursorPosition().Top);
-                Console.Write("MpCost : " + _player._mMagicMoves[i]._mMpCost + "\n");
+                Console.Write("Coût en mp : " + _player._mMagicMoves[i]._mMpCost + "\n");
                 Console.Write("\n");
             }
         }
