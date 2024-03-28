@@ -130,11 +130,14 @@ namespace C_aiguisé
                 save._mItem.Add(el.Key);
                 save._mItemNumber.Add(Bag._mBag[el.Key]);
             }
+            save._mQuest = new Quest("Vous devez tuer 10 monstres", 10, 0, false, 1000);
 
             save.SaveGame("../../../Content/Saves/Save1.json");
 
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("Game saved");
+
+            SceneManager.SwitchScene("MainMenu");
         }
 
         public void LoadGame()

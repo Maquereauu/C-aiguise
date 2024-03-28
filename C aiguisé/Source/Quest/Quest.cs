@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace C_aiguisé
 {
-    class Quest
+    public class Quest
     {
         private string _description;
         private int _progress;
@@ -46,6 +46,11 @@ namespace C_aiguisé
             get { return _reward; }
             set { _reward = value; }
         }
+        [JsonConstructor]
+        public Quest()
+        {
+
+        }
         public Quest(string description, int total, int progress = 0, bool done = false, int reward = 0)
         {
             _description = description;
@@ -78,6 +83,12 @@ namespace C_aiguisé
             {
                 Console.Write("This quest is not finished");
             }
+        }
+
+        public void Update(int progress)
+        {
+            _progress += progress;
+            VerifyQuestStatus();
         }
 
     }
