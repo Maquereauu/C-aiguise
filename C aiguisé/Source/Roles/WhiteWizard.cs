@@ -3,7 +3,7 @@ namespace C_aiguisé
     public class WhiteWizard : Role
     {
 
-       public WhiteWizard() : base("../../../Content/Role/Player.txt")
+       public WhiteWizard() : base("../../../Content/Role/WhiteWizard.txt")
         {
             _id = 3; 
         }
