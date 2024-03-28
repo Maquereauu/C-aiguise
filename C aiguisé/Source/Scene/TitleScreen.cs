@@ -39,6 +39,7 @@ namespace C_aiguisé
         }
         public override void Init()
         {
+
             AddZone(new Zone("../../../Content/Map/titleScreen.txt"));
             _map.SetCurrentZone();
         }

@@ -23,6 +23,10 @@ public class Program
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
+
+        SceneManager.AddScene(new House());
+        SceneManager.AddScene(new ZoneNord());
+
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(new BagScene());
         SceneManager.AddScene(new PlayerScene());
@@ -32,6 +36,7 @@ public class Program
 
         SceneManager.Init();
         SceneManager.SwitchScene("TitleScreen");
+
 
         while (true)
         {
