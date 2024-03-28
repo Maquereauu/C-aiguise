@@ -26,7 +26,10 @@ namespace C_aiguisé
 
         public static void Update(int progress)
         {
-            _quest.Update(progress);
+            if (_quest != null)
+            {
+                _quest.Update(progress);    
+            }
         }
 
         public static void ReturnQuest(List<Player> player) 
