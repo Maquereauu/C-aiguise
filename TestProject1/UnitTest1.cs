@@ -8,7 +8,7 @@ namespace TestProject1
     {
 
         [Test]
-        public void Test1()
+        public static void Test1()
         {
             Weapon noeil = new Weapon("salut");
             Tank tank = new Tank();
@@ -64,5 +64,23 @@ namespace TestProject1
             Assert.That(e3._mHp, Is.EqualTo(40));
 
         }
+
+        public static int TakeDamage(int hp, int damage, int result )
+        {
+            if (damage < 0) 
+            {
+                throw new ArgumentException("Damage can't be negative");
+            }
+            if ( result < 0)
+            {
+                throw new ArgumentException("Final hp can't be negative");
+            }
+            Player player = new Player();
+            player._mHp = hp;
+            player.TakeDamage(damage);
+
+            return player._mHp;
+        }
+
     }
 }
