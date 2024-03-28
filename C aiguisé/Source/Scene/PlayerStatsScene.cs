@@ -48,6 +48,7 @@ namespace C_aiguisé
         {
             Console.SetCursorPosition(0, 0);
             Console.Write("Name : " + _player._mName + "\n");
+            Console.Write("Level : " + _player._mLevel + "\n");
             Console.Write("Exp : " + _player._mExp + "\n");
             Console.Write("ExpToLevelUp : " + _player._mExpToLevelUp + "\n");
             Console.Write("Hp : " + _player._mHp + "\n");
