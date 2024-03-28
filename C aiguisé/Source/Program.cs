@@ -24,6 +24,9 @@ public class Program
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
         SceneManager.AddScene(new Game());
+        SceneManager.AddScene(new BagScene());
+        SceneManager.AddScene(new PlayerScene());
+        /*SceneManager.AddScene(new PlayerStatsScene());*/
         SceneManager.AddScene(scene);
 
 

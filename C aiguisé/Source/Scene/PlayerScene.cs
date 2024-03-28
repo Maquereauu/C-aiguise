@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace C_aiguisé
 {
-    class BagScene : Scene
+    class PlayerScene : Scene
     {
-        public BagScene() : base("BagScene")
+        public PlayerScene() : base("PlayerScene")
         {
 
         }
@@ -21,7 +21,11 @@ namespace C_aiguisé
         }
         public override void Update()
         {
-            Bag.ShowBag();
+            Console.SetCursorPosition(0, 0);
+            for (int i = 0; i < EntityManager.players.Count; i++)
+            {
+                Console.Write(EntityManager.players[i]._mName + "\n");
+            }
         }
 
         public override void PostUpdate()
@@ -30,13 +34,11 @@ namespace C_aiguisé
         }
         public override void LoadScene()
         {
-            EventManager._tab += Exit;
             EventManager._menu += Exit;
         }
         public override void UnLoad()
         {
             base.UnLoad();
-            EventManager._tab -= Exit;
             EventManager._menu -= Exit;
         }
 

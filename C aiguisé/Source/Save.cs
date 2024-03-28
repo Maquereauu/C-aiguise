@@ -67,6 +67,8 @@ namespace C_aiguisé
                     Role.CreateRole(player._mRole._mId)
                     
                     );
+
+                SceneManager.AddScene(new PlayerStatsScene(player));
             }
 
             for (int i = 0; i < loadedScene._item.Count; i++)
