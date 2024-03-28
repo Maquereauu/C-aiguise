@@ -735,6 +735,9 @@ namespace C_aiguisé
                 EventManager._leftArrow -= switchActionLeft;
                 EventManager._enter -= SelectMove;
                 Console.WriteLine("Victoire!");
+
+                QuestManager.Update(_enemies.Count);
+
                 End();
                 return;
             }
