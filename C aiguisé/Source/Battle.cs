@@ -702,7 +702,10 @@ namespace C_aiguisé
                 EventManager._leftArrow -= switchActionLeft;
                 EventManager._enter -= SelectMove;
                 Console.WriteLine("Défaite..");
-                End();
+                needsToUpdate -= Display;
+                needsToUpdate -= Update;
+
+                SceneManager.SwitchScene("GameOver");
                 return;
             }
             counter = 0;

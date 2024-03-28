@@ -39,7 +39,6 @@ namespace C_aiguisé
         }
         public override void Init()
         {
-
             AddZone(new Zone("../../../Content/Map/titleScreen.txt"));
             _map.SetCurrentZone();
         }
@@ -104,7 +103,7 @@ namespace C_aiguisé
 
                     SceneManager.AddScene(new PlayerScene());
 
-                    SceneManager.SwitchScene("BattleScene");
+                    SceneManager.SwitchScene("GameOver");
                     break;
                 case 1:
                     Save load = new Save();
