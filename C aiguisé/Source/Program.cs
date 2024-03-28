@@ -28,17 +28,8 @@ public class Program
 
 
         SceneManager.Init();
-/*        scene.SetBattle(battle);*/
         SceneManager.SwitchScene("TitleScreen");
-        /*SceneManager.Display();*/
 
-        /*battle.Start();*/
-
-/*        Save save = new Save();
-        save.LoadGame("../../../Content/Saves/Save1.json");*/
-
-        //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
-        FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
         while (true)
         {
             SceneManager.PreUpdate();

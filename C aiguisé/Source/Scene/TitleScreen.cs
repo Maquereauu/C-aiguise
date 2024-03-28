@@ -95,7 +95,8 @@ namespace C_aiguisé
                     SceneManager.SwitchScene("BattleScene");
                     break;
                 case 1:
-
+                    Save load = new Save();
+                    load.LoadGame("../../../Content/Saves/Save1.json");
                     break;
                 case 2:
                     Environment.Exit(0);
