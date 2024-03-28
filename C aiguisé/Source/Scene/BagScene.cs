@@ -42,7 +42,7 @@ namespace C_aiguisé
 
         public void Exit()
         {
-            SceneManager.SwitchScene(SceneManager._previousScene.GetName());
+            SceneManager.SwitchScene(SceneManager._mPreviousScene.GetName());
         }
     }
 }

@@ -97,6 +97,9 @@ namespace C_aiguisé
                     {
                         SceneManager.AddScene(new PlayerStatsScene(EntityManager.players[i]));
                     }
+
+                    SceneManager.AddScene(new PlayerScene());
+
                     SceneManager.SwitchScene("BattleScene");
                     break;
                 case 1:
