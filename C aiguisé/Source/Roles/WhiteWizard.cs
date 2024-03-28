@@ -10,8 +10,8 @@ namespace C_aiguisé
         public void setAttack()
         {
             _player.AddAttack(new AttackMove(0, 500, false, true, "Purple"));
-            _player.AddMagic(new MagicMove(0, 250, 50, true, true, "Red"));
-            _player.AddMagic(new MagicMove(0, 200, 100, false, true, "Blue"));
+            _player.AddMagic(new MagicMove(0, 250, 1, true, true, "Red"));
+            _player.AddMagic(new MagicMove(0, 200, 1, false, true, "Blue"));
             _player._mDodgeChance = 100;
         }
 
