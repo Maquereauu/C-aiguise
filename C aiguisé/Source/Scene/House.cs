@@ -38,6 +38,8 @@ namespace C_aiguisé
         {
             test += _bob.Dialog1;
             EventManager._enter += NextLine;
+            QuestManager.SetQuest(new Quest("Vous devez tuer 10 monstres", C_aiguisé.Utils.QuestType.KillMonsters, 10, 0, false, 1000, false));
+            QuestManager.ReturnQuest(EntityManager.players);
         }
 
         public void NextLine()

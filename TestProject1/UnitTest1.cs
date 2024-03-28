@@ -20,7 +20,7 @@ namespace TestProject1
             Enemy e2= new Enemy();
             Enemy e3= new Enemy();
             List<Enemy> e = new List<Enemy>() { e1,e2,e3 };
-            Battle battle = new Battle(p,e);
+            //Battle battle = new Battle(p,e);
             Potion HealingPotion = new Potion(25);
             p1._mCritChance = 0;
             p1._mDodgeChance = 0;

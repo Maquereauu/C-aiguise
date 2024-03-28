@@ -83,7 +83,7 @@ namespace C_aiguisé
         public string _mName
         {
             get { return _name; }
-            protected set { _name = value; }
+            set { _name = value; }
         }
 
         [JsonProperty]

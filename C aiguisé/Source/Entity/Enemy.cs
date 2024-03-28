@@ -27,7 +27,7 @@ namespace C_aiguisé
         public Enemy(string sprite)
         {
             _name = "mon ennemi oh la misère";
-            _hpMax = 100;
+            _hpMax = 250;
             _mpMax = 100;
             _hp = _hpMax;
             _mp = _mpMax;

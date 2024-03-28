@@ -9,6 +9,8 @@ namespace C_aiguisé
 {
     public class BattleScene : Scene
     {
+        List<string> list = new List<string>() { "../../../Content/Role/Enemy1.txt", "../../../Content/Role/Enemy2.txt", "../../../Content/Role/Enemy3.txt" };
+        List<string> list2 = new List<string>() {"Goomba","Alexandre","Goku" };
         public BattleScene() : base("BattleScene")
         {
         }
@@ -33,7 +35,9 @@ namespace C_aiguisé
             List<Enemy> enemies = new List<Enemy>();
             for (int i = 0; i < random.Next(3) + 2; i++)
             {
-                Enemy enemy = new Enemy("../../../Content/Role/Enemy.txt");
+                int rand = random.Next(3);
+                Enemy enemy = new Enemy(list[rand]);
+                enemy._mName = list2[rand];
                 enemies.Add(enemy);
             }
             _battle = new Battle(EntityManager.players,enemies);
