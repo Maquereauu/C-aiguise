@@ -47,6 +47,15 @@ namespace C_aiguisé
         public void Display()
         {
             Console.SetCursorPosition(0, 0);
+
+            string sprite = File.ReadAllText(_player._mSprite);
+            foreach (string line in sprite.Split("\n"))
+            {
+                Console.SetCursorPosition(5, Console.CursorTop + 1);
+                Console.Write(line);
+            }
+
+            Console.SetCursorPosition(0, Console.CursorTop + 5);
             Console.Write("Name : " + _player._mName + "\n");
             Console.Write("Level : " + _player._mLevel + "\n");
             Console.Write("Exp : " + _player._mExp + "\n");
