@@ -852,7 +852,7 @@ namespace C_aiguisé
         {
             needsToUpdate -= Display;
             needsToUpdate -= Update;
-            SceneManager.SwitchScene("Game");
+            SceneManager.SwitchScene(SceneManager._mPreviousScene.GetName());
         }
     }
 }
