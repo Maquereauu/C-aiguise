@@ -26,14 +26,6 @@ public class Program
         SceneManager.AddScene(new Game());
         SceneManager.AddScene(scene);
 
-        Tank tank = new Tank();
-        Knight knight = new Knight();
-        Weapon sword = new Weapon("Sword");
-        Weapon knife = new Weapon("Knife");
-        EntityManager.CreatePlayer("Jean", sword, tank);
-        EntityManager.CreatePlayer("Pierre", knife, knight);
-
-        Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
 
         SceneManager.Init();
 /*        scene.SetBattle(battle);*/
@@ -42,12 +34,11 @@ public class Program
 
         /*battle.Start();*/
 
-        /*        Save save = new Save();
-                save.LoadGame("../../../Content/Saves/Save1.json");*/
+/*        Save save = new Save();
+        save.LoadGame("../../../Content/Saves/Save1.json");*/
 
         //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
         FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
-
         while (true)
         {
             SceneManager.PreUpdate();

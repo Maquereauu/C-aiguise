@@ -11,7 +11,7 @@ namespace C_aiguisé
         private int _iDamage;
         private int _iCritRate;
         private int _iCritDamage;
-        private string _sType = "";
+        private int _type;
         //unique effect
         private string _sClass = "";
         [JsonProperty]
@@ -33,10 +33,10 @@ namespace C_aiguisé
             set { _iCritDamage = value; }
         }
         [JsonProperty]
-        public string _mType
+        public int _mType
         {
-            get { return _sType; }
-            set { _sType = value; }
+            get { return _type; }
+            set { _type = value; }
         }
         [JsonProperty]
         public string _mClass
@@ -51,12 +51,12 @@ namespace C_aiguisé
         }
 
         [JsonConstructor]
-        public Weapon(string name, int iDamage, int iCritRate, int iCritDamage, string sType, string sClass) : base (name, true)
+        public Weapon(string name, int iDamage, int iCritRate, int iCritDamage, int type, string sClass) : base (name, true)
         {
             _iDamage = iDamage;
             _iCritRate = iCritRate;
             _iCritDamage = iCritDamage;
-            _sType = sType;
+            _type = type;
             _sClass = sClass;
         }
 
