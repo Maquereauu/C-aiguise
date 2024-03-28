@@ -11,7 +11,6 @@ namespace C_aiguisé
     {
         public BattleScene() : base("BattleScene")
         {
-            _isGameZone = false;
         }
         public override void Init()
         {

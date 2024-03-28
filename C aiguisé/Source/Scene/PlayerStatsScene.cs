@@ -12,7 +12,6 @@ namespace C_aiguisé
         public PlayerStatsScene(Player player) : base(player._mName + "StatsScene")
         {
             _player = player;
-            _isGameZone = false;
         }
         public override void Init()
         {

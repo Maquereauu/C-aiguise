@@ -20,7 +20,6 @@ namespace C_aiguisé
         {
             _name = name;
             _map = new Map();
-            _isGameZone = false;
         }
         public abstract void Init();
         public virtual void PreUpdate()

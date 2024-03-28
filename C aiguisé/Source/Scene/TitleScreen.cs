@@ -32,8 +32,6 @@ namespace C_aiguisé
         }
         public TitleScreen() : base("TitleScreen")
         {
-            _isGameZone = false;
-
             _hudList = new List<(int, int)>() { (30, 40), (90, 40), (160, 40) }; // list of pos (x, y)
             _test = (30, 40);
             _index = 0;

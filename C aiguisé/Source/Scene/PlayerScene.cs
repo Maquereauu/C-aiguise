@@ -9,8 +9,6 @@
 
         public PlayerScene() : base("PlayerScene")
         {
-            _isGameZone = false;
-
             _index = 0;
             _hudPlayerList = new List<Player>();
             _hudPosList = new List<(int, int)>();
