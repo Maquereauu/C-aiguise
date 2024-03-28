@@ -39,11 +39,11 @@ namespace C_aiguisé
         private Dictionary<Item, int> _bag = Bag.GetBag();
         private Item actualKey;
 
-        public Battle(List<Player> allies, List<Summon> summons, List<Enemy> enemies) {
+        public Battle(List<Player> allies, List<Enemy> enemies) {
             _hudList = new List<(int, int)>() { (89, 43), (144, 43), (89, 48),(144,48) }; // list of pos (x, y)
             _allies = allies;
-            _summons = summons;
             _enemies = enemies;
+            _summons = new List<Summon>();
             _speeds = new List<float>();
             _baseSpeeds = new List<float>();
             _characters = new List<Character>();
@@ -52,12 +52,6 @@ namespace C_aiguisé
                 _speeds.Add(_allies[i]._mSpeed);
                 _baseSpeeds.Add(_allies[i]._mSpeed);
                 _characters.Add(_allies[i]);
-            }
-            for (int i = 0; i < summons.Count; i++)
-            {
-                _speeds.Add(summons[i]._mSpeed);
-                _baseSpeeds.Add(summons[i]._mSpeed);
-                _characters.Add(summons[i]);
             }
             for (int i = 0; i < enemies.Count; i++)
             {

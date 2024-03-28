@@ -31,9 +31,8 @@ namespace C_aiguisé
             Console.CursorVisible = false;
             Enemy enemy = new Enemy("../../../Content/Role/Enemy.txt");
             Enemy enemy1 = new Enemy("../../../Content/Role/Enemy.txt");
-            List<Summon> summons = new List<Summon>();
             List<Enemy> enemies = new List<Enemy>() { enemy,enemy1};
-            _battle = new Battle(EntityManager.players, summons,enemies);
+            _battle = new Battle(EntityManager.players,enemies);
             EventManager._downArrow += _battle.switchActionDown;
             EventManager._upArrow += _battle.switchActionUp;
             EventManager._rightArrow += _battle.switchActionRight;

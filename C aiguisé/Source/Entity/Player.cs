@@ -64,7 +64,29 @@ namespace C_aiguisé
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
-        public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
+        public Player( Weapon weapon, Role role)
+        {
+            _name = "name";
+            _weapon = weapon;
+            _role = role;
+            _hpMax = 100;
+            _mpMax = 100;
+            _hp = _hpMax;
+            _mp = _mpMax;
+            _level = 1;
+            _exp = 0.0f;
+            _dodgeChance = 0;
+            _speed = 20;
+            _summonBar = 0;
+            _sprite = _role._mSprite;
+            _role.setPlayer(this);
+            _expToLevelUp = 200;
+
+/*            (int, int) size = FileReader.GetSizeFromFile(_sprite);
+            _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);*/
+        }
+
+        public Player(string name, int hp, int hpMax, int mp, int mpMax, int level, float exp,
             int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead, float expToLevelUp,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
         {
