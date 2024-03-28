@@ -25,7 +25,7 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
-            //DetectBattle();
+            DetectBattle();
             Swap();
         }
 
