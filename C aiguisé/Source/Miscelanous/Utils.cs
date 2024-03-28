@@ -72,6 +72,13 @@ namespace C_aiguisé
                 return c;
             }
         }
+
+        public enum QuestType
+        {
+            KillMonsters,
+            TalkSomeone,
+            GetStuff
+        }
     }
 
 }

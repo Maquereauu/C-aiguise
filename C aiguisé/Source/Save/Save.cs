@@ -14,6 +14,7 @@ namespace C_aiguisé
         private List<Item> _item;
         private List<int> _itemNumber;
         private string _currentZone;
+        private Quest _quest;
 
         public List<Player> _mPlayer
         {
@@ -35,12 +36,18 @@ namespace C_aiguisé
             get { return _currentZone; }
             set { _currentZone = value; }
         }
+        public Quest _mQuest
+        {
+            get { return _quest; }
+            set { _quest = value; }
+        }
         public Save()
         {
             _player = new List<Player>();
             _item = new List<Item>();   
             _itemNumber = new List<int>();
             _currentZone = "";
+            _quest = new Quest();
         }
 
         public void SaveGame(string path)
@@ -76,10 +83,11 @@ namespace C_aiguisé
                 Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
             }
 
+            QuestManager._mQuest = new Quest(_mQuest._mDescription, _mQuest._mType, _mQuest._mTotal, _mQuest._mProgress, _mQuest._mDone, _mQuest._mReward, _mQuest._mClear);
+
+            SceneManager.AddScene(new PlayerScene());
+
             SceneManager.SwitchScene(loadedScene._currentZone);
-/*
-            List<Player> list = EntityManager.players;
-            Dictionary<Item, int> bag = Bag.GetBag();*/
         }
 
     }

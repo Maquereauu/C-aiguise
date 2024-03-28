@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace C_aiguisé
         protected Map _map;
         protected Battle _battle;
         protected Bitmap _bitmap;
+        protected bool _isGameZone;
         public Bitmap bitmap { get { return _bitmap; } }
 
         public Scene(string name)
@@ -35,8 +37,7 @@ namespace C_aiguisé
 
         public virtual void UnLoad()
         {
-            Console.Clear();
-            /*Console.BackgroundColor = ConsoleColor.Black;*/
+            Console.BackgroundColor = ConsoleColor.Black;
         }
 
         public string GetName()
@@ -46,6 +47,11 @@ namespace C_aiguisé
         public Map GetMap()
         {
             return _map;
+        }
+
+        public bool GetIsGameZone()
+        {
+            return _isGameZone;
         }
 
         public void AddZone(Zone zone)

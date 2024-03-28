@@ -8,10 +8,34 @@ namespace C_aiguisé
 {
     public static class SceneManager
     {
-        public static List<Scene> _sceneList = new List<Scene>();
-        public static Scene _currentScene = new MainMenu();
-        public static Scene CurrentScene { get { return _currentScene; } }
-        public static Scene _previousScene = new MainMenu();
+        private static List<Scene> _sceneList = new List<Scene>();
+        private static Scene _currentScene = new MainMenu();
+        private static Scene _previousScene = new MainMenu();
+        private static Scene _lastGameZone = new Game();
+
+        public static List<Scene> _mSceneList 
+        {  
+            get { return _sceneList; } 
+            set { _sceneList = value; }
+        }
+        public static Scene _mCurrentScene
+        {
+            get { return _currentScene; }
+            set { _currentScene = value; }
+        }
+
+        public static Scene _mPreviousScene
+        {
+            get { return _previousScene; }
+            set { _previousScene = value; }
+        }
+
+        public static Scene _mLastGameZone
+        {
+            get { return _lastGameZone; }
+            set { _lastGameZone = value; }
+        }
+
 
         public static void AddScene(Scene scene)
         {
@@ -39,6 +63,8 @@ namespace C_aiguisé
         }
         public static void LoadScene()
         {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Black;
             _currentScene.LoadScene();
         }
 
@@ -48,6 +74,10 @@ namespace C_aiguisé
             {
                 if (_sceneList[i].GetName() == sceneName)
                 {
+                    if (_sceneList[i].GetIsGameZone())
+                    {
+                        _lastGameZone = _sceneList[i];
+                    }
                     _previousScene = _currentScene;
                     _previousScene.UnLoad();
 

@@ -10,7 +10,6 @@ namespace C_aiguisé
     {
         public BagScene() : base("BagScene")
         {
-
         }
         public override void Init()
         {
@@ -42,7 +41,7 @@ namespace C_aiguisé
 
         public void Exit()
         {
-            SceneManager.SwitchScene(SceneManager._previousScene.GetName());
+            SceneManager.SwitchScene(SceneManager._mPreviousScene.GetName());
         }
     }
 }

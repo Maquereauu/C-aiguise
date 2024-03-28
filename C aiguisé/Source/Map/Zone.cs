@@ -17,25 +17,7 @@ namespace C_aiguisé
 
         public void Display()
         {
-
-
-
-            /*            string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
-                        var characterPosition = EventManager._transform._mCoordinates;
-
-                        for (int i = 0; i < asciiArt.Length; i++)
-                        {
-                            int xPosition = i % Console.BufferWidth;
-                            int yPosition = i / Console.BufferWidth;
-
-                            if (xPosition == characterPosition.x() && yPosition == characterPosition.y())
-                            {
-                                continue; 
-                            }
-
-                            Console.Write(asciiArt[i]);
-                        }*/
-            Scene Currentscene = SceneManager.CurrentScene;
+            Scene Currentscene = SceneManager._mCurrentScene;
             Bitmap map = Currentscene.bitmap;
             string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);
@@ -48,7 +30,7 @@ namespace C_aiguisé
             {
                 return;
             }
-            string[] sprite = File.ReadAllText(EntityManager.players[1]._mSprite).Split("\r\n") ;
+            string[] sprite = File.ReadAllText(EntityManager.players[0]._mSprite).Split("\r\n") ;
 
             
             
@@ -60,15 +42,15 @@ namespace C_aiguisé
             //}
             //else
             for(int i =0; i <y; i++) {
-                Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() + i);
+                Console.SetCursorPosition(EntityManager.players[0]._mTranform._mCoordinates.x(), EntityManager.players[0]._mTranform._mCoordinates.y() + i);
 
                 for (int j = 0; j < x; j++)
                 {
-                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x()+j, EventManager._transform._mCoordinates.y()*2 +i*2);
+                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 +i*2);
                     byte pixR = pix.R;
                     byte pixG = pix.G;
                     byte pixB = pix.B;
-                    Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "m" + sprite[i][j]);
+                    Console.Write("\x1b[37;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "m" + sprite[i][j]);
                 }
                 
             }

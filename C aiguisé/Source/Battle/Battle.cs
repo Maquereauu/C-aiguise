@@ -334,7 +334,7 @@ namespace C_aiguisé
             switch ((int)_selectedAction)
             {
                 case (int)Actions.Attack:
-                    Console.WriteLine("attack!");
+                    Console.WriteLine("Attaque!");
                     EventManager._downArrow -= switchActionDown;
                     EventManager._downArrow += switchAttackDown;
                     EventManager._upArrow -= switchActionUp;
@@ -349,7 +349,7 @@ namespace C_aiguisé
                     needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Magic:
-                    Console.WriteLine("magic!");
+                    Console.WriteLine("Magie!");
                     EventManager._downArrow -= switchActionDown;
                     EventManager._downArrow += switchMagicDown;
                     EventManager._upArrow -= switchActionUp;
@@ -364,7 +364,7 @@ namespace C_aiguisé
                     needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Item:
-                    Console.WriteLine("item!");
+                    Console.WriteLine("Objets!");
                     EventManager._downArrow -= switchActionDown;
                     EventManager._downArrow += switchItemDown;
                     EventManager._upArrow -= switchActionUp;
@@ -381,7 +381,7 @@ namespace C_aiguisé
                     needsToUpdate?.Invoke();
                     break;
                 case (int)Actions.Flee:
-                    Console.WriteLine("flee!");
+                    Console.WriteLine("S'enfuir!");
                     Flee = true;
                     needsToUpdate?.Invoke();
                     break;
@@ -756,7 +756,10 @@ namespace C_aiguisé
                 EventManager._leftArrow -= switchActionLeft;
                 EventManager._enter -= SelectMove;
                 Console.WriteLine("Défaite..");
-                End();
+                needsToUpdate -= Display;
+                needsToUpdate -= Update;
+
+                SceneManager.SwitchScene("GameOver");
                 return;
             }
             counter = 0;
@@ -786,6 +789,9 @@ namespace C_aiguisé
                 EventManager._leftArrow -= switchActionLeft;
                 EventManager._enter -= SelectMove;
                 Console.WriteLine("Victoire!");
+
+                QuestManager.Update(_enemies.Count);
+
                 End();
                 return;
             }
@@ -796,11 +802,11 @@ namespace C_aiguisé
                 if (i == 2)
                 {
                     Console.SetCursorPosition(70, 41 + i);
-                    Console.Write("║" + new string(' ', 20) + "Attack"/*6*/ + new string(' ', 49) + "Magic"/*5*/ + new string(' ', 20) + "║");
+                    Console.Write("║" + new string(' ', 20) + "Attaque"/*7*/ + new string(' ', 49) + "Magie"/*5*/ + new string(' ', 19) + "║");
                 }else if(i == 7)
                 {
                     Console.SetCursorPosition(70, 41 + i);
-                    Console.Write("║" + new string(' ', 20) + "Item"/*4*/ + new string(' ', 51) + "Flee"/*4*/ + new string(' ', 21) + "║");
+                    Console.Write("║" + new string(' ', 20) + "Objets"/*6*/ + new string(' ', 50) + "S'enfuir"/*8*/ + new string(' ', 16) + "║");
                 }
                 else
                 {

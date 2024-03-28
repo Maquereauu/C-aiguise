@@ -23,20 +23,21 @@ public class Program
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
+        SceneManager.AddScene(new GameOver());
+        SceneManager.AddScene(new QuestScene());
 
+        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new House());
         SceneManager.AddScene(new ZoneNord());
 
-        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new BagScene());
-        SceneManager.AddScene(new PlayerScene());
-        /*SceneManager.AddScene(new PlayerStatsScene());*/
         SceneManager.AddScene(scene);
 
 
         SceneManager.Init();
         SceneManager.SwitchScene("TitleScreen");
 
+        //QuestManager.SetQuest(new Quest("Vous devez tuer 10 monstres", C_aiguisé.Utils.QuestType.KillMonsters,  10,0, false, 1000, false));
 
         while (true)
         {
