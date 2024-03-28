@@ -42,11 +42,11 @@ namespace C_aiguisé
             //}
             //else
             for(int i =0; i <y; i++) {
-                Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() + i);
+                Console.SetCursorPosition(EntityManager.players[0]._mTranform._mCoordinates.x(), EntityManager.players[0]._mTranform._mCoordinates.y() + i);
 
                 for (int j = 0; j < x; j++)
                 {
-                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x()+j, EventManager._transform._mCoordinates.y()*2 +i*2);
+                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 +i*2);
                     byte pixR = pix.R;
                     byte pixG = pix.G;
                     byte pixB = pix.B;

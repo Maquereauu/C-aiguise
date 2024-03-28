@@ -85,7 +85,7 @@ namespace C_aiguisé
                     Color grass = _bitmap.GetPixel(k, l);
                     if (grass.R == r && grass.G == g && grass.B == b)
                     {
-                        if (EventManager._transform._mCoordinates.x() == k && EventManager._transform._mCoordinates.y() == l / 2)
+                        if (EntityManager.players[0]._mTranform._mCoordinates.x() == k && EntityManager.players[0]._mTranform._mCoordinates.y() == l / 2)
                         {
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
@@ -107,34 +107,34 @@ namespace C_aiguisé
         {
             int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
             int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
-            if (EventManager._transform._mCoordinates.x() >= 140 && EventManager._transform._mCoordinates.x() <= 165 && EventManager._transform._mCoordinates.y() == 33/2  && EventManager._lastTouch == "up")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() >= 140 && EntityManager.players[0]._mTranform._mCoordinates.x() <= 165 && EntityManager.players[0]._mTranform._mCoordinates.y() == 33/2  && EventManager._lastTouch == "up")
             {
-                EventManager._transform.SetPos(192/2, 107 / 2 - y);
+                EntityManager.players[0]._mTranform.SetPos(192/2, 107 / 2 - y);
                 SceneManager.SwitchScene("House");
             }
 
 
-            if (EventManager._transform._mCoordinates.x() >= 72 && EventManager._transform._mCoordinates.x() <= 115 && EventManager._transform._mCoordinates.y() == 0 && EventManager._lastTouch == "up")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() >= 72 && EntityManager.players[0]._mTranform._mCoordinates.x() <= 115 && EntityManager.players[0]._mTranform._mCoordinates.y() == 0 && EventManager._lastTouch == "up")
             {
-                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 107 / 2 - y);
+                EntityManager.players[0]._mTranform.SetPos(EntityManager.players[0]._mTranform._mCoordinates.x(), 107 / 2 - y);
                 //Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");
 
                
             }
-            if (EventManager._transform._mCoordinates.x() == 0 && EventManager._transform._mCoordinates.y() >= 35/2 && EventManager._lastTouch == "left")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() == 0 && EntityManager.players[0]._mTranform._mCoordinates.y() >= 35/2 && EventManager._lastTouch == "left")
             {
-                EventManager._transform.SetPos(190 - x, EventManager._transform._mCoordinates.y());
+                EntityManager.players[0]._mTranform.SetPos(190 - x, EntityManager.players[0]._mTranform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");
             }
-            if (EventManager._transform._mCoordinates.x() <= 116 && EventManager._transform._mCoordinates.y() == 105 / 2 - y && EventManager._lastTouch == "down")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() <= 116 && EntityManager.players[0]._mTranform._mCoordinates.y() == 105 / 2 - y && EventManager._lastTouch == "down")
             {
-                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 0);
+                EntityManager.players[0]._mTranform.SetPos(EntityManager.players[0]._mTranform._mCoordinates.x(), 0);
                 SceneManager.SwitchScene("ZoneNord");
             }
-            if (EventManager._transform._mCoordinates.x() >= 189 - x && EventManager._transform._mCoordinates.y() >= 34 / 2 && EventManager._transform._mCoordinates.y() <= 68 / 2 &&EventManager._lastTouch == "right")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() >= 189 - x && EntityManager.players[0]._mTranform._mCoordinates.y() >= 34 / 2 && EntityManager.players[0]._mTranform._mCoordinates.y() <= 68 / 2 &&EventManager._lastTouch == "right")
             {
-                EventManager._transform.SetPos(0, EventManager._transform._mCoordinates.y());
+                EntityManager.players[0]._mTranform.SetPos(0, EntityManager.players[0]._mTranform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");
             }
         }

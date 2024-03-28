@@ -26,23 +26,23 @@ namespace C_aiguisé
 
         public static void MoveLeft()
         {
-            Movement(_transform, -1, 0, "P");
+            Movement(EntityManager.players[0]._mTranform, -1, 0, "P");
             _lastTouch = "left";
         }
         public static void MoveRight() 
         {
-            Movement(_transform, 1, 0, "P");
+            Movement(EntityManager.players[0]._mTranform, 1, 0, "P");
             _lastTouch = "right";
         }
 
         public static void MoveUp() 
         {
-            Movement(_transform, 0, -1, "P");
+            Movement(EntityManager.players[0]._mTranform, 0, -1, "P");
             _lastTouch = "up";
         }
         public static void MoveDown() 
         {
-            Movement(_transform, 0, 1, "P");
+            Movement(EntityManager.players[0]._mTranform, 0, 1, "P");
             _lastTouch = "down";
         }
 
@@ -73,13 +73,13 @@ namespace C_aiguisé
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:
-                        if (EventManager._transform._mCoordinates.x() > 0 && map != null)
+                        if (EntityManager.players[0]._mTranform._mCoordinates.x() > 0 && map != null)
                         {
                             for (int i = 0; i < y; i++)
                             {
                                 for (int j = 0; j < x; j++)
                                 {
-                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j - 1, EventManager._transform._mCoordinates.y() * 2 + i * 2);
+                                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j - 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2);
                                     byte pixR = pix.R;
                                     byte pixG = pix.G;
                                     byte pixB = pix.B;
@@ -95,13 +95,13 @@ namespace C_aiguisé
                         _leftArrow?.Invoke();
                         break;
                     case ConsoleKey.RightArrow:
-                        if(EventManager._transform._mCoordinates.x() < 192 && map != null)
+                        if(EntityManager.players[0]._mTranform._mCoordinates.x() < 192 && map != null)
                         {
                             for (int i = 0; i < y; i++)
                             {
                                 for (int j = 0; j < x; j++)
                                 {
-                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2);
+                                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j + 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2);
                                     byte pixR = pix.R;
                                     byte pixG = pix.G;
                                     byte pixB = pix.B;
@@ -116,13 +116,13 @@ namespace C_aiguisé
                         _rightArrow?.Invoke();
                         break;
                     case ConsoleKey.UpArrow:
-                        if(EventManager._transform._mCoordinates.y() > 0 && map != null)
+                        if(EntityManager.players[0]._mTranform._mCoordinates.x() > 0 && map != null)
                         {
                             for (int i = 0; i < y; i++)
                             {
                                 for (int j = 0; j < x; j++)
                                 {
-                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2 -2);
+                                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j + 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 -2);
                                     byte pixR = pix.R;
                                     byte pixG = pix.G;
                                     byte pixB = pix.B;
@@ -137,15 +137,15 @@ namespace C_aiguisé
                         _upArrow?.Invoke();
                         break;
                     case ConsoleKey.DownArrow:
-                        if(EventManager._transform._mCoordinates.y() < 107/2 && map != null)
+                        if(EntityManager.players[0]._mTranform._mCoordinates.y() < 107/2 && map != null)
                         {
-                            if (EventManager._transform._mCoordinates.y() > 0 && map != null)
+                            if (EntityManager.players[0]._mTranform._mCoordinates.y() > 0 && map != null)
                             {
                                 for (int i = 0; i < y; i++)
                                 {
                                     for (int j = 0; j < x; j++)
                                     {
-                                        Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2 + 1);
+                                        Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j + 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 + 1);
                                         byte pixR = pix.R;
                                         byte pixG = pix.G;
                                         byte pixB = pix.B;

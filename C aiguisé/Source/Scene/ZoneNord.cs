@@ -72,7 +72,7 @@ namespace C_aiguisé
 
                     if (grass.R == r && grass.G == g && grass.B == b)
                     {
-                        if (EventManager._transform._mCoordinates.x() == k && EventManager._transform._mCoordinates.y() == l / 2)
+                        if (EntityManager.players[0]._mTranform._mCoordinates.x() == k && EntityManager.players[0]._mTranform._mCoordinates.y() == l / 2)
                         {
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
@@ -93,9 +93,9 @@ namespace C_aiguisé
         {
             int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
             int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
-            if (EventManager._transform._mCoordinates.x() >= 64 && EventManager._transform._mCoordinates.x() <= 132 && EventManager._transform._mCoordinates.y() >= 105 / 2 - y && EventManager._lastTouch == "down")
+            if (EntityManager.players[0]._mTranform._mCoordinates.x() >= 64 && EntityManager.players[0]._mTranform._mCoordinates.x() <= 132 && EntityManager.players[0]._mTranform._mCoordinates.y() >= 105 / 2 - y && EventManager._lastTouch == "down")
             {
-                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 0);
+                EntityManager.players[0]._mTranform.SetPos(EntityManager.players[0]._mTranform._mCoordinates.x(), 0);
                 SceneManager.SwitchScene("Game");
                 
                 //Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
