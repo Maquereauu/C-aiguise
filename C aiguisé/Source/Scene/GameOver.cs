@@ -17,13 +17,13 @@ namespace C_aiguisé
         public GameOver () : base ("GameOver")
         {
             _hudNameList = new List<string>() { " Charger une sauvegarde ", " Quitter "};
-            _hudPosList = new List<(int, int)>() { (0, 10), (40, 10)};
+            _hudPosList = new List<(int, int)>() { (60, 25), (100, 25)};
             _hudPos = ((_hudPosList[0].Item1, _hudPosList[0].Item2));
         }
 
         public override void Init()
         {
-            AddZone(new Zone("../../../Content/Map/titleScreen.txt"));
+            AddZone(new Zone("../../../Content/Map/GameOver.txt"));
             _map.SetCurrentZone();
         }
         public override void PreUpdate()
@@ -38,7 +38,7 @@ namespace C_aiguisé
 
             for (int i = 0; i < _hudNameList.Count; i++)
             {
-                Console.SetCursorPosition(_hudPosList[i].Item1 + 10, _hudPosList[i].Item2);
+                Console.SetCursorPosition(_hudPosList[i].Item1 + 1, _hudPosList[i].Item2);
                 Console.Write(_hudNameList[i] + "\n\n");
             }
 
