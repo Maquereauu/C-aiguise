@@ -30,7 +30,7 @@ namespace C_aiguisé
             {
                 return;
             }
-            string[] sprite = File.ReadAllText(EntityManager.players[1]._mSprite).Split("\r\n") ;
+            string[] sprite = File.ReadAllText(EntityManager.players[0]._mSprite).Split("\r\n") ;
 
             
             
