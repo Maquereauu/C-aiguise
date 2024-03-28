@@ -99,5 +99,12 @@ namespace C_aiguisé
             return _bag;
         }
 
+        public static void ShowBag()
+        {
+            foreach (var el in _bag)
+            {
+                Console.WriteLine(el.Key.GetName());
+            }
+        }
     }
 }

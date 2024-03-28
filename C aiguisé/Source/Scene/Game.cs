@@ -39,6 +39,7 @@ namespace C_aiguisé
             EventManager._downArrow += EventManager.MoveDown;
             EventManager._upArrow += EventManager.MoveUp;
             EventManager._menu += OpenMenu;
+            EventManager._tab += ShowBag;
         }
         public override void UnLoad()
         {
@@ -49,6 +50,12 @@ namespace C_aiguisé
             EventManager._downArrow -= EventManager.MoveDown;
             EventManager._upArrow -= EventManager.MoveUp;
             EventManager._menu -= OpenMenu;
+            EventManager._tab -= ShowBag;
+        }
+
+        public void ShowBag()
+        {
+            SceneManager.SwitchScene("BagScene");
         }
     }
 }
