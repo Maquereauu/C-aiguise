@@ -91,6 +91,9 @@ namespace TestProject1
             tank.setPlayer(p1);
             tank.setAttack();
             e1.TakeDamage(p1.Attack(p1._mAttackMoves[0], e1));
+            p1._mCritChance = 0;
+            e1._mDodgeChance = 0;
+
 
             Assert.That(e1._mHp, Is.EqualTo(60));
         }
