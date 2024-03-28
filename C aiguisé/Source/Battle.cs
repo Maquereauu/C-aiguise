@@ -171,7 +171,7 @@ namespace C_aiguisé
         }
         public void switchMagicDown()
         {
-            _selectedAttack = Utils.MathHelper.Modulo((_selectedMagic + 1), _characters[_indexSpeedList]._mMagicMoves.Count);
+            _selectedMagic = Utils.MathHelper.Modulo((_selectedMagic + 1), _characters[_indexSpeedList]._mMagicMoves.Count);
             Console.Clear();
             needsToUpdate?.Invoke();
         }
@@ -425,8 +425,40 @@ namespace C_aiguisé
 
         public void ShowTarget()
         {
-            Console.SetCursorPosition(169 , 3 + 10 * _selectedTarget);
-            Console.Write(">");
+            switch (_selectedAction)
+            {
+                case Actions.Attack:
+                    if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
+                    {
+                        for (int i = 0; i < _enemies.Count; i++)
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            Console.Write(">");
+                        }
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
+                        Console.Write(">");
+                    }
+                        break;
+
+                case Actions.Magic:
+                    if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
+                    {
+                        for (int i = 0; i < _enemies.Count; i++)
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            Console.Write(">");
+                        }
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
+                        Console.Write(">");
+                    }
+                    break;
+            }
         }
 
         public void ExecuteAction()
@@ -436,18 +468,39 @@ namespace C_aiguisé
                 switch ((int)_selectedAction)
                 {
                     case (int)Actions.Attack:
+
                         if (_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;
                         }
-                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
+                        {
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[i]));
+                            }
+                        }
+                        else
+                        {
+                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        }
                         break;
                     case (int)Actions.Magic:
                         if (_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;
                         }
-                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
+                        {
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedMagic], _enemies[i]));
+                            }
+                        }
+                        else
+                        {
+                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        }
                         break;
                     case (int)Actions.Item:
                         break;

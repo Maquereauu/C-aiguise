@@ -36,5 +36,10 @@ namespace C_aiguisé
             get { return _mpCost; }
             protected set { _mpCost = value; }
         }
+        public bool _mIsAoe
+        {
+            get { return _isAoe; }
+            protected set { _isAoe = value; }
+        }
     }
 }
