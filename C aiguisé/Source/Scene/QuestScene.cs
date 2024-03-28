@@ -20,6 +20,7 @@ namespace C_aiguisé
         public override void PreUpdate()
         {
             base.PreUpdate();
+            Console.Clear();
         }
         public override void Update()
         {
@@ -48,15 +49,23 @@ namespace C_aiguisé
         public void Display()
         {
             Console.SetCursorPosition(3, Console.CursorTop + 3);
-            Console.Write("Description : " + QuestManager._mQuest._mDescription + "\n");
-            Console.SetCursorPosition(3, Console.CursorTop);
-            Console.Write("Progression : " + QuestManager._mQuest._mProgress + "\n");
-            Console.SetCursorPosition(3, Console.CursorTop);
-            Console.Write("Total : " + QuestManager._mQuest._mTotal + "\n");
-            Console.SetCursorPosition(3, Console.CursorTop);
-            Console.Write("Récompense : " + QuestManager._mQuest._mReward + "\n");
-            Console.SetCursorPosition(3, Console.CursorTop);
-            Console.Write("Quête terminée : " + QuestManager._mQuest._mDone + "\n");
+
+            if (QuestManager._mQuest == null)
+            {
+                Console.Write("Vous n'avez aucune quête en cours");
+            }
+            else
+            {
+                Console.Write("Description : " + QuestManager._mQuest._mDescription + "\n");
+                Console.SetCursorPosition(3, Console.CursorTop);
+                Console.Write("Progression : " + QuestManager._mQuest._mProgress + "\n");
+                Console.SetCursorPosition(3, Console.CursorTop);
+                Console.Write("Total : " + QuestManager._mQuest._mTotal + "\n");
+                Console.SetCursorPosition(3, Console.CursorTop);
+                Console.Write("Récompense : " + QuestManager._mQuest._mReward + "\n");
+                Console.SetCursorPosition(3, Console.CursorTop);
+                Console.Write("Quête terminée : " + QuestManager._mQuest._mDone + "\n");
+            }
         }
     }
 }
