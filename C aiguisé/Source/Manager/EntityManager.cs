@@ -15,7 +15,7 @@ namespace C_aiguisé
             players.Add(player);
         }
 
-        public static void CreatePlayer(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
+        public static void CreatePlayer(string name, int hp, int hpMax, int mp, int mpMax, int level, float exp,
             int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead, float expToLevelUp,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
         {

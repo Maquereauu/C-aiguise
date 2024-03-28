@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C_aiguisé;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace C_aiguisé
 {
-    class Potion : Item
+    public class Potion : Item
     {
         int _heal;
         public Potion(int heal) : base("Potion",false)
