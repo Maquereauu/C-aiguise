@@ -15,10 +15,10 @@ namespace C_aiguisé
             Green
         } 
         protected string _name;
-        protected float _hp;
-        protected float _mp;
-        protected float _hpMax;
-        protected float _mpMax;
+        protected int _hp;
+        protected int _mp;
+        protected int _hpMax;
+        protected int _mpMax;
         protected int _level;
         protected float _exp;
         protected int _critChance = 10;
@@ -47,27 +47,27 @@ namespace C_aiguisé
         }
 
         [JsonProperty]
-        public float _mHp
+        public int _mHp
         {
             get { return _hp; }
             set { _hp = value; }
         }
         [JsonProperty]
-        public float _mHpMax
+        public int _mHpMax
         {
             get { return _hpMax; }
             protected set { _hpMax = value; }
         }
 
         [JsonProperty]
-        public float _mMp
+        public int _mMp
         {
             get { return _mp; }
             set { _mp = value; }
         }
 
         [JsonProperty]
-        public float _mMpMax
+        public int _mMpMax
         {
             get { return _mpMax; }
             protected set { _mpMax = value; }
@@ -77,7 +77,7 @@ namespace C_aiguisé
         public bool _mIsDead
         {
             get { return _isDead; }
-            protected set { _isDead = value; }
+            set { _isDead = value; }
         }
         [JsonProperty]
         public string _mName
@@ -96,13 +96,13 @@ namespace C_aiguisé
         public int _mCritChance
         {
             get { return _critChance; }
-            protected set { _critChance = value; }
+            set { _critChance = value; }
         }
         [JsonProperty]
         public int _mCritDamage
         {
             get { return _critDamage; }
-            protected set { _critDamage = value; }
+            set { _critDamage = value; }
         }
         [JsonProperty]
         public int _mLevel
@@ -120,7 +120,7 @@ namespace C_aiguisé
         public int _mType
         {
             get { return _type; }
-            protected set { _type = value; }
+            set { _type = value; }
         }
         [JsonProperty]
         public List<AttackMove> _mAttackMoves

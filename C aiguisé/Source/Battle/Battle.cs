@@ -39,11 +39,11 @@ namespace C_aiguisé
         private Dictionary<Item, int> _bag = Bag.GetBag();
         private Item actualKey;
 
-        public Battle(List<Player> allies, List<Summon> summons, List<Enemy> enemies) {
+        public Battle(List<Player> allies, List<Enemy> enemies) {
             _hudList = new List<(int, int)>() { (89, 43), (144, 43), (89, 48),(144,48) }; // list of pos (x, y)
             _allies = allies;
-            _summons = summons;
             _enemies = enemies;
+            _summons = new List<Summon>();
             _speeds = new List<float>();
             _baseSpeeds = new List<float>();
             _characters = new List<Character>();
@@ -52,12 +52,14 @@ namespace C_aiguisé
                 _speeds.Add(_allies[i]._mSpeed);
                 _baseSpeeds.Add(_allies[i]._mSpeed);
                 _characters.Add(_allies[i]);
+                _summons.Add(new Summon("../../../Content/Role/Summon.txt"));
             }
-            for (int i = 0; i < summons.Count; i++)
+            for (int i = 0; i < _summons.Count; i++)
             {
-                _speeds.Add(summons[i]._mSpeed);
-                _baseSpeeds.Add(summons[i]._mSpeed);
-                _characters.Add(summons[i]);
+                _speeds.Add(_summons[i]._mSpeed);
+                _baseSpeeds.Add(_summons[i]._mSpeed);
+                _characters.Add(_summons[i]);
+                _summons[i]._mIsDead = true;
             }
             for (int i = 0; i < enemies.Count; i++)
             {
@@ -71,9 +73,10 @@ namespace C_aiguisé
         }
         public void checkTurn()
         {
+            _maxSpeed = 0;
             for (int i = 0; i < _speeds.Count; i++)
             {
-                if (_speeds[i] > _maxSpeed)
+                if (_speeds[i] > _maxSpeed && _characters[i]._mIsDead == false)
                 {
                     _maxSpeed = _speeds[i];
                     _indexSpeedList = i;
@@ -82,14 +85,33 @@ namespace C_aiguisé
             if(_indexSpeedList < _allies.Count)
             {
                 _allies[_indexSpeedList]._mRole.Update();
-                _allies[_indexSpeedList]._mSummonBar += 10;
+                if(_allies[_indexSpeedList]._mSummonBar >= 100)
+                {
+                    _summons[_indexSpeedList]._mIsDead = false;
+                    _allies[_indexSpeedList]._mSummonBar = 0;
+                }
+                else
+                {
+                    _allies[_indexSpeedList]._mSummonBar += 10;
+                }
+            }else if(_indexSpeedList < _allies.Count + _summons.Count)
+            {
+                if(_summons[_indexSpeedList - _allies.Count]._mTurnLeft > 0)
+                {
+                    _summons[_indexSpeedList - _allies.Count]._mTurnLeft -= 1;
+                }
+                else
+                {
+                    _summons[_indexSpeedList - _allies.Count]._mIsDead = true;
+                }
+
             }
         }
         public void addSpeed()
         {
             for (int i = 0; i < _speeds.Count; i++)
             {
-                if (i != _indexSpeedList)
+                if (i != _indexSpeedList && _characters[i]._mIsDead == false)
                 {
                     _speeds[i] += _baseSpeeds[i];
                 }
@@ -276,7 +298,28 @@ namespace C_aiguisé
             }
             for (int i = 0; i < _summons.Count; i++)
             {
-                Console.WriteLine(_summons[i]._mSprite);
+                if (_summons[i]._mIsDead)
+                {
+                    break;
+                }
+                Console.SetCursorPosition(90, 3 + 10 * i);
+                Console.Write(_summons[i]._mName);
+                Console.SetCursorPosition(90, 3 + 10 * i + 1);
+                Console.Write(_summons[i]._mHp + "/" + _summons[i]._mHpMax);
+                Console.SetCursorPosition(90, 3 + 10 * i + 2);
+                Console.Write(_summons[i]._mMp + "/" + _summons[i]._mMpMax);
+                Console.SetCursorPosition(90, 3 + 10 * i + 3);
+                Console.Write(_summons[i]._mTurnLeft);
+                Console.SetCursorPosition(90, 3 + 10 * i + 4);
+
+
+                string spriteText = File.ReadAllText(_summons[i]._mSprite);
+                string[] lines = spriteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.Write(line);
+                    Console.SetCursorPosition(90, Console.CursorTop + 1);
+                }
             }
         }
 
@@ -285,6 +328,9 @@ namespace C_aiguisé
         {
             _enemy = true;
             _selectedTarget = 0;
+            _selectedAttack = 0;
+            _selectedMagic = 0;
+            _selectedItem = 0;
             switch ((int)_selectedAction)
             {
                 case (int)Actions.Attack:
@@ -558,7 +604,7 @@ namespace C_aiguisé
                 {
                     case (int)Actions.Attack:
 
-                        if (_enemies[_selectedTarget]._mHp <= 0)
+                        if (_enemies[_selectedTarget]._mIsDead && _characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe == false)
                         {
                             return;
                         }
@@ -566,16 +612,16 @@ namespace C_aiguisé
                         {
                             for (int i = 0; i < _enemies.Count; i++)
                             {
-                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[i]));
+                                _enemies[i].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[i]));
                             }
                         }
                         else
                         {
-                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
+                            _enemies[_selectedTarget].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
                         }
                         break;
                     case (int)Actions.Magic:
-                        if (_enemies[_selectedTarget]._mHp <= 0)
+                        if (_enemies[_selectedTarget]._mIsDead && _characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe == false)
                         {
                             return;
                         }
@@ -583,12 +629,12 @@ namespace C_aiguisé
                         {
                             for (int i = 0; i < _enemies.Count; i++)
                             {
-                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedMagic], _enemies[i]));
+                                _enemies[i].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mMagicMoves[_selectedMagic], _enemies[i]));
                             }
                         }
                         else
                         {
-                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
+                            _enemies[_selectedTarget].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
                         }
                         break;
                     case (int)Actions.Item:
@@ -600,6 +646,10 @@ namespace C_aiguisé
             }
             else
             {
+                if (_allies[_selectedTarget]._mIsDead)
+                {
+                    return;
+                }
                 actualKey.Update(_allies[_selectedTarget]);
             }
             EventManager._downArrow += switchActionDown;
@@ -648,22 +698,26 @@ namespace C_aiguisé
             EventManager._downArrow -= switchMagicDown;
             EventManager._downArrow -= switchItemDown;
             EventManager._downArrow -= switchTargetDown;
-            /*EventManager._downArrow += switchActionDown;*/
+            EventManager._downArrow += switchActionDown;
 
             EventManager._upArrow -= switchAttackUp;
             EventManager._upArrow -= switchMagicUp;
             EventManager._upArrow -= switchItemUp;
             EventManager._upArrow -= switchTargetUp;
-            /*EventManager._upArrow += switchActionUp;*/
+            EventManager._upArrow += switchActionUp;
+
+            needsToUpdate -= ShowAttack;
+            needsToUpdate -= ShowMagic;
+            needsToUpdate -= ShowItems;
 
 
-            /*EventManager._rightArrow += switchActionRight;
-            EventManager._leftArrow += switchActionLeft;*/
+            EventManager._rightArrow += switchActionRight;
+            EventManager._leftArrow += switchActionLeft;
 
             EventManager._enter += SelectMove;
             EventManager._enter -= ExecuteAction;
             needsToUpdate -= ShowTarget;
-            Cancel1();
+            //Cancel1();
             Console.Clear();
             needsToUpdate?.Invoke();
 
@@ -765,15 +819,16 @@ namespace C_aiguisé
 
             Console.SetCursorPosition(_hudList[(int)_selectedAction].Item1, _hudList[(int)_selectedAction].Item2);
             Console.Write(">");
+            /*Console.WriteLine("Index de l'attaquant: " + _indexSpeedList);*/
             /*            Console.WriteLine("Index de l'attaquant: " + _indexSpeedList);
                         Console.WriteLine("Action choisie: " + _selectedAction);
                         Console.WriteLine("Ennemi ciblé: " + _selectedTarget);*/
-            if (_characters[_indexSpeedList]._mIsDead)
+/*            if (_characters[_indexSpeedList]._mIsDead)
             {
                 checkTurn();
                 addSpeed();
                 return;
-            }
+            }*/
             if(_indexSpeedList >= _allies.Count + _summons.Count)
             {
                 Random random = new Random();
@@ -782,7 +837,7 @@ namespace C_aiguisé
                     int target = random.Next(_allies.Count);
                     if (_allies[target]._mIsDead == false)
                     {
-                        _allies[target].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _allies[target]));
+                        _allies[target].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[0], _allies[target]));
                         checkTurn();
                         addSpeed();
                         Console.Clear();
