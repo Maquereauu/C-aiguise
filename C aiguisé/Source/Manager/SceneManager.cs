@@ -63,6 +63,8 @@ namespace C_aiguisé
         }
         public static void LoadScene()
         {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Black;
             _currentScene.LoadScene();
         }
 

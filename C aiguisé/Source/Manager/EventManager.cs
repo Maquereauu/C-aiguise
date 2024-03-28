@@ -73,7 +73,7 @@ namespace C_aiguisé
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:
-                        if (EntityManager.players[0]._mTranform._mCoordinates.x() > 0 && map != null)
+                        if (map != null && EntityManager.players[0]._mTranform._mCoordinates.x() > 0 )
                         {
                             for (int i = 0; i < y; i++)
                             {
@@ -95,7 +95,7 @@ namespace C_aiguisé
                         _leftArrow?.Invoke();
                         break;
                     case ConsoleKey.RightArrow:
-                        if(EntityManager.players[0]._mTranform._mCoordinates.x() < 192 && map != null)
+                        if(map != null && EntityManager.players[0]._mTranform._mCoordinates.x() < 192  )
                         {
                             for (int i = 0; i < y; i++)
                             {
@@ -116,7 +116,7 @@ namespace C_aiguisé
                         _rightArrow?.Invoke();
                         break;
                     case ConsoleKey.UpArrow:
-                        if(EntityManager.players[0]._mTranform._mCoordinates.x() > 0 && map != null)
+                        if(map != null && EntityManager.players[0]._mTranform._mCoordinates.x() > 0)
                         {
                             for (int i = 0; i < y; i++)
                             {
@@ -145,9 +145,9 @@ namespace C_aiguisé
                         _upArrow?.Invoke();
                         break;
                     case ConsoleKey.DownArrow:
-                        if(EntityManager.players[0]._mTranform._mCoordinates.y() < 107/2 && map != null)
+                        if (map != null &&EntityManager.players[0]._mTranform._mCoordinates.y() < 107/2)
                         {
-                            if (EntityManager.players[0]._mTranform._mCoordinates.y() > 0 && map != null)
+                            if (map != null && EntityManager.players[0]._mTranform._mCoordinates.y() > 0)
                             {
                                 for (int i = 0; i < y; i++)
                                 {
