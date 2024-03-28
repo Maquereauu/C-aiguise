@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,26 +17,31 @@ namespace C_aiguisé
         protected string _name;
         protected int _mpCost;
 
+        [JsonProperty]
         public int _mType
         {
             get { return _type; }
             protected set { _type = value; }
         }
+        [JsonProperty]
         public int _mDamage
         {
             get { return _damage; }
             protected set { _damage = value; }
         }
+        [JsonProperty]
         public string _mName
         {
             get { return _name; }
             protected set { _name = value; }
         }
+        [JsonProperty]
         public int _mMpCost
         {
             get { return _mpCost; }
-            protected set { _mpCost = value; }
+            set { _mpCost = value; }
         }
+        [JsonProperty]
         public bool _mIsAoe
         {
             get { return _isAoe; }

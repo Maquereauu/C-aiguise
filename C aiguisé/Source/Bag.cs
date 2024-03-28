@@ -99,6 +99,19 @@ namespace C_aiguisé
             return _bag;
         }
 
+        public static int NonUniqueCount()
+        {
+            int counter = 0;
+            for(int i = 0; i < _bag.Count;i++)
+            {
+                if (_bag.ElementAt(i).Key.IsUnique() == false)
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
         public static void ShowBag()
         {
             foreach (var el in _bag)

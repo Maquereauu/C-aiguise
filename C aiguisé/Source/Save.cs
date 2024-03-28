@@ -76,6 +76,8 @@ namespace C_aiguisé
                 Bag.AddItem(loadedScene._item[i], loadedScene._itemNumber[i]);
             }
 
+            SceneManager.AddScene(new PlayerScene());
+
             SceneManager.SwitchScene(loadedScene._currentZone);
 /*
             List<Player> list = EntityManager.players;

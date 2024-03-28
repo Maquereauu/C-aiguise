@@ -17,25 +17,7 @@ namespace C_aiguisé
 
         public void Display()
         {
-
-
-
-            /*            string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
-                        var characterPosition = EventManager._transform._mCoordinates;
-
-                        for (int i = 0; i < asciiArt.Length; i++)
-                        {
-                            int xPosition = i % Console.BufferWidth;
-                            int yPosition = i / Console.BufferWidth;
-
-                            if (xPosition == characterPosition.x() && yPosition == characterPosition.y())
-                            {
-                                continue; 
-                            }
-
-                            Console.Write(asciiArt[i]);
-                        }*/
-            Scene Currentscene = SceneManager.CurrentScene;
+            Scene Currentscene = SceneManager._mCurrentScene;
             Bitmap map = Currentscene.bitmap;
             string asciiArt = File.ReadAllText(_sprit).Replace("\\x1b", "\x1b");
             Console.WriteLine(asciiArt);

@@ -73,7 +73,7 @@ namespace C_aiguisé
         }
         public static void CloseMenu()
         {
-            SceneManager.SwitchScene(SceneManager._previousScene.GetName());
+            SceneManager.SwitchScene(SceneManager._mPreviousScene.GetName());
         }
 
         public void Confirm()
@@ -121,7 +121,7 @@ namespace C_aiguisé
             }
 
             // save curretnScene
-            save._mCurrentZone = SceneManager._previousScene.ToString().Replace("C_aiguisé.", "");
+            save._mCurrentZone = SceneManager._mPreviousScene.ToString().Replace("C_aiguisé.", "");
 
             // save inventory
 

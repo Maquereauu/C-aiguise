@@ -65,7 +65,7 @@ namespace C_aiguisé
                 }
                 var key = Console.ReadKey(true).Key;
 
-                Scene Currentscene = SceneManager.CurrentScene;
+                Scene Currentscene = SceneManager._mCurrentScene;
                 Bitmap map = Currentscene.bitmap;
                 int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
                 int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
