@@ -103,7 +103,7 @@ namespace C_aiguisé
 
                     SceneManager.AddScene(new PlayerScene());
 
-                    SceneManager.SwitchScene("GameOver");
+                    SceneManager.SwitchScene("Game");
                     break;
                 case 1:
                     Save load = new Save();
