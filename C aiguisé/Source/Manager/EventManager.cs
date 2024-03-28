@@ -74,32 +74,41 @@ namespace C_aiguisé
                     case ConsoleKey.LeftArrow:
                         if (EventManager._transform._mCoordinates.x() > 0 && map != null)
                         {
-                            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() - 1, EventManager._transform._mCoordinates.y() * 2);
-                            byte pixR = pix.R;
-
-                            byte pixG = pix.G;
-
-                            byte pixB = pix.B;
-                            if (pixR == 0 && pixG == 0 && pixB == 0)
+                            for (int i = 0; i < y; i++)
                             {
-                                return;
+                                for (int j = 0; j < x; j++)
+                                {
+                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j - 1, EventManager._transform._mCoordinates.y() * 2 + i * 2);
+                                    byte pixR = pix.R;
+                                    byte pixG = pix.G;
+                                    byte pixB = pix.B;
+                                    if (pixR == 0 && pixG == 0 && pixB == 0)
+                                    {
+                                        return;
+                                    }
+                                }
                             }
                         }
-                        
-                            _leftArrow?.Invoke();
+                            
+
+                        _leftArrow?.Invoke();
                         break;
                     case ConsoleKey.RightArrow:
                         if(EventManager._transform._mCoordinates.x() < 192 && map != null)
                         {
-                            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + 1, EventManager._transform._mCoordinates.y() * 2);
-                            byte pixR = pix.R;
-
-                            byte pixG = pix.G;
-
-                            byte pixB = pix.B;
-                            if (pixR == 0 && pixG == 0 && pixB == 0)
+                            for (int i = 0; i < y; i++)
                             {
-                                return;
+                                for (int j = 0; j < x; j++)
+                                {
+                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2);
+                                    byte pixR = pix.R;
+                                    byte pixG = pix.G;
+                                    byte pixB = pix.B;
+                                    if (pixR == 0 && pixG == 0 && pixB == 0)
+                                    {
+                                        return;
+                                    }
+                                }
                             }
                         }
                         
@@ -108,21 +117,19 @@ namespace C_aiguisé
                     case ConsoleKey.UpArrow:
                         if(EventManager._transform._mCoordinates.y() > 0 && map != null)
                         {
-                            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2 - 2);
-                            byte pixR = pix.R;
-
-                            byte pixG = pix.G;
-
-                            byte pixB = pix.B;
-                            Color pix2 = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2 - 1);
-                            byte pix2R = pix2.R;
-
-                            byte pix2G = pix2.G;
-
-                            byte pix2B = pix2.B;
-                            if (pixR == 0 && pixG == 0 && pixB == 0 || pix2R == 0 && pix2G == 0 && pix2B == 0)
+                            for (int i = 0; i < y; i++)
                             {
-                                return;
+                                for (int j = 0; j < x; j++)
+                                {
+                                    Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2 -2);
+                                    byte pixR = pix.R;
+                                    byte pixG = pix.G;
+                                    byte pixB = pix.B;
+                                    if (pixR == 0 && pixG == 0 && pixB == 0)
+                                    {
+                                        return;
+                                    }
+                                }
                             }
                         }
                         
@@ -131,21 +138,22 @@ namespace C_aiguisé
                     case ConsoleKey.DownArrow:
                         if(EventManager._transform._mCoordinates.y() < 107/2 && map != null)
                         {
-                            Color pix = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2 + 1);
-                            byte pixR = pix.R;
-
-                            byte pixG = pix.G;
-
-                            byte pixB = pix.B;
-                            Color pix2 = map.GetPixel(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y() * 2 + 2);
-                            byte pix2R = pix2.R;
-
-                            byte pix2G = pix2.G;
-
-                            byte pix2B = pix2.B;
-                            if (pixR == 0 && pixG == 0 && pixB == 0 || pix2R == 0 && pix2G == 0 && pix2B == 0)
+                            if (EventManager._transform._mCoordinates.y() > 0 && map != null)
                             {
-                                return;
+                                for (int i = 0; i < y; i++)
+                                {
+                                    for (int j = 0; j < x; j++)
+                                    {
+                                        Color pix = map.GetPixel(EventManager._transform._mCoordinates.x() + j + 1, EventManager._transform._mCoordinates.y() * 2 + i * 2 + 1);
+                                        byte pixR = pix.R;
+                                        byte pixG = pix.G;
+                                        byte pixB = pix.B;
+                                        if (pixR == 0 && pixG == 0 && pixB == 0)
+                                        {
+                                            return;
+                                        }
+                                    }
+                                }
                             }
                         }
                         

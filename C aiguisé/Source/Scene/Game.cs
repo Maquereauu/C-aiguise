@@ -28,7 +28,7 @@ namespace C_aiguisé
             /*EventManager.Movement(EventManager._transform2, 1, 0, "X");*/
             
             //Console.Write("P");
-           //DetectBattle();
+           DetectBattle();
             Swap();
         }
 
@@ -58,21 +58,21 @@ namespace C_aiguisé
 
         public void DetectBattle()
         {
-            
+            int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
+            int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
+
             //byte a = 255;
             byte r = 34;
             byte g = 177;
             byte b = 76;
             //Color pix = { 34, 177, 76, 255 };
+
             for (int k = 0; k < 192; k++)
             {
                 for (int l = 0; l < 108; l++)
                 {
-                   
-                    Color grass = _bitmap.GetPixel(k,l);
 
-                    
-
+                    Color grass = _bitmap.GetPixel(k, l);
                     if (grass.R == r && grass.G == g && grass.B == b)
                     {
                         if (EventManager._transform._mCoordinates.x() == k && EventManager._transform._mCoordinates.y() == l / 2)
@@ -80,15 +80,16 @@ namespace C_aiguisé
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
                             int battleRate = rnd.Next(20);
-                            if(battleRate == 0)
+                            if (battleRate == 0)
                             {
                                 SceneManager.SwitchScene("BattleScene");
                             }
                         }
-                            
+
                     }
                 }
             }
+
         }
 
 
@@ -98,12 +99,12 @@ namespace C_aiguisé
             int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
             if (EventManager._transform._mCoordinates.x() >= 148 && EventManager._transform._mCoordinates.x() <= 155 && EventManager._transform._mCoordinates.y() == 24/2 && EventManager._lastTouch == "up")
             {
-                EventManager._transform.SetPos(192/2, 107 / 2);
+                EventManager._transform.SetPos(192/2, 107 / 2 - y);
                 SceneManager.SwitchScene("House");
             }
             if (EventManager._transform._mCoordinates.x() >= 72 && EventManager._transform._mCoordinates.x() <= 115 && EventManager._transform._mCoordinates.y() == 0 && EventManager._lastTouch == "up")
             {
-                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 107 / 2);
+                EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 107 / 2 - y);
                 //Console.SetCursorPosition(EventManager._transform._mCoordinates.x(), EventManager._transform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");
 
@@ -111,15 +112,15 @@ namespace C_aiguisé
             }
             if (EventManager._transform._mCoordinates.x() == 0 && EventManager._transform._mCoordinates.y() >= 35/2 && EventManager._lastTouch == "left")
             {
-                EventManager._transform.SetPos(190, EventManager._transform._mCoordinates.y());
+                EventManager._transform.SetPos(190 - x, EventManager._transform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");
             }
-            if (EventManager._transform._mCoordinates.x() <= 116 && EventManager._transform._mCoordinates.y() == 105 / 2 && EventManager._lastTouch == "down")
+            if (EventManager._transform._mCoordinates.x() <= 116 && EventManager._transform._mCoordinates.y() == 105 / 2 - y && EventManager._lastTouch == "down")
             {
                 EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 0);
                 SceneManager.SwitchScene("ZoneNord");
             }
-            if (EventManager._transform._mCoordinates.x() >= 189 && EventManager._transform._mCoordinates.y() >= 34 / 2 && EventManager._transform._mCoordinates.y() <= 68 / 2 &&EventManager._lastTouch == "right")
+            if (EventManager._transform._mCoordinates.x() >= 189 - x && EventManager._transform._mCoordinates.y() >= 34 / 2 && EventManager._transform._mCoordinates.y() <= 68 / 2 &&EventManager._lastTouch == "right")
             {
                 EventManager._transform.SetPos(0, EventManager._transform._mCoordinates.y());
                 SceneManager.SwitchScene("ZoneNord");

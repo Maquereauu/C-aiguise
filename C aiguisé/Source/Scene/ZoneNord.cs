@@ -90,7 +90,9 @@ namespace C_aiguisé
 
         public override void Swap()
         {
-            if (EventManager._transform._mCoordinates.x() >= 64 && EventManager._transform._mCoordinates.x() <= 132 && EventManager._transform._mCoordinates.y() >= 105 / 2 && EventManager._lastTouch == "down")
+            int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
+            int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
+            if (EventManager._transform._mCoordinates.x() >= 64 && EventManager._transform._mCoordinates.x() <= 132 && EventManager._transform._mCoordinates.y() >= 105 / 2 - y && EventManager._lastTouch == "down")
             {
                 EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 0);
                 SceneManager.SwitchScene("Game");
