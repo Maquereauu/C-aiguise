@@ -37,8 +37,7 @@ namespace C_aiguisé
 
         public virtual void UnLoad()
         {
-            Console.Clear();
-            /*Console.BackgroundColor = ConsoleColor.Black;*/
+            Console.BackgroundColor = ConsoleColor.Black;
         }
 
         public string GetName()

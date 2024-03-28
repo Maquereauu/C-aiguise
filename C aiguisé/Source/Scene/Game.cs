@@ -129,7 +129,7 @@ namespace C_aiguisé
             }
             if (EntityManager.players[0]._mTranform._mCoordinates.x() <= 116 && EntityManager.players[0]._mTranform._mCoordinates.y() == 105 / 2 - y && EventManager._lastTouch == "down")
             {
-                EntityManager.players[0]._mTranform.SetPos(EntityManager.players[0]._mTranform._mCoordinates.x(), 0);
+                EntityManager.players[0]._mTranform.SetPos(192/2, 0);
                 SceneManager.SwitchScene("ZoneNord");
             }
             if (EntityManager.players[0]._mTranform._mCoordinates.x() >= 189 - x && EntityManager.players[0]._mTranform._mCoordinates.y() >= 34 / 2 && EntityManager.players[0]._mTranform._mCoordinates.y() <= 68 / 2 &&EventManager._lastTouch == "right")

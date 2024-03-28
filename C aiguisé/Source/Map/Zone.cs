@@ -50,7 +50,7 @@ namespace C_aiguisé
                     byte pixR = pix.R;
                     byte pixG = pix.G;
                     byte pixB = pix.B;
-                    Console.Write("\x1b[30;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "m" + sprite[i][j]);
+                    Console.Write("\x1b[37;48;2;" + pixR.ToString() + ";" + pixG.ToString() + ";" + pixB.ToString() + "m" + sprite[i][j]);
                 }
                 
             }
