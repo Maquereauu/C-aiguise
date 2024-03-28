@@ -77,7 +77,7 @@ namespace C_aiguisé
         public bool _mIsDead
         {
             get { return _isDead; }
-            protected set { _isDead = value; }
+            set { _isDead = value; }
         }
         [JsonProperty]
         public string _mName

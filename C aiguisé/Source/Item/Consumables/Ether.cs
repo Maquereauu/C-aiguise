@@ -18,7 +18,7 @@ namespace C_aiguisé
         {
             base.Update(player);
 
-            player._mMp += _mp;
+            player.HealMp(_mp);
         }
 
     }
