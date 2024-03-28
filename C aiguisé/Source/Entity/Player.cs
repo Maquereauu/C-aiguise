@@ -47,18 +47,17 @@ namespace C_aiguisé
             _level = 1;
             _exp = 0.0f;
             _dodgeChance = 0;
-            _speed = 1.0f;
+            _speed = 20;
             _summonBar = 0;
             _sprite = _role._mSprite;
             _role.setPlayer(this);
-            AddAttack(new AttackMove(0,40,false,true,"yo"));
 
             (int, int) size = FileReader.GetSizeFromFile(_sprite);
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
-            int critChance, int critDamage, int dodgeChance, int type, float speed, bool isDead,
+            int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
         {
             _name = name;

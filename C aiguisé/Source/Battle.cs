@@ -171,7 +171,7 @@ namespace C_aiguisé
         }
         public void switchMagicDown()
         {
-            _selectedAttack = Utils.MathHelper.Modulo((_selectedMagic + 1), _characters[_indexSpeedList]._mMagicMoves.Count);
+            _selectedMagic = Utils.MathHelper.Modulo((_selectedMagic + 1), _characters[_indexSpeedList]._mMagicMoves.Count);
             Console.Clear();
             needsToUpdate?.Invoke();
         }
@@ -208,6 +208,8 @@ namespace C_aiguisé
         {
             needsToUpdate += Display;
             needsToUpdate += Update;
+            checkTurn();
+            addSpeed();
             needsToUpdate?.Invoke();
         }
 
@@ -222,7 +224,16 @@ namespace C_aiguisé
                 Console.SetCursorPosition(30, 3 + 10 * i + 2);
                 Console.Write(_allies[i]._mMp + "/" + _allies[i]._mMpMax);
                 Console.SetCursorPosition(30, 3 + 10 * i + 3);
-                Console.Write(File.ReadAllText(_allies[i]._mSprite));
+
+
+                string spriteText = File.ReadAllText(_allies[i]._mSprite);
+                string[] lines = spriteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.Write(line);
+                    Console.SetCursorPosition(30, Console.CursorTop + 1);
+                }
+                /*Console.Write(File.ReadAllText(_allies[i]._mSprite));*/
             }
             for (int i = 0; i < _enemies.Count; i++)
             {
@@ -233,7 +244,14 @@ namespace C_aiguisé
                 Console.SetCursorPosition(170, 3 + 10 * i + 2);
                 Console.Write(_enemies[i]._mMp + "/" + _enemies[i]._mMpMax);
                 Console.SetCursorPosition(170, 3 + 10 * i + 3);
-                Console.Write(File.ReadAllText(_enemies[i]._mSprite));
+                string spriteText = File.ReadAllText(_enemies[i]._mSprite);
+                string[] lines = spriteText.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.Write(line);
+                    Console.SetCursorPosition(170, Console.CursorTop + 1);
+                }
+                //Console.Write(File.ReadAllText(_enemies[i]._mSprite));
             }
             for (int i = 0; i < _summons.Count; i++)
             {
@@ -407,8 +425,40 @@ namespace C_aiguisé
 
         public void ShowTarget()
         {
-            Console.SetCursorPosition(169 , 3 + 10 * _selectedTarget);
-            Console.Write(">");
+            switch (_selectedAction)
+            {
+                case Actions.Attack:
+                    if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
+                    {
+                        for (int i = 0; i < _enemies.Count; i++)
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            Console.Write(">");
+                        }
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
+                        Console.Write(">");
+                    }
+                        break;
+
+                case Actions.Magic:
+                    if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
+                    {
+                        for (int i = 0; i < _enemies.Count; i++)
+                        {
+                            Console.SetCursorPosition(169, 3 + 10 * i);
+                            Console.Write(">");
+                        }
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(169, 3 + 10 * _selectedTarget);
+                        Console.Write(">");
+                    }
+                    break;
+            }
         }
 
         public void ExecuteAction()
@@ -418,18 +468,39 @@ namespace C_aiguisé
                 switch ((int)_selectedAction)
                 {
                     case (int)Actions.Attack:
+
                         if (_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;
                         }
-                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        if (_characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe)
+                        {
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[i]));
+                            }
+                        }
+                        else
+                        {
+                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mAttackMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        }
                         break;
                     case (int)Actions.Magic:
                         if (_enemies[_selectedTarget]._mHp <= 0)
                         {
                             return;
                         }
-                        _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        if (_characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe)
+                        {
+                            for (int i = 0; i < _enemies.Count; i++)
+                            {
+                                _enemies[i].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedMagic], _enemies[i]));
+                            }
+                        }
+                        else
+                        {
+                            _enemies[_selectedTarget].TakeDamage(_allies[_indexSpeedList].Attack(_allies[_indexSpeedList]._mMagicMoves[_selectedAttack], _enemies[_selectedTarget]));
+                        }
                         break;
                     case (int)Actions.Item:
                         break;
@@ -466,7 +537,7 @@ namespace C_aiguisé
             EventManager._downArrow -= switchMagicDown;
             //EventManager._downArrow -= switchItemDown;
             EventManager._upArrow += switchActionUp;
-            EventManager._upArrow -= switchMagicUp;
+            EventManager._upArrow -= switchAttackUp;
             EventManager._upArrow -= switchMagicUp;
             EventManager._rightArrow += switchActionRight;
             EventManager._leftArrow += switchActionLeft;
@@ -596,11 +667,20 @@ namespace C_aiguisé
             }
             if(_indexSpeedList >= _allies.Count + _summons.Count)
             {
-                _allies[0].TakeDamage(10);
-                checkTurn();
-                addSpeed();
-                Console.Clear();
-                needsToUpdate?.Invoke();
+                Random random = new Random();
+                while (true)
+                {
+                    int target = random.Next(_allies.Count);
+                    if (_allies[target]._mIsDead == false)
+                    {
+                        _allies[target].TakeDamage(_characters[_indexSpeedList].Attack(_characters[_indexSpeedList]._mAttackMoves[_selectedAttack], _allies[target]));
+                        checkTurn();
+                        addSpeed();
+                        Console.Clear();
+                        needsToUpdate?.Invoke();
+                        break;
+                    }
+                }
             }
         }
 

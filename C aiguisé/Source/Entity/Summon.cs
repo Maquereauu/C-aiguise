@@ -16,7 +16,7 @@ namespace C_aiguisé
             _level = 1;
             _exp = 0.0f;
             _dodgeChance = 0;
-            _speed = 0.5f;
+            _speed = 15;
             _sprite = sprite;
 
             (int, int) size = FileReader.GetSizeFromFile(_sprite);
