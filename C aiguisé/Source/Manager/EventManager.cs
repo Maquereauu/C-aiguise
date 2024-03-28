@@ -122,10 +122,18 @@ namespace C_aiguisé
                             {
                                 for (int j = 0; j < x; j++)
                                 {
-                                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j + 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 -2);
+                                    Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j , EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 -2);
                                     byte pixR = pix.R;
                                     byte pixG = pix.G;
                                     byte pixB = pix.B;
+                                    if (pixR == 0 && pixG == 0 && pixB == 0)
+                                    {
+                                        return;
+                                    }
+                                    pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j , EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 - 1);
+                                    pixR = pix.R;
+                                    pixG = pix.G;
+                                    pixB = pix.B;
                                     if (pixR == 0 && pixG == 0 && pixB == 0)
                                     {
                                         return;
@@ -145,10 +153,18 @@ namespace C_aiguisé
                                 {
                                     for (int j = 0; j < x; j++)
                                     {
-                                        Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j + 1, EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 + 1);
+                                        Color pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j , EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 + 1);
                                         byte pixR = pix.R;
                                         byte pixG = pix.G;
                                         byte pixB = pix.B;
+                                        if (pixR == 0 && pixG == 0 && pixB == 0)
+                                        {
+                                            return;
+                                        }
+                                        pix = map.GetPixel(EntityManager.players[0]._mTranform._mCoordinates.x() + j , EntityManager.players[0]._mTranform._mCoordinates.y() * 2 + i * 2 + 2);
+                                        pixR = pix.R;
+                                        pixG = pix.G;
+                                        pixB = pix.B;
                                         if (pixR == 0 && pixG == 0 && pixB == 0)
                                         {
                                             return;
@@ -157,6 +173,7 @@ namespace C_aiguisé
                                 }
                             }
                         }
+                    
                         
                         _downArrow?.Invoke();
                         break;
@@ -172,7 +189,8 @@ namespace C_aiguisé
                     case ConsoleKey.Tab:
                         _tab.Invoke();
                         break;
-                }
+                    }
+                
             }
         }
     }
