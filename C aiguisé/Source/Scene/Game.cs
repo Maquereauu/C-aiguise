@@ -88,7 +88,7 @@ namespace C_aiguisé
                         {
                             //Console.WriteLine(grass);
                             Random rnd = new Random();
-                            int battleRate = rnd.Next(20);
+                            int battleRate = rnd.Next(50);
                             if (battleRate == 0)
                             {
                                 SceneManager.SwitchScene("BattleScene");
@@ -106,11 +106,13 @@ namespace C_aiguisé
         {
             int x = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item1;
             int y = FileReader.GetSizeFromFile("../../../Content/Role/Player.txt").Item2;
-            if (EventManager._transform._mCoordinates.x() >= 148 && EventManager._transform._mCoordinates.x() <= 155 && EventManager._transform._mCoordinates.y() == 24/2 && EventManager._lastTouch == "up")
+            if (EventManager._transform._mCoordinates.x() >= 140 && EventManager._transform._mCoordinates.x() <= 165 && EventManager._transform._mCoordinates.y() == 33/2  && EventManager._lastTouch == "up")
             {
                 EventManager._transform.SetPos(192/2, 107 / 2 - y);
                 SceneManager.SwitchScene("House");
             }
+
+
             if (EventManager._transform._mCoordinates.x() >= 72 && EventManager._transform._mCoordinates.x() <= 115 && EventManager._transform._mCoordinates.y() == 0 && EventManager._lastTouch == "up")
             {
                 EventManager._transform.SetPos(EventManager._transform._mCoordinates.x(), 107 / 2 - y);
