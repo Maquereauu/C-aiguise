@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace C_aiguisé
 {
     public class House : Scene
     {
+        Npc _bob;
+        event Action test;
         public House() : base("House")
         {
             _isGameZone = true;
@@ -17,6 +20,7 @@ namespace C_aiguisé
             _bitmap = new Bitmap("../../../Content/Map/maison.bmp");
             AddZone(new Zone("../../../Content/Map/maison.txt"));
             _map.SetCurrentZone();
+            _bob = new Npc();
         }
         public override void PreUpdate()
         {
@@ -25,7 +29,21 @@ namespace C_aiguisé
         public override void Update()
         {
             base.Update();
+            _bob.Display();
+            test?.Invoke();
             Swap();
+        }
+
+        public void AddDialog()
+        {
+            test += _bob.Dialog1;
+            EventManager._enter += NextLine;
+        }
+
+        public void NextLine()
+        {
+            test -= _bob.Dialog1;
+            test += _bob.Dialog2;
         }
 
         public override void PostUpdate()
@@ -40,6 +58,7 @@ namespace C_aiguisé
             EventManager._downArrow += EventManager.MoveDown;
             EventManager._upArrow += EventManager.MoveUp;
             EventManager._menu += OpenMenu;
+            EventManager._e += AddDialog;
         }
         public override void UnLoad()
         {
@@ -50,6 +69,10 @@ namespace C_aiguisé
             EventManager._downArrow -= EventManager.MoveDown;
             EventManager._upArrow -= EventManager.MoveUp;
             EventManager._menu -= OpenMenu;
+            EventManager._e -= AddDialog;
+            test -= _bob.Dialog1;
+            test -= _bob.Dialog2;
+            EventManager._enter -= NextLine;
         }
 
 

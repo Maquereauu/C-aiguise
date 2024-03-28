@@ -20,6 +20,7 @@ namespace C_aiguisé
 
         public static event Action _menu;
         public static event Action _tab;
+        public static event Action _e;
 
         public static Transform _transform = new Transform();
         public static Transform _transform2 = new Transform();
@@ -187,9 +188,13 @@ namespace C_aiguisé
                         _menu?.Invoke();
                         break; 
                     case ConsoleKey.Tab:
-                        _tab.Invoke();
+                        _tab?.Invoke();
                         break;
-                    }
+                    case ConsoleKey.E:
+                        _e?.Invoke();
+                        break;
+                }
+
                 
             }
         }
