@@ -23,7 +23,7 @@ namespace C_aiguisé
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2),
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 4)};
 
-            _hudNameList = new List<string>() {"    Option    ", "Retour au jeu","   Players   " ," Sauvegarder " , "   Charger   ","   Quitter   "};
+            _hudNameList = new List<string>() {"    Quête    ", "Retour au jeu"," Personnages " ," Sauvegarder " , "   Charger   ","   Quitter   "};
             _index = 0;
             _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
 
@@ -81,6 +81,7 @@ namespace C_aiguisé
             switch (_index)
             {
                 case 0:
+                    SceneManager.SwitchScene("QuestScene");
                     break;
                 case 1:
                     SceneManager.SwitchScene("Game");
@@ -130,7 +131,9 @@ namespace C_aiguisé
                 save._mItem.Add(el.Key);
                 save._mItemNumber.Add(Bag._mBag[el.Key]);
             }
-            save._mQuest = new Quest("Vous devez tuer 10 monstres", 10, 0, false, 1000);
+
+            // quest
+            save._mQuest = QuestManager._mQuest;
 
             save.SaveGame("../../../Content/Saves/Save1.json");
 

@@ -24,11 +24,12 @@ public class Program
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
         SceneManager.AddScene(new GameOver());
+        SceneManager.AddScene(new QuestScene());
 
+        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new House());
         SceneManager.AddScene(new ZoneNord());
 
-        SceneManager.AddScene(new Game());
         SceneManager.AddScene(new BagScene());
         SceneManager.AddScene(scene);
 
@@ -36,6 +37,7 @@ public class Program
         SceneManager.Init();
         SceneManager.SwitchScene("TitleScreen");
 
+        //QuestManager.SetQuest(new Quest("Vous devez tuer 10 monstres", C_aiguisé.Utils.QuestType.KillMonsters,  10,0, false, 1000, false));
 
         while (true)
         {
