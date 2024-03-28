@@ -84,7 +84,7 @@ namespace C_aiguisé
                     SceneManager.SwitchScene("QuestScene");
                     break;
                 case 1:
-                    SceneManager.SwitchScene("Game");
+                    SceneManager.SwitchScene(SceneManager._mPreviousScene.GetName());
                     break;
                 case 2:
                     SceneManager.SwitchScene("PlayerScene");
