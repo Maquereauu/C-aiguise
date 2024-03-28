@@ -9,6 +9,7 @@ namespace C_aiguisé
 {
     public class Player : Character
     {
+        float _expToLevelUp;
 
         protected Weapon _weapon ;
         protected Role _role;
@@ -31,6 +32,12 @@ namespace C_aiguisé
             get { return _summonBar; }
             set { _summonBar = value; }
         }
+        [JsonProperty]
+        public float _mExpToLevelUp
+        {
+            get { return _expToLevelUp; }
+            set { _expToLevelUp = value; }
+        }
 
         [JsonConstructor]
         public Player(){ }
@@ -51,13 +58,14 @@ namespace C_aiguisé
             _summonBar = 0;
             _sprite = _role._mSprite;
             _role.setPlayer(this);
+            _expToLevelUp = 200;
 
             (int, int) size = FileReader.GetSizeFromFile(_sprite);
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
 
         public Player(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
-            int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead,
+            int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead, float expToLevelUp,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
         {
             _name = name;
@@ -79,10 +87,12 @@ namespace C_aiguisé
             _isDead = isDead;
             _role.setPlayer(this);
             AddAttack(attackMove);
+            _expToLevelUp = expToLevelUp;
 
             (int, int) size = FileReader.GetSizeFromFile(_sprite);
             _tranform._mSize = new Utils.vect2(size.Item1, size.Item2);
         }
+
 
 /*        public int Attack()
         {
@@ -116,14 +126,31 @@ namespace C_aiguisé
             }
         }
 
+
         public Role GetRole()
         { 
             return _role; 
         }
 
-        public void GetExp(int exp)
+        public void AddExp(int exp)
         {
             _exp += exp;
+        }
+
+        public void LevelUp()
+        {
+            while (_exp >= _expToLevelUp)
+            {
+                _exp -= _expToLevelUp;
+                if (_exp < 0)
+                {
+                    _exp = 0;
+                }
+                _expToLevelUp = (float)(_expToLevelUp + _expToLevelUp * 0.2);
+                _level += 1;
+                _hpMax += 15;
+                _mpMax += 4;
+            }
         }
         public override void Update() { }
     }

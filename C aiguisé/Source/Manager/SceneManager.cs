@@ -10,6 +10,7 @@ namespace C_aiguisé
     {
         public static List<Scene> _sceneList = new List<Scene>();
         public static Scene _currentScene = new MainMenu();
+        public static Scene CurrentScene { get { return _currentScene; } }
         public static Scene _previousScene = new MainMenu();
 
         public static void AddScene(Scene scene)
@@ -48,19 +49,14 @@ namespace C_aiguisé
                 if (_sceneList[i].GetName() == sceneName)
                 {
                     _previousScene = _currentScene;
+                    _previousScene.UnLoad();
 
-                    _currentScene.UnLoad();
                     _currentScene = _sceneList[i];
                     LoadScene();
+                    Update();
                     return;
                 }
             }
-        }
-        public static void SwitchScene()
-        {
-            _currentScene.UnLoad();
-            _currentScene = _previousScene;
-            LoadScene();
         }
         public static void Display()
         {

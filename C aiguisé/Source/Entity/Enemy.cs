@@ -15,7 +15,7 @@ namespace C_aiguisé
             _hp = _hpMax;
             _mp = _mpMax;
             _level = 1; 
-            _exp = 0.0f;
+            _exp = 200.0f;
             _dodgeChance = 0;
             _speed = 15;
             _sprite = sprite;

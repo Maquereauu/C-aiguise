@@ -23,22 +23,21 @@ public class Program
         BattleScene scene = new BattleScene();
         SceneManager.AddScene(new MainMenu());
         SceneManager.AddScene(new TitleScreen());
+
+        SceneManager.AddScene(new House());
+        SceneManager.AddScene(new ZoneNord());
+
         SceneManager.AddScene(new Game());
+        SceneManager.AddScene(new BagScene());
+        SceneManager.AddScene(new PlayerScene());
+        /*SceneManager.AddScene(new PlayerStatsScene());*/
         SceneManager.AddScene(scene);
 
 
         SceneManager.Init();
-/*        scene.SetBattle(battle);*/
         SceneManager.SwitchScene("TitleScreen");
-        /*SceneManager.Display();*/
 
-        /*battle.Start();*/
 
-/*        Save save = new Save();
-        save.LoadGame("../../../Content/Saves/Save1.json");*/
-
-        //Console.Write(File.ReadAllText("../../../Content/Role/Player.txt"));
-        FileReader.GetSizeFromFile("../../../Content/Role/Player.txt");
         while (true)
         {
             SceneManager.PreUpdate();

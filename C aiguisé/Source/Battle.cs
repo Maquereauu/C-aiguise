@@ -715,6 +715,17 @@ namespace C_aiguisé
             }
             if (counter == _enemies.Count)
             {
+                float exp = 0;
+                for (int i = 0; i < _enemies.Count; i++)
+                {
+                    exp += _enemies[i]._mExp;
+                }
+                for (int i = 0; i < _allies.Count;i++)
+                {
+                    _allies[i].AddExp((int)exp);
+                    _allies[i].LevelUp();
+                }
+
                 EventManager._downArrow -= switchActionDown;
                 EventManager._upArrow -= switchActionUp;
                 EventManager._rightArrow -= switchActionRight;

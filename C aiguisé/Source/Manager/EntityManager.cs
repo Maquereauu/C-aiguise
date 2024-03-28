@@ -16,11 +16,11 @@ namespace C_aiguisé
         }
 
         public static void CreatePlayer(string name, float hp, float hpMax, float mp, float mpMax, int level, float exp,
-            int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead,
+            int critChance, int critDamage, int dodgeChance, int type, int speed, bool isDead, float expToLevelUp,
             List<AttackMove> attackMove, int summonBar, Weapon weapon, Role role)
         {
             Player player = new Player(name, hp, hpMax, mp, mpMax, level, exp,
-            critChance, critDamage, dodgeChance, type, speed, isDead,
+            critChance, critDamage, dodgeChance, type, speed, isDead, expToLevelUp,
             attackMove, summonBar, weapon, role);
 
             players.Add(player);

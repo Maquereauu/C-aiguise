@@ -112,5 +112,12 @@ namespace C_aiguisé
             return counter;
         }
 
+        public static void ShowBag()
+        {
+            foreach (var el in _bag)
+            {
+                Console.WriteLine(el.Key.GetName());
+            }
+        }
     }
 }

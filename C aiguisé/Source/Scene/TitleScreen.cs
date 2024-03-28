@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Numerics;
 using System.Text;
 
 namespace C_aiguisé
@@ -38,6 +39,7 @@ namespace C_aiguisé
         }
         public override void Init()
         {
+
             AddZone(new Zone("../../../Content/Map/titleScreen.txt"));
             _map.SetCurrentZone();
         }
@@ -95,10 +97,15 @@ namespace C_aiguisé
                     him.setAttack();
                     Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
                     Bag.AddItem(new List<Item>() { HealingPotion, MpPotion }, new List<int>() { 10, 15 });
+                    for (int i = 0; i < EntityManager.players.Count; i++)
+                    {
+                        SceneManager.AddScene(new PlayerStatsScene(EntityManager.players[i]));
+                    }
                     SceneManager.SwitchScene("BattleScene");
                     break;
                 case 1:
-
+                    Save load = new Save();
+                    load.LoadGame("../../../Content/Saves/Save1.json");
                     break;
                 case 2:
                     Environment.Exit(0);
