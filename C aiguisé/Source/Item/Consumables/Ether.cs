@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace C_aiguisé
 { 
-    class Ether : Consumable
+    class Ether : Item
     {
-        float _mp;
-        public Ether(float mp) : base ("Ether")
+        int _mp;
+        public Ether(int mp) : base ("Ether", false)
         {
             _mp = mp;
         }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -39,6 +40,11 @@ namespace C_aiguisé
         public bool IsUnique() 
         { 
             return _unique; 
+        }
+
+        public virtual void Update(Player player)
+        {
+            Bag.RemoveItem(this);
         }
     }
 }

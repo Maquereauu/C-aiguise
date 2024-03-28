@@ -3,14 +3,14 @@
   <Class Name="C_aiguisé.GameObject" Collapsed="true">
     <Position X="8.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Item" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAQAIAAAAAAAAAAAgAAAAAAQAAAgCAAAAAAAAAAABAA=</HashCode>
       <FileName>Source\Item\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,14 +24,14 @@
   <Class Name="C_aiguisé.Weapon" Collapsed="true">
     <Position X="2.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AiAAAAAAAAgAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAQA=</HashCode>
+      <HashCode>ACAEACAAAAgAAAQAAAABAAAAAAASAAAAAAAACQAAAQA=</HashCode>
       <FileName>Source\Item\Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Player" Collapsed="true">
     <Position X="10.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAABAAIAAAA=</HashCode>
+      <HashCode>AAYAAAEAAAAAAACAAAAAQAIAAAAEAAAAACABAAABAIA=</HashCode>
       <FileName>Source\Entity\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="C_aiguisé.Npc" Collapsed="true">
     <Position X="9.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Source\Entity\Npc.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -94,21 +94,21 @@
   <Class Name="C_aiguisé.EntityManager" Collapsed="true">
     <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Source\Manager\EntityManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Role">
     <Position X="14.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAEAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAEACAAAAAAABACAAAAAAAAAAEAAEAAAAQAAA=</HashCode>
       <FileName>Source\Roles\Role.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Battle" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABYAAgIAQSAAABAAQQAAAYAgABgIBAAACAAgBBIIgAA=</HashCode>
+      <HashCode>CBYAACKAAaAABDkAQQAAAZAkITiZBAAACAAgBBMIwBA=</HashCode>
       <FileName>Source\Battle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -136,21 +136,21 @@
   <Class Name="C_aiguisé.Tank">
     <Position X="12.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Roles\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.WhiteWizard">
     <Position X="16.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Source\Roles\WhiteWizard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Transform" Collapsed="true">
     <Position X="5.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAIAAAAAAgAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAIAAAIAAAIAAAgAAAAAAAAAAAEAAIAAAA=</HashCode>
       <FileName>Source\Miscelanous\Transform.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -164,8 +164,8 @@
   <Class Name="C_aiguisé.Character" Collapsed="true">
     <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAYBAAKACAAACAAAgAAgAwAAAAAAAABEECiAAAAYA=</HashCode>
-      <FileName>Source\Character.cs</FileName>
+      <HashCode>AASAYHAAGASAAAaAAQgBIwAUBIAAgIAEBEECiAAA0QA=</HashCode>
+      <FileName>Source\Entity\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.SceneManager" Collapsed="true">
@@ -185,7 +185,7 @@
   <Class Name="C_aiguisé.MainMenu" Collapsed="true">
     <Position X="0.75" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAACAAABAAAAAAABACAAAAAAAAAAAAAACAAEAAAA=</HashCode>
+      <HashCode>AAQAAACAgCBQAIAAAABgSAAQAAAAAAAAAAACAAEAAAE=</HashCode>
       <FileName>Source\Scene\MainMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -199,22 +199,22 @@
   <Class Name="C_aiguisé.Bag">
     <Position X="2.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAAQAAAAAAQgAAAAAAEAAAAAAEAAAA=</HashCode>
       <FileName>Source\Bag.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.FileReader">
     <Position X="5.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAACA=</HashCode>
       <FileName>Source\FileReader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="C_aiguisé.Save">
     <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Save.cs</FileName>
+      <HashCode>AAAAAAAgABQQAAAAAAACCAAAABAAAAAAAAAAAACAAAE=</HashCode>
+      <FileName>Source\Save.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

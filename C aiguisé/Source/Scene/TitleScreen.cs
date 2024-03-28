@@ -85,6 +85,8 @@ namespace C_aiguisé
                     WhiteWizard him = new WhiteWizard();
                     Weapon sword = new Weapon("Sword");
                     Weapon knife = new Weapon("Knife");
+                    Potion HealingPotion = new Potion(25);
+                    Ether MpPotion = new Ether(20);
                     EntityManager.CreatePlayer("Jean", sword, tank);
                     EntityManager.CreatePlayer("Gojo", knife, him);
                     tank.setPlayer(EntityManager.players[0]);
@@ -92,6 +94,7 @@ namespace C_aiguisé
                     tank.setAttack();
                     him.setAttack();
                     Bag.AddItem(new List<Item>() { sword, knife }, new List<int>() { 2, 3 });
+                    Bag.AddItem(new List<Item>() { HealingPotion, MpPotion }, new List<int>() { 10, 15 });
                     SceneManager.SwitchScene("BattleScene");
                     break;
                 case 1:

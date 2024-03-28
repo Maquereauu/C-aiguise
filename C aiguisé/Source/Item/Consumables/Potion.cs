@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace C_aiguisé
 {
-    class Potion : Consumable
+    class Potion : Item
     {
-        float _heal;
-        public Potion(int heal) : base("Potion")
+        int _heal;
+        public Potion(int heal) : base("Potion",false)
         {
             _heal = heal;
         }
@@ -17,7 +17,7 @@ namespace C_aiguisé
         public override void Update(Player player)
         {
             base.Update(player);
-            player._mHp += _heal;
+            player.Heal(_heal);
         }
     }
 }

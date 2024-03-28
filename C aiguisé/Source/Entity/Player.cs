@@ -94,9 +94,25 @@ namespace C_aiguisé
 
         public void Heal(int heal)
         {
-            if (_hp < 100)
+            if (_hp < _hpMax)
             {
                 _hp += heal;
+            }
+            if(_hp > _hpMax)
+            {
+                _hp = _hpMax;
+            }
+        }
+
+        public void HealMp(int mp)
+        {
+            if (_mp < _mpMax)
+            {
+                _mp += mp;
+            }
+            if (_mp > _mpMax)
+            {
+                _mp = _mpMax;
             }
         }
 
