@@ -19,9 +19,10 @@ namespace C_aiguisé
             _hudPosList = new List<(int, int)>() {((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 4),
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) - 2),
             ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2)),
-            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2)};
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 2),
+            ((Console.WindowWidth / 2) - (14 / 2), (Console.WindowHeight / 2) - (7 / 2) + 4)};
 
-            _hudNameList = new List<string>() { "    Option   ", "Retour au jeu", " Sauvegarder" , "   Quitter   "};
+            _hudNameList = new List<string>() {"    Option    ", "Retour au jeu", " Sauvegarder " , "   Charger   ","   Quitter   "};
             _index = 0;
             _hudPos = (_hudPosList[0].Item1, _hudPosList[0].Item2);
 
@@ -86,6 +87,9 @@ namespace C_aiguisé
                     SaveGame();
                     break;
                 case 3:
+                    LoadGame();
+                    break;
+                case 4:
                     Environment.Exit(0);
                     break;
             }
@@ -126,6 +130,16 @@ namespace C_aiguisé
 
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("Game saved");
+        }
+
+        public void LoadGame()
+        {
+            Save load = new Save();
+
+            EntityManager.players.Clear();
+            Bag._mBag.Clear();
+
+            load.LoadGame("../../../Content/Saves/Save1.json");
         }
     }
 }
