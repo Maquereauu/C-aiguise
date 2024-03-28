@@ -105,11 +105,17 @@ namespace C_aiguisé
 
         public void LevelUp()
         {
-            if (_exp >= _expToLevelUp)
+            while (_exp >= _expToLevelUp)
             {
-                _exp = 0;
+                _exp -= _expToLevelUp;
+                if (_exp < 0)
+                {
+                    _exp = 0;
+                }
                 _expToLevelUp = (float)(_expToLevelUp + _expToLevelUp * 0.2);
+                _level += 1;
                 _hpMax += 15;
+                _mpMax += 4;
             }
         }
         public override void Update() { }
