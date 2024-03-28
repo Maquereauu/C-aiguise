@@ -604,7 +604,7 @@ namespace C_aiguisé
                 {
                     case (int)Actions.Attack:
 
-                        if (_enemies[_selectedTarget]._mIsDead)
+                        if (_enemies[_selectedTarget]._mIsDead && _characters[_indexSpeedList]._mAttackMoves[_selectedAttack]._mIsAoe == false)
                         {
                             return;
                         }
@@ -621,7 +621,7 @@ namespace C_aiguisé
                         }
                         break;
                     case (int)Actions.Magic:
-                        if (_enemies[_selectedTarget]._mIsDead)
+                        if (_enemies[_selectedTarget]._mIsDead && _characters[_indexSpeedList]._mMagicMoves[_selectedMagic]._mIsAoe == false)
                         {
                             return;
                         }
