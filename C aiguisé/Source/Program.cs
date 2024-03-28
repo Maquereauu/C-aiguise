@@ -37,7 +37,7 @@ public class Program
         SceneManager.Init();
         SceneManager.SwitchScene("TitleScreen");
 
-        QuestManager.SetQuest(new Quest("Vous devez tuer 10 monstres", 10,0, false, 1000, false));
+        QuestManager.SetQuest(new Quest("Vous devez tuer 10 monstres", C_aiguisé.Utils.QuestType.KillMonsters,  10,0, false, 1000, false));
 
 
         while (true)

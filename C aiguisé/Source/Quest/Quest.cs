@@ -15,6 +15,7 @@ namespace C_aiguisé
         private bool _done;
         private int _reward; // exp
         private bool _clear;
+        private Utils.QuestType _type;
 
         [JsonProperty]
         public string _mDescription
@@ -54,12 +55,19 @@ namespace C_aiguisé
             get { return _clear; }
             set { _clear = value; }
         }
+
+        [JsonProperty]
+        public Utils.QuestType _mType
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
         [JsonConstructor]
         public Quest()
         {
 
         }
-        public Quest(string description, int total, int progress = 0, bool done = false, int reward = 0, bool clear = false)
+        public Quest(string description, Utils.QuestType type, int total, int progress = 0, bool done = false, int reward = 0, bool clear = false)
         {
             _description = description;
             _total = total;
@@ -67,6 +75,7 @@ namespace C_aiguisé
             _done = done;
             _reward = reward;
             _clear = clear;
+            _type = type;
         }
 
         public void VerifyQuestStatus()
